@@ -20,7 +20,7 @@ def build_team(rostercsv):
             #  print(name, "is out")
             continue
         playerstats = stats.loc[stats['PLAYER'] == name]
-        #  print(playerstats)
+        print(playerstats)
         team_stats = team_stats.append(playerstats)
 
     endnum = len(team_stats.index)
@@ -34,7 +34,7 @@ def calc_cat_totals(roster):
     endnum = len(roster.index)
     if(endnum > 10):
         endnum = 10
-    team = categories.team_cats()
+    team = categories.team()
     for i in range(0, endnum):
         team.pts += 3.5*roster['PTS'][i]
         team.ast += 3.5*roster['AST'][i]
@@ -57,56 +57,52 @@ def calc_cat_totals(roster):
 #  def recalc_players_punt(team):
 
 def calc_cost(myteam, theirteam):
-    #  print(type(myteam))
-    #  print(type(theirteam))
     cost = myteam - theirteam
     print(cost)
 
 def calc_wins(myteam, theirteam):
-    #  print(type(myteam))
-    #  print(type(theirteam))
     cost = myteam - theirteam
     print(cost)
 
 
 if __name__ == '__main__':
     print("")
-    team = build_team("rob.csv")
+    team = build_team("rob_roster.csv")
     my_cats = calc_cat_totals(team)
     print("")
-    team = build_team("kyle.csv")
+    team = build_team("kyle_roster.csv")
     cats = calc_cat_totals(team)
     calc_cost(my_cats, cats)
     print("")
-    team = build_team("ben.csv")
+    team = build_team("ben_roster.csv")
     cats = calc_cat_totals(team)
     calc_cost(my_cats, cats)
     print("")
-    team = build_team("dylan.csv")
+    team = build_team("dylan_roster.csv")
     cats = calc_cat_totals(team)
     calc_cost(my_cats, cats)
     print("")
-    team = build_team("george.csv")
+    team = build_team("george_roster.csv")
     cats = calc_cat_totals(team)
     calc_cost(my_cats, cats)
     print("")
-    team = build_team("zmo.csv")
+    team = build_team("zmo_roster.csv")
     cats = calc_cat_totals(team)
     calc_cost(my_cats, cats)
     print("")
-    team = build_team("alex.csv")
+    team = build_team("alex_roster.csv")
     cats = calc_cat_totals(team)
     calc_cost(my_cats, cats)
     print("")
-    team = build_team("akbar.csv")
+    team = build_team("akbar_roster.csv")
     cats = calc_cat_totals(team)
     calc_cost(my_cats, cats)
     print("")
-    team = build_team("brandt.csv")
+    team = build_team("brandt_roster.csv")
     cats = calc_cat_totals(team)
     calc_cost(my_cats, cats)
     print("")
-    team = build_team("tom.csv")
+    team = build_team("tom_roster.csv")
     cats = calc_cat_totals(team)
     calc_cost(my_cats, cats)
     #  my_cats = calc_cat_totals(myteam)

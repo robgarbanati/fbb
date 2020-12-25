@@ -24,7 +24,7 @@ class cost():
         ast=self.ast, reb=self.reb, blk=self.blk, stl=self.stl, tpm=self.tpm, fgp=self.fgp,
         ftp=self.ftp, to=self.to, wins=self.wins, cost=self.cost)
 
-class team_cats():
+class team():
     pts = 0
     ast = 0
     blk = 0

@@ -5,35 +5,40 @@ import pandas as pd
 from os import path
 import categories
 
-def build_team(schedcsv):
-    games_left = 24
+def build_team(schedcsv, stats):
     schedule = pd.read_csv(schedcsv)
     print(schedule)
-    games_played = schedule.iloc[0,2]
-    games_left -= games_played
     endnum = len(schedule.index)
-     
-    stats = pd.read_csv("stats.csv", sep='\t')
-    #  print(stats)
+    print(endnum)
 
     #### build team stats
     team_stats = pd.DataFrame()
-    for i in range(1,endnum):
-        name = schedule.iloc[i,1]
-        playerstats = stats.loc[stats['PLAYER'] == name]
-        team_stats = team_stats.append(playerstats)
-    team_stats = team_stats.sort_values(by='TOTAL', ascending=False)
-    team_stats = team_stats.set_index(pd.Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
 
     for i in range(1,endnum):
-        team_stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i, 2]
-        games_to_allocate = team_stats['NumGames'][i]
-        if games_left > games_to_allocate:
-            games_left -= games_to_allocate
-        else:
-            team['NumGames'][i] = total_games
-            total_games = 0
-    return(team_stats)
+        name = schedule.iloc[i,1]
+        print(name)
+        playerstats = stats.loc[stats['PLAYER'] == name]
+        print(playerstats)
+        ind = playerstats.index
+        print("ind =", ind)
+        stats = stats.drop(ind)
+    endnum = len(stats.index)
+    print(endnum)
+    indices = [num for num in range(0,endnum)]
+    stats = stats.set_index(pd.Index(indices))
+    print(stats)
+
+    return(stats)
+
+    #  for i in range(1,endnum):
+    #      team_stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i, 2]
+    #      games_to_allocate = team_stats['NumGames'][i]
+    #      if games_left > games_to_allocate:
+    #          games_left -= games_to_allocate
+    #      else:
+    #          team['NumGames'][i] = total_games
+    #          total_games = 0
+    #  return(team_stats)
 
 def calc_cat_totals(team):
     i = 0
@@ -74,23 +79,20 @@ def check_if_file_exists(infile):
         click.echo("Cannot find file at path {f}".format(f=infile))
         sys.exit(1)
 
-@click.command()
-@click.option('--my-roster', '-r', type=str, default='rob_roster.csv', help='Specify path to my roster csv.')
-@click.option('--their-roster', '-o', type=str, default='kyle_roster.csv', help='Specify path to their roster csv.')
-@click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
-@click.option('--their-stats', '-t', type=str, default='kyle_stats.csv', help='Specify path to their stats csv.')
-def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
-    check_if_file_exists(my_roster)
-    check_if_file_exists(their_roster)
-    check_if_file_exists(my_stats)
-    check_if_file_exists(their_stats)
-    myteam = build_team(my_roster)
-    print(myteam)
-    theirteam = build_team(their_roster)
-    print(theirteam)
-    #  my_cats = calc_cat_totals(myteam)
-    #  their_cats = calc_cat_totals(theirteam)
-    #  calc_cost(my_cats, their_cats)
+def optimize_lineups():
+
+    stats = pd.read_csv("stats.csv", sep='\t')
+
+    stats = build_team("rob_roster.csv", stats)
+    stats = build_team("kyle_roster.csv", stats)
+    stats = build_team("brandt_roster.csv", stats)
+    stats = build_team("alex_roster.csv", stats)
+    stats = build_team("tom_roster.csv", stats)
+    stats = build_team("ben_roster.csv", stats)
+    stats = build_team("dylan_roster.csv", stats)
+    stats = build_team("george_roster.csv", stats)
+    stats = build_team("zmo_roster.csv", stats)
+    stats = build_team("akbar_roster.csv", stats)
 
 if __name__ == '__main__':
     optimize_lineups()
