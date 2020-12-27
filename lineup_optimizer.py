@@ -12,6 +12,7 @@ def build_team(schedcsv):
     games_played = schedule.iloc[0,2]
     print(games_played)
     games_left -= games_played
+    print("games_left =", games_left)
     endnum = len(schedule.index)
     print(endnum)
      
@@ -22,6 +23,7 @@ def build_team(schedcsv):
     team_stats = pd.DataFrame()
     for i in range(1,endnum):
         name = schedule.iloc[i,1]
+        stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i,2]
         playerstats = stats.loc[stats['PLAYER'] == name]
         print(playerstats)
         team_stats = team_stats.append(playerstats)
@@ -30,13 +32,22 @@ def build_team(schedcsv):
     team_stats = team_stats.set_index(pd.Index(indices))
     #  team_stats = team_stats.set_index(pd.Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
 
-    for i in range(1,endnum):
-        name = schedule.iloc[i,1]
-        numgames = schedule.iloc[i,2]
-        print("name =", name, " numgames =", numgames)
-        player = team_stats.loc[team_stats['PLAYER'] == name]
+    endnum = len(team_stats.index)
+    for i in range(0,endnum):
+        name = team_stats.iloc[i,0]
+        numgames = team_stats.iloc[i,17]
+        print("name =", name, ". numgames =", numgames)
+        if games_left >= numgames:
+            games_left -= numgames
+        else:
+            games_left = 0
+            numgames = 0
+        print("games_left =", games_left, ". numgames =", numgames)
         team_stats.loc[team_stats['PLAYER'] == name, 'NumGames'] = numgames
-        print(team_stats)
+        #  team_stats.loc[player,'NumGames'] = numgames
+    #      player = team_stats.loc[team_stats['PLAYER'] == name]
+    #      team_stats.loc[team_stats['PLAYER'] == name, 'NumGames'] = numgames
+        #  print(team_stats)
         #  games_to_allocate = team_stats['NumGames'][i]
         #  if games_left > games_to_allocate:
         #      games_left -= games_to_allocate
@@ -106,8 +117,8 @@ def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     check_if_file_exists(their_stats)
     myteam = build_team(my_roster)
     print(myteam)
-    theirteam = build_team(their_roster)
-    print(theirteam)
+    #  theirteam = build_team(their_roster)
+    #  print(theirteam)
     #  my_cats = calc_cat_totals(myteam)
     #  their_cats = calc_cat_totals(theirteam)
     #  calc_cost(my_cats, their_cats)
