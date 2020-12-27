@@ -20,7 +20,7 @@ def build_team(rostercsv):
             #  print(name, "is out")
             continue
         playerstats = stats.loc[stats['PLAYER'] == name]
-        print(playerstats)
+        #  print(playerstats)
         team_stats = team_stats.append(playerstats)
 
     endnum = len(team_stats.index)

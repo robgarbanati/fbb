@@ -82,6 +82,7 @@ def check_if_file_exists(infile):
 def optimize_lineups():
 
     stats = pd.read_csv("stats.csv", sep='\t')
+    print(stats)
 
     stats = build_team("rob_roster.csv", stats)
     stats = build_team("kyle_roster.csv", stats)

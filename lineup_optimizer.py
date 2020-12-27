@@ -10,8 +10,10 @@ def build_team(schedcsv):
     schedule = pd.read_csv(schedcsv)
     print(schedule)
     games_played = schedule.iloc[0,2]
+    print(games_played)
     games_left -= games_played
     endnum = len(schedule.index)
+    print(endnum)
      
     stats = pd.read_csv("stats.csv", sep='\t')
     #  print(stats)
@@ -21,30 +23,48 @@ def build_team(schedcsv):
     for i in range(1,endnum):
         name = schedule.iloc[i,1]
         playerstats = stats.loc[stats['PLAYER'] == name]
+        print(playerstats)
         team_stats = team_stats.append(playerstats)
     team_stats = team_stats.sort_values(by='TOTAL', ascending=False)
-    team_stats = team_stats.set_index(pd.Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
+    indices = [num for num in range(1,endnum)]
+    team_stats = team_stats.set_index(pd.Index(indices))
+    #  team_stats = team_stats.set_index(pd.Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
 
     for i in range(1,endnum):
-        team_stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i, 2]
-        games_to_allocate = team_stats['NumGames'][i]
-        if games_left > games_to_allocate:
-            games_left -= games_to_allocate
-        else:
-            team['NumGames'][i] = total_games
-            total_games = 0
+        name = schedule.iloc[i,1]
+        numgames = schedule.iloc[i,2]
+        print("name =", name, " numgames =", numgames)
+        player = team_stats.loc[team_stats['PLAYER'] == name]
+        team_stats.loc[team_stats['PLAYER'] == name, 'NumGames'] = numgames
+        print(team_stats)
+        #  games_to_allocate = team_stats['NumGames'][i]
+        #  if games_left > games_to_allocate:
+        #      games_left -= games_to_allocate
+        #  else:
+        #      team_stats['NumGames'][i] = games_left
+        #      games_left = 0
     return(team_stats)
+
+
+
+
+        #  print("player =", player)
+        #  player['NumGames'] = numgames
+        #  print("player with numgames =", player)
+        #  print("numgames =", player['NumGames'])
 
 def calc_cat_totals(team):
     i = 0
     team_cats = categories.team()
-    print(team['NumGames'][1])
-    while i<13:
-        if total_games > team['NumGames'][i]:
-            total_games -= team['NumGames'][i]
-        else:
-            team['NumGames'][i] = total_games
-            total_games = 0
+    #  print(team['NumGames'][1])
+    endnum = len(schedule.index)
+    print(endnum)
+    for i in range(1,endnum):
+    #      if total_games > team['NumGames'][i]:
+    #          total_games -= team['NumGames'][i]
+    #      else:
+    #          team['NumGames'][i] = total_games
+    #          total_games = 0
         team_cats.pts += team['NumGames'][i] * team['PTS'][i]
         team_cats.ast += team['NumGames'][i] * team['AST'][i]
         team_cats.blk += team['NumGames'][i] * team['BLK'][i]
@@ -56,7 +76,7 @@ def calc_cat_totals(team):
         team_cats.fga += team['NumGames'][i] * team['FGA'][i]
         team_cats.ftm += team['NumGames'][i] * team['FTM'][i]
         team_cats.fta += team['NumGames'][i] * team['FTA'][i]
-        i += 1
+        #  i += 1
     team_cats.ftp = team_cats.ftm/team_cats.fta
     team_cats.fgp = team_cats.fgm/team_cats.fga
     print(team)
