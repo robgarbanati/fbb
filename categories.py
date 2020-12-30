@@ -94,14 +94,14 @@ class team():
             subcat.wins += 1
         subcat.cost += subcat.reb
         #  subcat.fgp = math.sqrt(100*abs(self.fgp - other.fgp))
-        subcat.fgp = 3*math.sqrt(2*abs(self.fgp - other.fgp)/(self.fgp + other.fgp))
+        subcat.fgp = 1.5*math.sqrt(2*abs(self.fgp - other.fgp)/(self.fgp + other.fgp))
         if self.fgp < other.fgp:
             subcat.fgp = -subcat.fgp
         else:
             subcat.wins += 1
         subcat.cost += subcat.fgp
         #  subcat.ftp = math.sqrt(100*abs(self.ftp - other.ftp))
-        subcat.ftp = 3*math.sqrt(2*abs(self.ftp - other.ftp)/(self.ftp + other.ftp))
+        subcat.ftp = 1.5*math.sqrt(2*abs(self.ftp - other.ftp)/(self.ftp + other.ftp))
         if self.ftp < other.ftp:
             subcat.ftp = -subcat.ftp
         else:
