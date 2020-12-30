@@ -11,8 +11,9 @@ def build_team(schedcsv):
     games_played = schedule.iloc[0,2]
     games_left -= games_played
     endnum = len(schedule.index)
+    #  print(schedule)
      
-    stats = pd.read_csv("stats.csv", sep='\t')
+    stats = pd.read_csv("zstats.csv", sep='\t')
     #  print(stats)
 
     #### build team stats
@@ -29,7 +30,7 @@ def build_team(schedcsv):
     endnum = len(team_stats.index)
     for i in range(0,endnum):
         name = team_stats.iloc[i,0]
-        numgames = team_stats.iloc[i,17]
+        numgames = team_stats.loc[team_stats['PLAYER'] == name, 'NumGames'].values[0]
         if games_left >= numgames:
             games_left -= numgames
         else:
