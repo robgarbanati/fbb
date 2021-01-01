@@ -3,7 +3,7 @@ import math
 import numpy as np
 import pandas as pd
 from os import path
-import categories
+import common
 
 def build_team(schedcsv):
     games_left = 100
@@ -13,8 +13,7 @@ def build_team(schedcsv):
     endnum = len(schedule.index)
     #  print(schedule)
      
-    stats = pd.read_csv("zstats.csv", sep='\t')
-    #  print(stats)
+    stats = common.get_stats()
 
     #### build team stats
     team_stats = pd.DataFrame()
@@ -42,7 +41,7 @@ def build_team(schedcsv):
 def calc_cat_totals(team):
     i = 0
     total_games = 0
-    team_cats = categories.team()
+    team_cats = common.team()
     #  print(team['NumGames'][1])
     endnum = len(team.index) + 1
     print(endnum)

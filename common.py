@@ -4,8 +4,25 @@ import pandas as pd
 
 def get_stats():
     stats = pd.read_csv("zstats.csv", sep='\t')
-    stats = stats[[c for c in df if c not in ['TOTAL']] 
+    stats = stats[[c for c in stats if c not in ['TOTAL']] 
        + ['TOTAL']]
+    endnum = len(stats.index)
+    indices = [num for num in range(0,endnum)]
+    stats = stats.set_index(pd.Index(indices))
+    stats.insert(28, 'PuntValue', -1, False)
+    stats.insert(28, 'TheirPuntValue', -1, False)
+    for index in indices:
+        ast = stats.loc[stats.index[index], 'zAST']
+        blk = stats.loc[stats.index[index], 'zBLK']
+        reb = stats.loc[stats.index[index], 'zREB']
+        ftp = stats.loc[stats.index[index], 'zFT%']
+        fgp = stats.loc[stats.index[index], 'zFG%']
+        tpm = stats.loc[stats.index[index], 'z3PM']
+        total = stats.loc[stats.index[index], 'TOTAL']
+        pv = total - ast - blk - ftp*0.5 - fgp*0.5
+        theirpv = total - blk - fgp - reb - 0.5*tpm
+        stats.loc[stats.index[index], 'PuntValue'] = pv
+        stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
     print(stats)
     return stats
 
