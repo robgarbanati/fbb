@@ -59,6 +59,7 @@ def calc_cat_totals(team):
         #  i += 1
     team_cats.ftp = team_cats.ftm/team_cats.fta
     team_cats.fgp = team_cats.fgm/team_cats.fga
+    team_cats.calc_stdevs()
     print(team)
     print(team_cats)
     print(total_games)
@@ -85,7 +86,6 @@ def calc_win_prob(myteam, theirteam, my_stats_csv, their_stats_csv):
     myteam.fta += my_stats.loc[0, 'FTA']
     myteam.ftp = myteam.ftm/myteam.fta
     myteam.fgp = myteam.fgm/myteam.fga
-    myteam.calc_stdevs()
     print("myteam =\n", myteam)
     print("")
     
@@ -103,7 +103,6 @@ def calc_win_prob(myteam, theirteam, my_stats_csv, their_stats_csv):
     theirteam.fta += their_stats.loc[0, 'FTA']
     theirteam.ftp = theirteam.ftm/theirteam.fta
     theirteam.fgp = theirteam.fgm/theirteam.fga
-    theirteam.calc_stdevs()
     print("theirteam =\n", theirteam)
 
     cost = myteam - theirteam
