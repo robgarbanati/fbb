@@ -19,11 +19,11 @@ def get_stats():
         fgp = stats.loc[stats.index[index], 'zFG%']
         tpm = stats.loc[stats.index[index], 'z3PM']
         total = stats.loc[stats.index[index], 'TOTAL']
-        pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
+        pv = total - ast - blk - ftp*0.5 - fgp*0.5
         theirpv = total - blk - fgp - reb - 0.5*tpm
         stats.loc[stats.index[index], 'PuntValue'] = pv
         stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
-    #  print(stats)
+    print(stats)
     return stats
 
 class cost():
@@ -62,68 +62,11 @@ class team():
     ftm = 0
     fta = 0
     ftp = 0
-    pts_stdev = 0
-    ast_stdev = 0
-    blk_stdev = 0
-    stl_stdev = 0
-    tpm_stdev = 0
-    to_stdev = 0
-    reb_stdev = 0
-    fgm_stdev = 0
-    fga_stdev = 0
-    fgp_stdev = 0
-    ftm_stdev = 0
-    fta_stdev = 0
-    ftp_stdev = 0
-
-    pts_stdev_mult = 0.062570279
-    ast_stdev_mult = 0.089123907
-    blk_stdev_mult = 0.160951628
-    stl_stdev_mult = 0.163285224
-    reb_stdev_mult = 0.066313651
-    tpm_stdev_mult = 0.149934668
-    fgp_stdev_mult = 0.046979765
-    ftp_stdev_mult = 0.044675696
-    to_stdev_mult = 0.116600025
-
-    pts_stdev_mult_ten = 0.117058274
-    ast_stdev_mult_ten = 0.166735562
-    blk_stdev_mult_ten = 0.301112924
-    stl_stdev_mult_ten = 0.305478682
-    reb_stdev_mult_ten = 0.124061482
-    tpm_stdev_mult_ten = 0.28050208
-    fgp_stdev_mult_ten = 0.087891092
-    ftp_stdev_mult_ten = 0.083580574
-    to_stdev_mult_ten = 0.218138673
-
-    def retfive(self):
-        return 5
-
-    def prfn(self):
-        print("testprint")
-
-    def calc_stdevs(self):
-        self.pts_stdev = self.pts*self.pts_stdev_mult;
-        self.ast_stdev = self.ast*self.ast_stdev_mult;
-        self.blk_stdev = self.blk*self.blk_stdev_mult;
-        self.stl_stdev = self.stl*self.stl_stdev_mult;
-        self.tpm_stdev = self.tpm*self.tpm_stdev_mult;
-        self.to_stdev = self.to*self.to_stdev_mult;
-        self.reb_stdev = self.reb*self.reb_stdev_mult;
-        self.fgp_stdev = self.fgp*self.fgp_stdev_mult;
-        self.ftp_stdev = self.ftp*self.ftp_stdev_mult;
-        print("in calc_stdevs. blk_stdev =", self.blk_stdev)
-        return
-
     def __str__(self):
-        return """PTS\tAST\tREB\tBLK\tSTL\t3PM\tFG%\tFT%\tTO\n{pts:.1f}\t{ast:.1f}\t{reb:.1f}\t{blk:.1f}\t{stl:.1f}\t{tpm:.1f}\t{fgp:.4f}\t{ftp:.4f}\t{to:.1f}\n{pts_stdev:.1f}\t{ast_stdev:.1f}\t{reb_stdev:.1f}\t{blk_stdev:.1f}\t{stl_stdev:.1f}\t{tpm_stdev:.1f}\t{fgp_stdev:.4f}\t{ftp_stdev:.4f}\t{to_stdev:.1f}\n""".format(
-                pts=self.pts, ast=self.ast, reb=self.reb, blk=self.blk, stl=self.stl, tpm=self.tpm,
-                fgp=self.fgp, ftp=self.ftp, to=self.to, pts_stdev=self.pts_stdev, 
-                ast_stdev=self.ast_stdev, reb_stdev=self.reb_stdev, blk_stdev=self.blk_stdev, 
-                stl_stdev=self.stl_stdev, tpm_stdev=self.tpm_stdev, fgp_stdev=self.fgp_stdev,
-                ftp_stdev=self.ftp_stdev, to_stdev=self.to_stdev)
+        return """PTS\tAST\tREB\tBLK\tSTL\t3PM\tFG%\tFT%\tTO
+{pts:.1f}\t{ast:.1f}\t{reb:.1f}\t{blk:.1f}\t{stl:.1f}\t{tpm:.1f}\t{fgp:.4f}\t{ftp:.4f}\t{to:.1f}""".format(pts=self.pts, ast=self.ast, reb=self.reb, blk=self.blk, stl=self.stl, tpm=self.tpm, fgp=self.fgp, ftp=self.ftp, to=self.to)
     def __sub__(self, other):
-        print("in sub")
+        #  print("in sub")
         subcat = cost()
         subcat.pts = math.sqrt(2*abs(self.pts - other.pts)/(self.pts + other.pts))
         if self.pts < other.pts:
