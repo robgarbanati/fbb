@@ -1,6 +1,9 @@
 import math
 import numpy as np
 import pandas as pd
+import scipy.stats as st
+import itertools 
+import functools 
 
 def get_stats():
     stats = pd.read_csv("zstats.csv", sep='\t')
@@ -19,14 +22,21 @@ def get_stats():
         fgp = stats.loc[stats.index[index], 'zFG%']
         tpm = stats.loc[stats.index[index], 'z3PM']
         total = stats.loc[stats.index[index], 'TOTAL']
-        pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
+        pv = total - ast - 0.5*blk
+        #  pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
         theirpv = total - blk - fgp - reb - 0.5*tpm
         stats.loc[stats.index[index], 'PuntValue'] = pv
         stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
     #  print(stats)
     return stats
 
-class cost():
+def add(a, b):
+    return a+b
+
+def mult(a, b):
+    return a*b
+
+class winprob():
     pts = 0
     ast = 0
     blk = 0
@@ -42,9 +52,53 @@ class cost():
     ftp = 0
     cost = 0
     wins = 0
+    def calc_total_win_prob(self):
+        catlist = [self.pts, self.ast, self.blk, self.stl, self.tpm, self.reb, self.to, self.fgp, self.ftp]
+        #  catlist = [1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+        print(len(catlist))
+        print(catlist)
+        total_prob = 0
+        number = 0x1FF
+        #  number = 0x1f
+        while number >= 0:
+            current_prob = 1
+            num_ones = bin(number).count("1")
+            #  print("number =", number, "num_ones =", num_ones)
+            shift_amt = 0
+            #  while shift_amt < 9:
+            if num_ones < 5:
+                number -= 1
+                continue
+            while shift_amt < 9:
+                if number & (1 << shift_amt):
+                    #  print("using catlist[{i}] = {f}".format(i=shift_amt, f = catlist[shift_amt]))
+                    current_prob *= catlist[shift_amt]
+                else:
+                    #  print("using 1 - catlist[{i}] = {f}".format(i=shift_amt, f = 1 - catlist[shift_amt]))
+                    current_prob *= (1 - catlist[shift_amt])
+                shift_amt += 1
+                #  print("current_prob =", current_prob)
+            total_prob += current_prob
+            #  print("total_prob =", total_prob)
+            number -= 1
+        print("total_prob =", total_prob)
+        return
+        wp_so_far = 0
+        subsets = list(itertools.combinations(catlist, 5))
+        products = []
+        for subset in subsets:
+            #  print("subset =", subset)
+            prod = functools.reduce(mult, subset)
+            products.append(prod)
+            #  print("products =", products)
+            #  print("")
+        total_prob = functools.reduce(add, products)
+        print("total_prob =", total_prob)
+        #  for i in range(0,9):
+            #  print(catlist[i])
     def __str__(self):
         return """PTS\tAST\tREB\tBLK\tSTL\t3PM\tFG%\tFT%\tTO\tWINS\tCOST
-{pts:.1f}\t{ast:.1f}\t{reb:.1f}\t{blk:.1f}\t{stl:.1f}\t{tpm:.1f}\t{fgp:.4f}\t{ftp:.4f}\t{to:.1f}\t{wins:.1f}\t{cost:.1f}""".format(pts=self.pts,
+{pts:.3f}\t{ast:.3f}\t{reb:.3f}\t{blk:.3f}\t{stl:.3f}\t{tpm:.3f}\t{fgp:.3f}\t{ftp:.3f}\t{to:.3f}\t{wins:.3f}\t{cost:.3f}""".format(pts=self.pts,
         ast=self.ast, reb=self.reb, blk=self.blk, stl=self.stl, tpm=self.tpm, fgp=self.fgp,
         ftp=self.ftp, to=self.to, wins=self.wins, cost=self.cost)
 
@@ -96,12 +150,6 @@ class team():
     ftp_stdev_mult_ten = 0.083580574
     to_stdev_mult_ten = 0.218138673
 
-    def retfive(self):
-        return 5
-
-    def prfn(self):
-        print("testprint")
-
     def calc_stdevs(self):
         self.pts_stdev = self.pts*self.pts_stdev_mult;
         self.ast_stdev = self.ast*self.ast_stdev_mult;
@@ -124,68 +172,51 @@ class team():
                 ftp_stdev=self.ftp_stdev, to_stdev=self.to_stdev)
     def __sub__(self, other):
         print("in sub")
-        subcat = cost()
-        subcat.pts = math.sqrt(2*abs(self.pts - other.pts)/(self.pts + other.pts))
-        if self.pts < other.pts:
-            subcat.pts = -subcat.pts
-        else:
-            subcat.wins += 1
-        subcat.cost += subcat.pts
-        #  subcat.pts = math.sqrt(abs(self.pts - other.pts))
-        #  subcat.ast = math.sqrt(abs(self.ast - other.ast))
-        subcat.ast = math.sqrt(2*abs(self.ast - other.ast)/(self.ast + other.ast))
-        if self.ast < other.ast:
-            subcat.ast = -subcat.ast
-        else:
-            subcat.wins += 1
-        subcat.cost += subcat.ast
-        #  subcat.blk = math.sqrt(abs(self.blk - other.blk))
-        subcat.blk = math.sqrt(2*abs(self.blk - other.blk)/(self.blk + other.blk))
-        if self.blk < other.blk:
-            subcat.blk = -subcat.blk
-        else:
-            subcat.wins += 1
-        subcat.cost += subcat.blk
-        #  subcat.stl = math.sqrt(abs(self.stl - other.stl))
-        subcat.stl = math.sqrt(2*abs(self.stl - other.stl)/(self.stl + other.stl))
-        if self.stl < other.stl:
-            subcat.stl = -subcat.stl
-        else:
-            subcat.wins += 1
-        subcat.cost += subcat.stl
-        #  subcat.tpm = math.sqrt(abs(self.tpm - other.tpm))
-        subcat.tpm = math.sqrt(2*abs(self.tpm - other.tpm)/(self.tpm + other.tpm))
-        if self.tpm < other.tpm:
-            subcat.tpm = -subcat.tpm
-        else:
-            subcat.wins += 1
-        subcat.cost += subcat.tpm
-        #  subcat.to = math.sqrt(abs(self.to - other.to))
-        subcat.to = math.sqrt(2*abs(self.to - other.to)/(self.to + other.to))
-        if self.to > other.to:
-            subcat.to = -subcat.to
-        else:
-            subcat.wins += 1
-        subcat.cost += subcat.to
-        #  subcat.reb = math.sqrt(abs(self.reb - other.reb))
-        subcat.reb = math.sqrt(2*abs(self.reb - other.reb)/(self.reb + other.reb))
-        if self.reb < other.reb:
-            subcat.reb = -subcat.reb
-        else:
-            subcat.wins += 1
-        subcat.cost += subcat.reb
-        #  subcat.fgp = math.sqrt(100*abs(self.fgp - other.fgp))
-        subcat.fgp = 1.5*math.sqrt(2*abs(self.fgp - other.fgp)/(self.fgp + other.fgp))
-        if self.fgp < other.fgp:
-            subcat.fgp = -subcat.fgp
-        else:
-            subcat.wins += 1
-        subcat.cost += subcat.fgp
-        #  subcat.ftp = math.sqrt(100*abs(self.ftp - other.ftp))
-        subcat.ftp = 1.5*math.sqrt(2*abs(self.ftp - other.ftp)/(self.ftp + other.ftp))
-        if self.ftp < other.ftp:
-            subcat.ftp = -subcat.ftp
-        else:
-            subcat.wins += 1
-        subcat.cost += subcat.ftp
-        return subcat
+        wp = winprob()
+        mean = self.pts - other.pts
+        variance = math.pow(self.pts_stdev, 2) + math.pow(other.pts_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.pts = st.norm.cdf(zscore)
+        mean = self.ast - other.ast
+        variance = math.pow(self.pts_stdev, 2) + math.pow(other.pts_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.ast = st.norm.cdf(zscore)
+        mean = self.blk - other.blk
+        variance = math.pow(self.pts_stdev, 2) + math.pow(other.pts_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.blk = st.norm.cdf(zscore)
+        mean = self.stl - other.stl
+        variance = math.pow(self.pts_stdev, 2) + math.pow(other.pts_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.stl = st.norm.cdf(zscore)
+        mean = self.tpm - other.tpm
+        variance = math.pow(self.pts_stdev, 2) + math.pow(other.pts_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.tpm = st.norm.cdf(zscore)
+        mean = self.reb - other.reb
+        variance = math.pow(self.pts_stdev, 2) + math.pow(other.pts_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.reb = st.norm.cdf(zscore)
+        mean = self.fgp - other.fgp
+        variance = math.pow(self.pts_stdev, 2) + math.pow(other.pts_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.fgp = st.norm.cdf(zscore)
+        mean = self.ftp - other.ftp
+        variance = math.pow(self.pts_stdev, 2) + math.pow(other.pts_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.ftp = st.norm.cdf(zscore)
+        mean = self.to - other.to
+        variance = math.pow(self.pts_stdev, 2) + math.pow(other.pts_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.to = st.norm.cdf(-zscore)
+        wp.calc_total_win_prob()
+        return wp

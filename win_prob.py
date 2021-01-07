@@ -108,7 +108,6 @@ def calc_win_prob(myteam, theirteam, my_stats_csv, their_stats_csv):
     cost = myteam - theirteam
     meaningful_cost = cost.pts + cost.stl + cost.fgp + cost.blk + cost.reb
     print(cost)
-    print("meaningful_cost =", meaningful_cost)
 
 def calc_cost(myteam, theirteam, my_stats_csv, their_stats_csv):
     my_stats = pd.read_csv(my_stats_csv)
@@ -160,9 +159,9 @@ def check_if_file_exists(infile):
 
 @click.command()
 @click.option('--my-roster', '-r', type=str, default='rob_roster.csv', help='Specify path to my roster csv.')
-@click.option('--their-roster', '-o', type=str, default='alex_roster.csv', help='Specify path to their roster csv.')
+@click.option('--their-roster', '-o', type=str, default='zmo_roster.csv', help='Specify path to their roster csv.')
 @click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
-@click.option('--their-stats', '-t', type=str, default='alex_stats.csv', help='Specify path to their stats csv.')
+@click.option('--their-stats', '-t', type=str, default='zmo_stats.csv', help='Specify path to their stats csv.')
 def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     check_if_file_exists(my_roster)
     check_if_file_exists(their_roster)
