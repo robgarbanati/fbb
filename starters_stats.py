@@ -1,7 +1,7 @@
 import math
 import numpy as np
 import pandas as pd
-import categories
+import common
 
 def build_team(rostercsv):
     print(rostercsv)
@@ -34,7 +34,7 @@ def calc_cat_totals(roster):
     endnum = len(roster.index)
     if(endnum > 13):
         endnum = 13
-    team = categories.team()
+    team = common.team()
     for i in range(0, endnum):
         team.pts += 3.5*roster['PTS'][i]
         team.ast += 3.5*roster['AST'][i]
