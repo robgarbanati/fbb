@@ -14,6 +14,7 @@ def get_stats():
     stats = stats.set_index(pd.Index(indices))
     #  stats.insert(28, 'TheirPuntValue', -1, False)
     stats.insert(28, 'PuntValue', -1, False)
+    stats.insert(29, 'PuntDiff', -1, False)
     for index in indices:
         ast = stats.loc[stats.index[index], 'zAST']
         blk = stats.loc[stats.index[index], 'zBLK']
@@ -22,13 +23,107 @@ def get_stats():
         fgp = stats.loc[stats.index[index], 'zFG%']
         tpm = stats.loc[stats.index[index], 'z3PM']
         total = stats.loc[stats.index[index], 'TOTAL']
-        pv = total - ast - 0.75*blk
+        pv = total - blk
+        punt_diff = pv - total
         #  pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
         #  theirpv = total - blk - fgp - reb - 0.5*tpm
         stats.loc[stats.index[index], 'PuntValue'] = pv
+        stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
         #  stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
+    #  pd.set_option("display.max_rows", 80)
     #  print(stats)
     return stats
+
+def get_total_stats():
+    stats = pd.read_csv("zstats_total.csv", sep='\t')
+    stats = stats[[c for c in stats if c not in ['TOTAL']] 
+       + ['TOTAL']]
+    endnum = len(stats.index)
+    indices = [num for num in range(0,endnum)]
+    stats = stats.set_index(pd.Index(indices))
+    #  stats.insert(28, 'TheirPuntValue', -1, False)
+    stats.insert(28, 'PuntValue', -1, False)
+    stats.insert(29, 'PuntDiff', -1, False)
+    for index in indices:
+        ast = stats.loc[stats.index[index], 'zAST']
+        blk = stats.loc[stats.index[index], 'zBLK']
+        reb = stats.loc[stats.index[index], 'zREB']
+        ftp = stats.loc[stats.index[index], 'zFT%']
+        fgp = stats.loc[stats.index[index], 'zFG%']
+        tpm = stats.loc[stats.index[index], 'z3PM']
+        total = stats.loc[stats.index[index], 'TOTAL']
+        pv = total - blk
+        punt_diff = pv - total
+        #  pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
+        #  theirpv = total - blk - fgp - reb - 0.5*tpm
+        stats.loc[stats.index[index], 'PuntValue'] = pv
+        stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
+        #  stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
+    #  pd.set_option("display.max_rows", 80)
+    #  print(stats)
+    return stats
+
+def build_full_team(schedcsv):
+    print(schedcsv)
+    schedule = pd.read_csv(schedcsv)
+    endnum = len(schedule.index)
+     
+    stats = get_stats()
+
+    total_z = 0
+    
+    #### build team stats
+    team_stats = pd.DataFrame()
+    for i in range(0,endnum):
+        name = schedule.iloc[i,1]
+        out = schedule.iloc[i,0]
+        playerstats = stats.loc[stats['PLAYER'] == name]
+        stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i,2]
+        playerstats = stats.loc[stats['PLAYER'] == name]
+        #  print(f'{playerstats=}')
+        team_stats = team_stats.append(playerstats)
+        z = stats.loc[stats['PLAYER'] == name, 'TOTAL'].values[0]
+        #  print(f'{z=}')
+        total_z += z
+        #  print(f'{total_z=}')
+    endnum = len(team_stats.index)
+    team_stats = team_stats.sort_values(by='TOTAL', ascending=False)
+    indices = [num for num in range(0,endnum)]
+    team_stats = team_stats.set_index(pd.Index(indices))
+
+    print(team_stats)
+    print(f'{total_z=}')
+    return(team_stats)
+
+def build_team(schedcsv):
+    print(schedcsv)
+    schedule = pd.read_csv(schedcsv)
+    endnum = len(schedule.index)
+     
+    stats = get_stats()
+
+    #### build team stats
+    team_stats = pd.DataFrame()
+    total_z = 0
+    for i in range(0,endnum):
+        name = schedule.iloc[i,1]
+        out = schedule.iloc[i,0]
+        if out == 'O':
+            continue
+        playerstats = stats.loc[stats['PLAYER'] == name]
+        stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i,2]
+        playerstats = stats.loc[stats['PLAYER'] == name]
+        z = stats.loc[stats['PLAYER'] == name, 'TOTAL']
+        total_z += z
+        team_stats = team_stats.append(playerstats)
+    endnum = len(team_stats.index)
+    team_stats = team_stats.sort_values(by='TOTAL', ascending=False)
+    indices = [num for num in range(0,endnum)]
+    team_stats = team_stats.set_index(pd.Index(indices))
+
+    print(team_stats)
+    print(f'{total_z=}')
+    return(team_stats)
 
 def add(a, b):
     return a+b
@@ -55,7 +150,6 @@ class winprob():
     def calc_total_win_prob(self):
         catlist = [self.pts, self.ast, self.blk, self.stl, self.tpm, self.reb, self.to, self.fgp, self.ftp]
         #  catlist = [1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
-        print(len(catlist))
         print(catlist)
         total_prob = 0
         number = 0x1FF
@@ -82,6 +176,7 @@ class winprob():
             #  print("total_prob =", total_prob)
             number -= 1
         print("total_prob =", total_prob)
+        self.total_win_prob = total_prob
         return
     def __str__(self):
         return """PTS\tAST\tREB\tBLK\tSTL\t3PM\tFG%\tFT%\tTO\tWINS\tCOST
@@ -151,47 +246,69 @@ class team():
     ftp_stdev_mult_ten = 0.083580574
     to_stdev_mult_ten = 0.218138673
 
-    def calc_stdevs(self):
-        self.pts_stdev = self.pts*self.pts_stdev_mult
-        self.ast_stdev = self.ast*self.ast_stdev_mult
+    def calc_stdevs(self, total_games):
+        stdev_ten = self.pts*self.pts_stdev_mult_ten
+        variance_ten = math.pow(stdev_ten, 2)
+        mult = variance_ten*total_games/10
+        self.pts_stdev = math.sqrt(mult)/(total_games/10)
+
+        self.ast_stdev = self.ast*self.ast_stdev_mult_ten
+        stdev_ten = self.ast*self.ast_stdev_mult_ten
+        variance_ten = math.pow(stdev_ten, 2)
+        mult = variance_ten*total_games/10
+        self.ast_stdev = math.sqrt(mult)/(total_games/10)
+
         self.blk_stdev = self.blk*self.blk_stdev_mult
+        stdev_ten = self.blk*self.blk_stdev_mult_ten
+        variance_ten = math.pow(stdev_ten, 2)
+        mult = variance_ten*total_games/10
+        self.blk_stdev = math.sqrt(mult)/(total_games/10)
+
         self.stl_stdev = self.stl*self.stl_stdev_mult
+        stdev_ten = self.stl*self.stl_stdev_mult_ten
+        variance_ten = math.pow(stdev_ten, 2)
+        mult = variance_ten*total_games/10
+        self.stl_stdev = math.sqrt(mult)/(total_games/10)
+
         self.tpm_stdev = self.tpm*self.tpm_stdev_mult
+        stdev_ten = self.tpm*self.tpm_stdev_mult_ten
+        variance_ten = math.pow(stdev_ten, 2)
+        mult = variance_ten*total_games/10
+        self.tpm_stdev = math.sqrt(mult)/(total_games/10)
+
         self.to_stdev = self.to*self.to_stdev_mult
+        stdev_ten = self.to*self.to_stdev_mult_ten
+        variance_ten = math.pow(stdev_ten, 2)
+        mult = variance_ten*total_games/10
+        self.to_stdev = math.sqrt(mult)/(total_games/10)
+
         self.reb_stdev = self.reb*self.reb_stdev_mult
+        stdev_ten = self.reb*self.reb_stdev_mult_ten
+        variance_ten = math.pow(stdev_ten, 2)
+        mult = variance_ten*total_games/10
+        self.reb_stdev = math.sqrt(mult)/(total_games/10)
+
         #  variance = (self.fgp)*(1 - self.fgp)*self.fga
         #  self.fgp_stdev = math.sqrt(variance)
         #  variance = (self.ftp)*(1 - self.ftp)*self.fta
         #  self.ftp_stdev = math.sqrt(variance)
 
-        self.pts_variance = math.pow(self.pts*self.pts_stdev_mult, 2)
-        self.ast_variance = math.pow(self.ast*self.ast_stdev_mult, 2)
-        self.blk_variance = math.pow(self.blk*self.blk_stdev_mult, 2)
-        self.stl_variance = math.pow(self.stl*self.stl_stdev_mult, 2)
-        self.tpm_variance = math.pow(self.tpm*self.tpm_stdev_mult, 2)
-        self.to_variance = math.pow(self.to*self.to_stdev_mult, 2)
-        self.reb_variance = math.pow(self.reb*self.reb_stdev_mult, 2)
+        self.pts_variance = math.pow(self.pts_stdev, 2)
+        self.ast_variance = math.pow(self.ast_stdev, 2)
+        self.blk_variance = math.pow(self.blk_stdev, 2)
+        self.stl_variance = math.pow(self.stl_stdev, 2)
+        self.tpm_variance = math.pow(self.tpm_stdev, 2)
+        self.to_variance = math.pow(self.to_stdev, 2)
+        self.reb_variance = math.pow(self.reb_stdev, 2)
 
-        fgm_variance = (self.fgp)*(1 - self.fgp)*self.fga
-        fgm_stdev = math.sqrt(fgm_variance)
-        self.fgp_stdev = fgm_stdev/self.fga
-        self.fgp_variance = fgm_variance/self.fga/self.fga
-        print(f'{fgm_variance=}')
-        print(f'{fgm_stdev=}')
-        print(f'{self.fgp_stdev=}')
-        print(f'{self.fga=}')
-        print(f'{self.fgm=}')
-        print(f'{self.fgp_variance=}')
-        ftm_variance = (self.ftp)*(1 - self.ftp)*self.fta
-        ftm_stdev = math.sqrt(ftm_variance)
-        self.ftp_stdev = ftm_stdev/self.fta
-        self.ftp_variance = ftm_variance/self.fta/self.fta
-        print(f'{ftm_variance=}')
-        print(f'{ftm_stdev=}')
-        print(f'{self.ftp_stdev=}')
-        print(f'{self.fta=}')
-        print(f'{self.ftm=}')
-        print(f'{self.ftp_variance=}')
+        self.fgm_variance = (self.fgp)*(1 - self.fgp)*self.fga
+        self.fgm_stdev = math.sqrt(self.fgm_variance)
+        self.fgp_stdev = self.fgm_stdev/self.fga
+        self.fgp_variance = self.fgm_variance/self.fga/self.fga
+        self.ftm_variance = (self.ftp)*(1 - self.ftp)*self.fta
+        self.ftm_stdev = math.sqrt(self.ftm_variance)
+        self.ftp_stdev = self.ftm_stdev/self.fta
+        self.ftp_variance = self.ftm_variance/self.fta/self.fta
         return
 
     def __str__(self):
@@ -202,7 +319,6 @@ class team():
                 stl_stdev=self.stl_stdev, tpm_stdev=self.tpm_stdev, fgp_stdev=self.fgp_stdev,
                 ftp_stdev=self.ftp_stdev, to_stdev=self.to_stdev)
     def __sub__(self, other):
-        print("in sub")
         wp = winprob()
 
         mean = self.pts - other.pts
@@ -246,26 +362,22 @@ class team():
         stdev = math.sqrt(variance)
         zscore = mean/stdev
         wp.ftp = st.norm.cdf(zscore)
-        print(f'{self.ftp=}')
-        print(f'{other.ftp=}')
-        print(f'{mean=}')
-        print(f'{variance=}')
-        print(f'{stdev=}')
-        print(f'{zscore=}')
-        print(f'{wp.ftp=}')
 
         mean = self.fgp - other.fgp
-        variance = self.fgp_variance + other.fgp_variance
+        self.fgp_stdev = self.fgm_stdev/self.fga
+        other.fgp_stdev = other.fgm_stdev/other.fga
+        variance = math.pow(self.fgp_stdev, 2) + math.pow(other.fgp_stdev, 2)
         stdev = math.sqrt(variance)
         zscore = mean/stdev
         wp.fgp = st.norm.cdf(zscore)
-        print(f'{self.fgp=}')
-        print(f'{other.fgp=}')
-        print(f'{mean=}')
-        print(f'{variance=}')
-        print(f'{stdev=}')
-        print(f'{zscore=}')
-        print(f'{wp.fgp=}')
+
+        mean = self.ftp - other.ftp
+        self.ftp_stdev = self.ftm_stdev/self.fta
+        other.ftp_stdev = other.ftm_stdev/other.fta
+        variance = math.pow(self.ftp_stdev, 2) + math.pow(other.ftp_stdev, 2)
+        stdev = math.sqrt(variance)
+        zscore = mean/stdev
+        wp.ftp = st.norm.cdf(zscore)
 
         mean = self.to - other.to
         variance = self.to_variance + other.to_variance

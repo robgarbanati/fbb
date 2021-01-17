@@ -5,45 +5,12 @@ import pandas as pd
 from os import path
 import common
 
-def build_team(schedcsv):
-    games_left = 100
-    schedule = pd.read_csv(schedcsv)
-    games_played = schedule.iloc[0,2]
-    games_left -= games_played
-    endnum = len(schedule.index)
-    #  print(schedule)
-     
-    stats = common.get_stats()
-
-    #### build team stats
-    team_stats = pd.DataFrame()
-    for i in range(1,endnum):
-        name = schedule.iloc[i,1]
-        stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i,2]
-        playerstats = stats.loc[stats['PLAYER'] == name]
-        team_stats = team_stats.append(playerstats)
-    team_stats = team_stats.sort_values(by='TOTAL', ascending=False)
-    indices = [num for num in range(1,endnum)]
-    team_stats = team_stats.set_index(pd.Index(indices))
-
-    endnum = len(team_stats.index)
-    for i in range(0,endnum):
-        name = team_stats.iloc[i,0]
-        numgames = team_stats.loc[team_stats['PLAYER'] == name, 'NumGames'].values[0]
-        if games_left >= numgames:
-            games_left -= numgames
-        else:
-            games_left = 0
-            numgames = 0
-        team_stats.loc[team_stats['PLAYER'] == name, 'NumGames'] = numgames
-    return(team_stats)
-
 def calc_cat_totals(team):
     i = 0
     total_games = 0
     team_cats = common.team()
-    endnum = len(team.index) + 1
-    for i in range(1,endnum):
+    endnum = len(team.index)
+    for i in range(0,endnum):
         total_games += team['NumGames'][i]
         team_cats.pts += team['NumGames'][i] * team['PTS'][i]
         team_cats.ast += team['NumGames'][i] * team['AST'][i]
@@ -59,7 +26,7 @@ def calc_cat_totals(team):
         #  i += 1
     team_cats.ftp = team_cats.ftm/team_cats.fta
     team_cats.fgp = team_cats.fgm/team_cats.fga
-    team_cats.calc_stdevs()
+    team_cats.calc_stdevs(total_games)
     #  team_cats.calc_variances()
     print(team)
     print(team_cats)
@@ -114,16 +81,16 @@ def check_if_file_exists(infile):
 
 @click.command()
 @click.option('--my-roster', '-r', type=str, default='rob_roster.csv', help='Specify path to my roster csv.')
-@click.option('--their-roster', '-o', type=str, default='george_roster.csv', help='Specify path to their roster csv.')
+@click.option('--their-roster', '-o', type=str, default='brandt_roster.csv', help='Specify path to their roster csv.')
 @click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
-@click.option('--their-stats', '-t', type=str, default='george_stats.csv', help='Specify path to their stats csv.')
+@click.option('--their-stats', '-t', type=str, default='brandt_stats.csv', help='Specify path to their stats csv.')
 def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     check_if_file_exists(my_roster)
     check_if_file_exists(their_roster)
     check_if_file_exists(my_stats)
     check_if_file_exists(their_stats)
-    myteam = build_team(my_roster)
-    theirteam = build_team(their_roster)
+    myteam = common.build_team(my_roster)
+    theirteam = common.build_team(their_roster)
     my_cats = calc_cat_totals(myteam)
     their_cats = calc_cat_totals(theirteam)
     calc_win_prob(my_cats, their_cats, my_stats, their_stats)
