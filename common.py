@@ -64,7 +64,7 @@ def get_total_stats():
     return stats
 
 def build_full_team(schedcsv):
-    print(schedcsv)
+    #  print(schedcsv)
     schedule = pd.read_csv(schedcsv)
     endnum = len(schedule.index)
      
@@ -91,12 +91,12 @@ def build_full_team(schedcsv):
     indices = [num for num in range(0,endnum)]
     team_stats = team_stats.set_index(pd.Index(indices))
 
-    print(team_stats)
-    print(f'{total_z=}')
+    #  print(team_stats)
+    #  print(f'{total_z=}')
     return(team_stats)
 
 def build_team(schedcsv):
-    print(schedcsv)
+    #  print(schedcsv)
     schedule = pd.read_csv(schedcsv)
     endnum = len(schedule.index)
      
@@ -121,8 +121,8 @@ def build_team(schedcsv):
     indices = [num for num in range(0,endnum)]
     team_stats = team_stats.set_index(pd.Index(indices))
 
-    print(team_stats)
-    print(f'{total_z=}')
+    #  print(team_stats)
+    #  print(f'{total_z=}')
     return(team_stats)
 
 def add(a, b):
@@ -150,7 +150,7 @@ class winprob():
     def calc_total_win_prob(self):
         catlist = [self.pts, self.ast, self.blk, self.stl, self.tpm, self.reb, self.to, self.fgp, self.ftp]
         #  catlist = [1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
-        print(catlist)
+        #  print(catlist)
         total_prob = 0
         number = 0x1FF
         #  number = 0x1f
@@ -175,7 +175,7 @@ class winprob():
             total_prob += current_prob
             #  print("total_prob =", total_prob)
             number -= 1
-        print("total_prob =", total_prob)
+        #  print("total_prob =", total_prob)
         self.total_win_prob = total_prob
         return
     def __str__(self):
