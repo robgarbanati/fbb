@@ -16,14 +16,17 @@ def get_stats():
     stats.insert(28, 'PuntValue', -1, False)
     stats.insert(29, 'PuntDiff', -1, False)
     for index in indices:
+        pts = stats.loc[stats.index[index], 'zPTS']
         ast = stats.loc[stats.index[index], 'zAST']
         blk = stats.loc[stats.index[index], 'zBLK']
         reb = stats.loc[stats.index[index], 'zREB']
         ftp = stats.loc[stats.index[index], 'zFT%']
         fgp = stats.loc[stats.index[index], 'zFG%']
         tpm = stats.loc[stats.index[index], 'z3PM']
+        to = stats.loc[stats.index[index], 'zTO']
         total = stats.loc[stats.index[index], 'TOTAL']
-        pv = total - blk
+        pv = total - blk - ftp - to
+        #  pv = total - blk - ftp - to - ast - pts - reb
         punt_diff = pv - total
         #  pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
         #  theirpv = total - blk - fgp - reb - 0.5*tpm

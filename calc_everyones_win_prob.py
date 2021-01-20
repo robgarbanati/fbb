@@ -29,10 +29,11 @@ def calc_best_cat_totals(roster):
 
 #  def recalc_players_punt(team):
 
-def calc_cost(myteam, theirteam):
+def calc_cost(theirname, myteam, theirteam):
     wp = myteam - theirteam
     #  print(wp)
     #  print(f'{wp.total_win_prob=}')
+    print("win prob vs {n}: {wp}".format(n=theirname, wp=wp.total_win_prob))
     return wp.total_win_prob
 
 def calc_league_win_prob(names, win_sum):
@@ -46,7 +47,7 @@ def calc_league_win_prob(names, win_sum):
         player_roster = "{n}_roster.csv".format(n=name)
         team = common.build_full_team(player_roster)
         cats = calc_best_cat_totals(team)
-        total_wins += calc_cost(current_player_cats, cats)
+        total_wins += calc_cost(name, current_player_cats, cats)
         #  print("")
     print(names[0], "total expected wins:", total_wins)
     win_sum += total_wins
@@ -56,9 +57,6 @@ def calc_league_win_prob(names, win_sum):
 
 
 if __name__ == '__main__':
-    #  csv_names = ["rob_roster.csv", "kyle_roster.csv", "ben_roster.csv", "dylan_roster.csv",
-            #  "george_roster.csv", "alex_roster.csv", "akbar_roster.csv", "tom_roster.csv",
-            #  "brandt_roster.csv", "zmo_roster.csv"]
     names = ["rob", "kyle", "ben", "dylan",
             "george", "alex", "akbar", "tom",
             "brandt", "zmo"]
