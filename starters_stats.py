@@ -15,7 +15,7 @@ def calc_best_cat_totals(roster):
         team.stl += 3.5*roster['STL'][i]
         team.tpm += 3.5*roster['3PM'][i]
         team.to += 3.5*roster['TO'][i]
-        team.reb += 3.5*roster['TREB'][i]
+        team.reb += 3.5*roster['REB'][i]
         team.fgm += 3.5*roster['FGM'][i]
         team.fga += 3.5*roster['FGA'][i]
         team.ftm += 3.5*roster['FTM'][i]

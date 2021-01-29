@@ -5,9 +5,9 @@ import scipy.stats as st
 import itertools 
 import functools 
 
-def get_stats():
-    stats = pd.read_csv("zstats.csv", sep='\t')
-    stats = stats[[c for c in stats if c not in ['TOTAL']] 
+def get_stats(csv_file):
+    stats = pd.read_csv(csv_file, sep='\t')
+    stats = stats[[c for c in stats if c not in ['TOTAL']]
        + ['TOTAL']]
     endnum = len(stats.index)
     indices = [num for num in range(0,endnum)]
@@ -25,7 +25,7 @@ def get_stats():
         tpm = stats.loc[stats.index[index], 'z3PM']
         to = stats.loc[stats.index[index], 'zTO']
         total = stats.loc[stats.index[index], 'TOTAL']
-        pv = total - blk - ftp - to
+        pv = total - blk - ast - to
         #  pv = total - blk - ftp - to - ast - pts - reb
         punt_diff = pv - total
         #  pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
@@ -37,41 +37,15 @@ def get_stats():
     #  print(stats)
     return stats
 
-def get_total_stats():
-    stats = pd.read_csv("zstats_total.csv", sep='\t')
-    stats = stats[[c for c in stats if c not in ['TOTAL']] 
-       + ['TOTAL']]
-    endnum = len(stats.index)
-    indices = [num for num in range(0,endnum)]
-    stats = stats.set_index(pd.Index(indices))
-    #  stats.insert(28, 'TheirPuntValue', -1, False)
-    stats.insert(28, 'PuntValue', -1, False)
-    stats.insert(29, 'PuntDiff', -1, False)
-    for index in indices:
-        ast = stats.loc[stats.index[index], 'zAST']
-        blk = stats.loc[stats.index[index], 'zBLK']
-        reb = stats.loc[stats.index[index], 'zREB']
-        ftp = stats.loc[stats.index[index], 'zFT%']
-        fgp = stats.loc[stats.index[index], 'zFG%']
-        tpm = stats.loc[stats.index[index], 'z3PM']
-        total = stats.loc[stats.index[index], 'TOTAL']
-        pv = total - blk
-        punt_diff = pv - total
-        #  pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
-        #  theirpv = total - blk - fgp - reb - 0.5*tpm
-        stats.loc[stats.index[index], 'PuntValue'] = pv
-        stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
-        #  stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
-    #  pd.set_option("display.max_rows", 80)
-    #  print(stats)
-    return stats
-
-def build_full_team(schedcsv):
+def build_full_team(schedcsv, source="projections"):
     #  print(schedcsv)
     schedule = pd.read_csv(schedcsv)
     endnum = len(schedule.index)
      
-    stats = get_stats()
+    if source == "projections":
+        stats = get_stats("zstats.csv")
+    else:
+        stats = get_stats(source)
 
     total_z = 0
     
@@ -79,6 +53,7 @@ def build_full_team(schedcsv):
     team_stats = pd.DataFrame()
     for i in range(0,endnum):
         name = schedule.iloc[i,1]
+        print(f'{name=}')
         out = schedule.iloc[i,0]
         playerstats = stats.loc[stats['PLAYER'] == name]
         stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i,2]
@@ -98,12 +73,15 @@ def build_full_team(schedcsv):
     #  print(f'{total_z=}')
     return(team_stats)
 
-def build_team(schedcsv):
+def build_team(schedcsv, source="projections"):
     #  print(schedcsv)
     schedule = pd.read_csv(schedcsv)
     endnum = len(schedule.index)
      
-    stats = get_stats()
+    if source == "projections":
+        stats = get_stats("zstats.csv")
+    else:
+        stats = get_stats(source)
 
     #### build team stats
     team_stats = pd.DataFrame()
@@ -178,7 +156,7 @@ class winprob():
             total_prob += current_prob
             #  print("total_prob =", total_prob)
             number -= 1
-        #  print("total_prob =", total_prob)
+        print("total_prob =", total_prob)
         self.total_win_prob = total_prob
         return
     def __str__(self):
