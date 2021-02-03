@@ -1,4 +1,4 @@
-with open('rosters.raw', 'r') as rawfile, :
+with open('rosters.raw', 'r') as rawfile:
     data = rawfile.readlines()
     #  for line in data:
         #  line = line.strip()
@@ -15,21 +15,51 @@ with open('rosters.raw', 'r') as rawfile, :
     for line in lines_iter:
         line = line.replace('\n', '')
         print(f'{line=}')
-        if line == "CarMelo Ball" or line == "Weed Use And Work Ethic" or \
-        line == "Rain City Bitch Pigeons" or line == "A Tingus In My Pingus" or \
-        line == "Choi Boys" or line == "LaVar Ball 4 Prez" or line == "LaVar Ball 4 Prez" or \
-        line == "Inbred Intangibles" or line == "Titties Over Titles" or line == "Team De'Ath":
-            gm = line
+        if line == "CarMelo Ball":
+            found_gm = True
+            gm = "tom"
+        elif line == "Rain City Bitch Pigeons":
+            found_gm = True
+            gm = "brandt"
+        elif line == "A Tingus In My Pingus":
+            found_gm = True
+            gm = "rob"
+        elif line == "Choi Boys":
+            found_gm = True
+            gm = "dylan"
+        elif line == "LaVar Ball 4 Prez":
+            found_gm = True
+            gm = "akbar"
+        elif line == "Inbred Intangibles":
+            found_gm = True
+            gm = "ben"
+        elif line == "Titties Over Titles":
+            found_gm = True
+            gm = "kyle"
+        elif line == "Team De'Ath":
+            found_gm = True
+            gm = "george"
+        elif line == "Weed Use And Work Ethic":
+            found_gm = True
+            gm = "zmo"
+        elif line == "The Lebrontourage":
+            found_gm = True
+            gm = "alex"
+        else:
+            found_gm = False
+
+        if found_gm:
             teams[gm] = []
             rosterfile = open('{n}_roster.csv'.format(n=gm), 'w')
-            rosterfile.write(gm)
-        elif line in prev_line and line != '' and line != 'F' and line != 'O':
+            #  rosterfile.write("{gm}\n".format(gm=gm))
+            rosterfile.write("0,1,2\n")
+        elif line in prev_line and line != '' and line != 'F' and line != 'C' and line != 'O':
             print(f'{teams=}')
             teams[gm].append(line)
-            rosterfile.write(line)
+            rosterfile.write(",{line},3.5\n".format(line=line))
         prev_line = line
     print(f'{teams=}')
-    print(f'{teams["CarMelo Ball"]=}')
+    print(f'{teams["tom"]=}')
     exit(0)
 
     #  csvfile.write("""0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t11\t12\t13\t14\t15\t16\t17\t18\t19\t20\t21\t22\t23\t24\t25\t26\t27\t28\n""")

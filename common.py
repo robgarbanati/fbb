@@ -40,6 +40,7 @@ def get_stats(csv_file):
 def build_full_team(schedcsv, source="projections"):
     #  print(schedcsv)
     schedule = pd.read_csv(schedcsv)
+    #  print(schedule)
     endnum = len(schedule.index)
      
     if source == "projections":
