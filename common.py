@@ -25,7 +25,7 @@ def get_stats(csv_file):
         tpm = stats.loc[stats.index[index], 'z3PM']
         to = stats.loc[stats.index[index], 'zTO']
         total = stats.loc[stats.index[index], 'TOTAL']
-        pv = total - blk - ast - to
+        pv = total - blk - ast
         #  pv = total - blk - ftp - to - ast - pts - reb
         punt_diff = pv - total
         #  pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
@@ -53,8 +53,10 @@ def build_full_team(schedcsv, source="projections"):
     team_stats = pd.DataFrame()
     for i in range(0,endnum):
         name = schedule.iloc[i,1]
-        print(f'{name=}')
+        #  print(f'{name=}')
         out = schedule.iloc[i,0]
+        if out == 'X':
+            continue
         playerstats = stats.loc[stats['PLAYER'] == name]
         stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i,2]
         playerstats = stats.loc[stats['PLAYER'] == name]
@@ -69,8 +71,8 @@ def build_full_team(schedcsv, source="projections"):
     indices = [num for num in range(0,endnum)]
     team_stats = team_stats.set_index(pd.Index(indices))
 
-    #  print(team_stats)
-    #  print(f'{total_z=}')
+    print(team_stats)
+    print(f'{total_z=}')
     return(team_stats)
 
 def build_team(schedcsv, source="projections"):
@@ -89,7 +91,7 @@ def build_team(schedcsv, source="projections"):
     for i in range(0,endnum):
         name = schedule.iloc[i,1]
         out = schedule.iloc[i,0]
-        if out == 'O':
+        if out == 'O' or out == 'X':
             continue
         playerstats = stats.loc[stats['PLAYER'] == name]
         stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i,2]
