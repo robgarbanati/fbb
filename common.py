@@ -23,18 +23,17 @@ def get_stats(csv_file):
         ftp = stats.loc[stats.index[index], 'zFT%']
         fgp = stats.loc[stats.index[index], 'zFG%']
         tpm = stats.loc[stats.index[index], 'z3PM']
+        stl = stats.loc[stats.index[index], 'zSTL']
         to = stats.loc[stats.index[index], 'zTO']
         total = stats.loc[stats.index[index], 'TOTAL']
-        pv = total - blk - ast
-        #  pv = total - blk - ftp - to - ast - pts - reb
+        pv = total - reb - ast - stl - blk - pts
         punt_diff = pv - total
-        #  pv = total - ast - 0.5*blk - ftp*0.5 - fgp*0.5
-        #  theirpv = total - blk - fgp - reb - 0.5*tpm
         stats.loc[stats.index[index], 'PuntValue'] = pv
         stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
         #  stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
     #  pd.set_option("display.max_rows", 80)
     #  print(stats)
+    stats = stats.sort_values(by='PuntValue', ascending=False)
     return stats
 
 def build_full_team(schedcsv, source="projections"):
@@ -54,7 +53,7 @@ def build_full_team(schedcsv, source="projections"):
     team_stats = pd.DataFrame()
     for i in range(0,endnum):
         name = schedule.iloc[i,1]
-        #  print(f'{name=}')
+        print(f'{name=}')
         out = schedule.iloc[i,0]
         if out == 'X':
             continue

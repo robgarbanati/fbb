@@ -85,8 +85,6 @@ def optimize_lineups():
     ranking_14_stats = build_team("rob_roster.csv", ranking_14_stats)
     ranking_7_stats = build_team("rob_roster.csv", ranking_7_stats)
     
-    indices = [num for num in range(0,40)]
-    #  print(stats)
     pd.set_option("display.max_rows", 40)
     head = stats.head(40)
     print(head)

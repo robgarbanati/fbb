@@ -1,0 +1,923 @@
+                 PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0         Kawhi Leonard     SG,SF  LAC  60  ... -0.62  12.22      10.56     -1.66
+1          Nikola Jokic      PF,C  DEN  70  ... -2.13  12.05       8.09     -3.96
+2         Anthony Davis      PF,C  LAL  65  ... -0.91  11.71      11.39     -0.32
+3    Karl-Anthony Towns         C  MIN  44  ... -1.62  11.42      10.74     -0.68
+4         Stephen Curry     PG,SG  GSW  65  ... -2.56  10.72       8.55     -2.17
+..                  ...       ...  ...  ..  ...   ...    ...        ...       ...
+295  Shaquille Harrison  PG,SG,SF  UTA  40  ...  1.24  -4.07      -3.29      0.78
+296      Omari Spellman        PF  NYK  20  ...  0.93  -4.11      -3.15      0.96
+297        Dwayne Bacon        SG  ORL  40  ...  0.19  -4.15      -3.66      0.49
+298    Facundo Campazzo        PG  DEN  56  ... -0.19  -4.19      -4.88     -0.69
+299         Cody Martin     SG,SF  CHA  60  ...  0.85  -4.25      -3.98      0.27
+
+[300 rows x 30 columns]
+                      PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0               Nikola Jokic   PF,C  DEN  20  ... -2.89  12.48       9.19     -3.29
+1         Karl-Anthony Towns      C  MIN   4  ... -1.22  12.28      11.27     -1.01
+2               Kevin Durant  SF,PF  BRO  17  ... -2.34  11.58      10.09     -1.49
+3              Kawhi Leonard  SG,SF  LAC  18  ... -0.22  11.33       9.74     -1.59
+4               Kyrie Irving     PG  BRO  15  ... -1.00  10.78       9.03     -1.75
+..                       ...    ...  ...  ..  ...   ...    ...        ...       ...
+295              Aron Baynes      C  TOR  18  ...  0.78  -4.11      -3.21      0.90
+296            Javonte Green     PG  BOS  11  ...  0.89  -4.18      -3.22      0.96
+297             Theo Maledon     PG  OKL  19  ... -0.33  -4.22      -4.33     -0.11
+298             Caleb Martin  SG,SF  CHA  18  ...  0.78  -4.22      -3.74      0.48
+299  Michael Carter-Williams  PG,SG  ORL   7  ...  0.11  -4.23      -3.86      0.37
+
+[300 rows x 30 columns]
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0      Kawhi Leonard  SG,SF  LAC   6  ...  0.21  13.98      12.98     -1.00
+1       Kevin Durant  SF,PF  BRO   6  ... -1.89  11.06      10.11     -0.95
+2        Joel Embiid   PF,C  PHI   5  ... -1.68  10.26      10.11     -0.15
+3     Damian Lillard     PG  POR   6  ... -1.68  10.20       7.10     -3.10
+4         Trae Young     PG  ATL   6  ... -2.95   9.89       6.44     -3.45
+..               ...    ...  ...  ..  ...   ...    ...        ...       ...
+295    Georges Niang  SF,PF  UTA   7  ...  0.21  -4.18      -3.38      0.80
+296  Bismack Biyombo      C  CHA   5  ...  0.63  -4.32      -3.77      0.55
+297    Mychal Mulder     PG  GSW   8  ...  1.26  -4.34      -3.44      0.90
+298     Reggie Perry     PF  BRO   7  ...  0.11  -4.37      -3.57      0.80
+299       Tacko Fall      C  BOS   1  ...  0.21  -4.39      -3.24      1.15
+
+[300 rows x 30 columns]
+            PLAYER    POS TEAM  GP   MPG  ...   TO   zTO  TOTAL  PuntValue  PuntDiff
+0     James Harden  PG,SG  BRO   3  40.5  ...  2.3 -1.01  14.87       9.65     -5.22
+1    Fred VanVleet  PG,SG  TOR   4  35.5  ...  2.0 -0.70  12.83      11.07     -1.76
+2     Nikola Jokic   PF,C  DEN   3  36.7  ...  2.7 -1.41  12.38      11.32     -1.06
+3    Kawhi Leonard  SG,SF  LAC   3  34.0  ...  0.3  1.01  11.65      10.86     -0.79
+4    Norman Powell  SG,SF  TOR   2  34.8  ...  1.5 -0.20   9.85       9.85      0.00
+..             ...    ...  ...  ..   ...  ...  ...   ...    ...        ...       ...
+295     Josh Green  SG,SF  DAL   2   5.0  ...  0.0  1.31  -3.78      -2.86      0.92
+296  Mychal Mulder     PG  GSW   4   9.6  ...  0.0  1.31  -3.83      -3.14      0.69
+297  Elfrid Payton     PG  NYK   3  20.5  ...  1.3  0.00  -3.85      -3.85      0.00
+298  Chris Chiozza     PG  BRO   1   4.7  ...  0.0  1.31  -3.85      -3.39      0.46
+299   Tony Bradley      C  PHI   2  10.7  ...  0.0  1.31  -3.87      -3.64      0.23
+
+[300 rows x 30 columns]
+kyle_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0         Kyle Lowry     PG  TOR  60  ... -1.53   4.50       1.88     -2.62
+1       James Harden  PG,SG  BRO  64  ... -2.89   9.94       6.90     -3.04
+2   Tim Hardaway Jr.  SG,SF  DAL  67  ...  0.39  -0.65      -0.32      0.33
+3       Jerami Grant  SF,PF  DET  70  ...  0.63   7.49       7.61      0.12
+4      Stephen Curry  PG,SG  GSW  65  ... -2.56  10.72       8.55     -2.17
+5     Victor Oladipo  SG,SF  HOU  60  ... -1.82   2.89       1.71     -1.18
+6        Will Barton  SG,SF  DEN  68  ...  0.38  -0.03      -0.25     -0.22
+7         Alec Burks  SG,SF  NYK  60  ...  0.07   0.99       0.67     -0.32
+8         Chris Paul     PG  PHX  61  ... -0.68   5.71       2.42     -3.29
+9       Eric Bledsoe  PG,SG  NOP  62  ... -0.98   1.58       0.11     -1.47
+10      Goran Dragic  PG,SG  MIA  48  ... -0.85  -1.74      -3.01     -1.27
+11  DeMarcus Cousins   PF,C  HOU  30  ... -0.37  -1.45      -1.02      0.43
+12    Thaddeus Young     PF  CHI  67  ... -0.14  -0.28       0.06      0.34
+
+[13 rows x 30 columns]
+kyle_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0         Kyle Lowry     PG  TOR  18  ... -2.00   3.39       0.90     -2.49
+1       James Harden  PG,SG  BRO  17  ... -3.23   9.10       4.43     -4.67
+2   Tim Hardaway Jr.  SG,SF  DAL  20  ...  0.33   0.66       0.93      0.27
+3       Jerami Grant  SF,PF  DET  21  ... -0.11   6.67       6.40     -0.27
+4      Stephen Curry  PG,SG  GSW  21  ... -2.23   9.01       7.05     -1.96
+5     Victor Oladipo  SG,SF  HOU  16  ... -0.89   2.06       0.79     -1.27
+6        Will Barton  SG,SF  DEN  20  ...  0.11  -0.91      -1.28     -0.37
+7         Alec Burks  SG,SF  NYK  10  ...  0.22   1.29       1.40      0.11
+8         Chris Paul     PG  PHX  19  ... -1.34   4.92       1.58     -3.34
+9       Eric Bledsoe  PG,SG  NOP  18  ... -0.78  -1.43      -2.12     -0.69
+10      Goran Dragic  PG,SG  MIA  15  ... -1.67  -1.41      -3.05     -1.64
+11  DeMarcus Cousins   PF,C  HOU  16  ... -0.45  -1.27      -1.38     -0.11
+12    Thaddeus Young     PF  CHI  15  ... -0.56  -0.09      -1.15     -1.06
+
+[13 rows x 30 columns]
+kyle_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0         Kyle Lowry     PG  TOR   6  ... -1.89   1.30      -1.05     -2.35
+1       James Harden  PG,SG  BRO   7  ... -2.31   8.89       4.20     -4.69
+2   Tim Hardaway Jr.  SG,SF  DAL   8  ...  0.32   1.29       1.64      0.35
+3       Jerami Grant  SF,PF  DET   8  ... -0.32   4.29       3.64     -0.65
+4      Stephen Curry  PG,SG  GSW   8  ... -2.31   9.00       7.15     -1.85
+5     Victor Oladipo  SG,SF  HOU   6  ... -0.53   0.84      -0.41     -1.25
+6        Will Barton  SG,SF  DEN   6  ... -0.32  -2.57      -2.92     -0.35
+7         Alec Burks  SG,SF  NYK   7  ...  0.53  -1.10      -0.75      0.35
+8         Chris Paul     PG  PHX   7  ... -2.63   6.69       3.39     -3.30
+9       Eric Bledsoe  PG,SG  NOP   6  ... -1.05  -1.84      -2.59     -0.75
+10      Goran Dragic  PG,SG  MIA   5  ... -1.47  -1.17      -2.92     -1.75
+11  DeMarcus Cousins   PF,C  HOU   7  ... -1.16   1.09       0.44     -0.65
+12    Thaddeus Young     PF  CHI   5  ...  0.00   2.02      -0.43     -2.45
+
+[13 rows x 30 columns]
+kyle_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0         Kyle Lowry     PG  TOR   4  ... -2.21   3.63       0.63     -3.00
+1       James Harden  PG,SG  BRO   3  ... -1.01  14.87       9.65     -5.22
+2   Tim Hardaway Jr.  SG,SF  DAL   4  ...  0.30   2.87       2.73     -0.14
+3       Jerami Grant  SF,PF  DET   4  ... -0.20   4.47       3.87     -0.60
+4      Stephen Curry  PG,SG  GSW   4  ... -2.51   8.67       6.45     -2.22
+5     Victor Oladipo  SG,SF  HOU   3  ...  0.30   5.83       3.84     -1.99
+6        Will Barton  SG,SF  DEN   3  ...  0.00   0.23      -0.23     -0.46
+7         Alec Burks  SG,SF  NYK   3  ...  1.31   2.00       2.00      0.00
+8         Chris Paul     PG  PHX   4  ... -2.71   8.73       6.19     -2.54
+9       Eric Bledsoe  PG,SG  NOP   4  ... -1.21  -0.50      -1.56     -1.06
+10      Goran Dragic  PG,SG  MIA   1  ... -1.71  -1.33      -4.10     -2.77
+11  DeMarcus Cousins   PF,C  HOU   3  ...  0.30   0.04      -0.28     -0.32
+12    Thaddeus Young     PF  CHI   2  ...  0.30   4.86       1.39     -3.47
+
+[13 rows x 30 columns]
+brandt_roster.csv
+                     PLAYER       POS TEAM  ...  TOTAL  PuntValue  PuntDiff
+0   Shai Gilgeous-Alexander  PG,SG,SF  OKL  ...   4.07       1.98     -2.09
+1             Terrence Ross     SG,SF  ORL  ...   1.07       1.79      0.72
+2             Norman Powell     SG,SF  TOR  ...  -0.65      -0.14      0.51
+3            Christian Wood      PF,C  HOU  ...   7.76       8.35      0.59
+4             Deandre Ayton         C  PHX  ...   3.81       4.09      0.28
+5            Andrew Wiggins     SG,SF  GSW  ...  -2.15      -2.49     -0.34
+6               Paul George     SF,PF  LAC  ...   8.68       7.18     -1.50
+7         Mitchell Robinson         C  NYK  ...   3.93       5.00      1.07
+8               Buddy Hield     SG,SF  SAC  ...   0.82       0.78     -0.04
+9               Joel Embiid      PF,C  PHI  ...   8.01       7.67     -0.34
+10        Tyrese Haliburton     PG,SG  SAC  ...   1.22      -0.04     -1.26
+11             Jimmy Butler     SF,PF  MIA  ...   4.71       2.80     -1.91
+12             John Collins      PF,C  ATL  ...   3.99       4.52      0.53
+13               Kevin Love      PF,C  CLE  ...   1.67       1.56     -0.11
+14             Caris LeVert     SG,SF  IND  ...  -1.43      -2.29     -0.86
+
+[15 rows x 30 columns]
+brandt_roster.csv
+                     PLAYER       POS TEAM  ...  TOTAL  PuntValue  PuntDiff
+0   Shai Gilgeous-Alexander  PG,SG,SF  OKL  ...   3.91       1.84     -2.07
+1             Terrence Ross     SG,SF  ORL  ...  -0.12       0.15      0.27
+2             Norman Powell     SG,SF  TOR  ...   0.36       0.89      0.53
+3            Christian Wood      PF,C  HOU  ...   7.14       7.78      0.64
+4             Deandre Ayton         C  PHX  ...   2.51       2.78      0.27
+5            Andrew Wiggins     SG,SF  GSW  ...   1.01       1.12      0.11
+6               Paul George     SF,PF  LAC  ...   7.53       5.94     -1.59
+7         Mitchell Robinson         C  NYK  ...   2.51       3.52      1.01
+8               Buddy Hield     SG,SF  SAC  ...   1.76       1.44     -0.32
+9               Joel Embiid      PF,C  PHI  ...  10.62      10.41     -0.21
+10        Tyrese Haliburton     PG,SG  SAC  ...   2.49       0.90     -1.59
+11             Jimmy Butler     SF,PF  MIA  ...   6.09       4.39     -1.70
+12             John Collins      PF,C  ATL  ...   3.92       4.34      0.42
+13               Kevin Love      PF,C  CLE  ...  -3.70      -3.75     -0.05
+14             Caris LeVert     SG,SF  IND  ...   1.84      -0.07     -1.91
+
+[15 rows x 30 columns]
+brandt_roster.csv
+                     PLAYER       POS TEAM  ...  TOTAL  PuntValue  PuntDiff
+0   Shai Gilgeous-Alexander  PG,SG,SF  OKL  ...   4.37       2.27     -2.10
+1             Terrence Ross     SG,SF  ORL  ...  -1.21      -1.21      0.00
+2             Norman Powell     SG,SF  TOR  ...   3.33       3.13     -0.20
+3            Christian Wood      PF,C  HOU  ...   8.68       9.43      0.75
+4             Deandre Ayton         C  PHX  ...   4.04       4.19      0.15
+5            Andrew Wiggins     SG,SF  GSW  ...   0.86       1.06      0.20
+6               Paul George     SF,PF  LAC  ...   4.06       2.11     -1.95
+7         Mitchell Robinson         C  NYK  ...   0.38       1.33      0.95
+8               Buddy Hield     SG,SF  SAC  ...   4.54       4.34     -0.20
+9               Joel Embiid      PF,C  PHI  ...  10.26      10.11     -0.15
+10        Tyrese Haliburton     PG,SG  SAC  ...   1.12      -0.58     -1.70
+11             Jimmy Butler     SF,PF  MIA  ...   6.69       4.59     -2.10
+12             John Collins      PF,C  ATL  ...   3.72       4.07      0.35
+
+[13 rows x 30 columns]
+brandt_roster.csv
+                     PLAYER       POS TEAM  ...  TOTAL  PuntValue  PuntDiff
+0   Shai Gilgeous-Alexander  PG,SG,SF  OKL  ...   2.80       0.95     -1.85
+1             Terrence Ross     SG,SF  ORL  ...   1.04       1.27      0.23
+2             Norman Powell     SG,SF  TOR  ...   9.85       9.85      0.00
+3            Christian Wood      PF,C  HOU  ...   8.80       9.59      0.79
+4             Deandre Ayton         C  PHX  ...  -0.24      -0.38     -0.14
+5            Andrew Wiggins     SG,SF  GSW  ...  -0.89      -0.89      0.00
+6               Paul George     SF,PF  LAC  ...   6.19       4.66     -1.53
+7         Mitchell Robinson         C  NYK  ...   0.92       1.71      0.79
+8               Buddy Hield     SG,SF  SAC  ...   6.82       6.45     -0.37
+9               Joel Embiid      PF,C  PHI  ...   8.28       7.59     -0.69
+10        Tyrese Haliburton     PG,SG  SAC  ...   1.27      -1.27     -2.54
+11             Jimmy Butler     SF,PF  MIA  ...   6.94       4.86     -2.08
+12             John Collins      PF,C  ATL  ...   2.61       3.07      0.46
+
+[13 rows x 30 columns]
+alex_roster.csv
+               PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0           Ja Morant        PG  MEM  58  ... -2.20   1.59      -1.30     -2.89
+1         Zach LaVine     SG,SF  CHI  68  ... -2.10   6.12       5.17     -0.95
+2        LeBron James  PG,SG,SF  LAL  59  ... -2.44   4.11       1.05     -3.06
+3        Myles Turner      PF,C  IND  70  ...  0.12  10.00      10.71      0.71
+4         Rudy Gobert         C  UTA  67  ... -0.35   3.17       3.71      0.54
+5      Darius Garland        PG  CLE  70  ... -1.54   0.30      -1.69     -1.99
+6      Brandon Clarke     SF,PF  MEM  68  ...  0.69   0.03       0.62      0.59
+7     Jordan Clarkson     PG,SG  UTA  67  ... -0.12   1.51       1.51      0.00
+8      Reggie Bullock     SG,SF  NYK  57  ...  1.17  -3.52      -2.86      0.66
+9    Bojan Bogdanovic     SF,PF  UTA  64  ... -1.02  -2.71      -2.48      0.23
+10  LaMarcus Aldridge      PF,C  SAS  58  ...  0.30   0.65       0.90      0.25
+11       Terry Rozier     PG,SG  CHA  70  ... -0.51   0.66       0.39     -0.27
+12    Harrison Barnes     SF,PF  SAC  70  ...  0.26   0.46       0.29     -0.17
+13       Marcus Smart     PG,SG  BOS  67  ... -0.31   2.16       0.74     -1.42
+14    De'Andre Hunter     SF,PF  ATL  68  ... -0.17   0.92       1.05      0.13
+
+[15 rows x 30 columns]
+alex_roster.csv
+               PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0           Ja Morant        PG  MEM   8  ... -2.23   2.51      -0.14     -2.65
+1         Zach LaVine     SG,SF  CHI  19  ... -3.12   7.59       6.16     -1.43
+2        LeBron James  PG,SG,SF  LAL  22  ... -2.34   4.75       2.04     -2.71
+3        Myles Turner      PF,C  IND  19  ... -0.22   9.33       9.97      0.64
+4         Rudy Gobert         C  UTA  21  ... -0.22   3.26       3.79      0.53
+5      Darius Garland        PG  CLE  13  ... -1.56   0.08      -1.56     -1.64
+6      Brandon Clarke     SF,PF  MEM  16  ...  0.89   0.73       1.05      0.32
+7     Jordan Clarkson     PG,SG  UTA  21  ... -0.33   2.67       2.99      0.32
+8      Reggie Bullock     SG,SF  NYK  17  ...  0.78  -3.07      -2.43      0.64
+9    Bojan Bogdanovic     SF,PF  UTA  21  ...  0.00  -1.82      -1.61      0.21
+10  LaMarcus Aldridge      PF,C  SAS  18  ...  0.56   0.29       0.56      0.27
+11       Terry Rozier     PG,SG  CHA  20  ... -0.33   3.22       3.01     -0.21
+12    Harrison Barnes     SF,PF  SAC  20  ... -0.22   3.43       2.85     -0.58
+13       Marcus Smart     PG,SG  BOS  17  ... -0.45   1.48      -0.48     -1.96
+14    De'Andre Hunter     SF,PF  ATL  18  ...  0.00   3.63       3.74      0.11
+
+[15 rows x 30 columns]
+alex_roster.csv
+               PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0           Ja Morant        PG  MEM   3  ... -3.26  -0.01      -2.86     -2.85
+1         Zach LaVine     SG,SF  CHI   5  ... -3.37   6.77       5.62     -1.15
+2        LeBron James  PG,SG,SF  LAL   7  ... -2.31   6.62       4.07     -2.55
+3        Myles Turner      PF,C  IND   7  ... -0.95   8.38       8.83      0.45
+4         Rudy Gobert         C  UTA   7  ... -0.42   5.39       5.84      0.45
+5      Darius Garland        PG  CLE   7  ... -1.58  -1.85      -3.15     -1.30
+6      Brandon Clarke     SF,PF  MEM   3  ...  1.26   5.02       5.52      0.50
+7     Jordan Clarkson     PG,SG  UTA   7  ... -0.11   1.62       2.12      0.50
+8      Reggie Bullock     SG,SF  NYK   4  ...  1.26  -2.87      -2.22      0.65
+9    Bojan Bogdanovic     SF,PF  UTA   7  ...  0.32   1.79       1.64     -0.15
+10  LaMarcus Aldridge      PF,C  SAS   7  ...  0.95   1.13       1.63      0.50
+11       Terry Rozier     PG,SG  CHA   6  ...  0.21   0.62       0.27     -0.35
+12    Harrison Barnes     SF,PF  SAC   6  ... -0.53   5.73       4.88     -0.85
+13       Marcus Smart     PG,SG  BOS   6  ... -1.05   3.43       1.18     -2.25
+14    De'Andre Hunter     SF,PF  ATL   5  ... -0.21   4.93       4.58     -0.35
+
+[15 rows x 30 columns]
+alex_roster.csv
+               PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0           Ja Morant        PG  MEM   3  ... -3.02   0.62      -2.15     -2.77
+1         Zach LaVine     SG,SF  CHI   2  ... -2.21   7.14       6.45     -0.69
+2        LeBron James  PG,SG,SF  LAL   4  ... -1.71   4.57       1.80     -2.77
+3        Myles Turner      PF,C  IND   4  ... -0.50   7.32       7.41      0.09
+4         Rudy Gobert         C  UTA   4  ... -1.01   3.82       4.28      0.46
+5      Darius Garland        PG  CLE   4  ... -2.01   1.60       0.07     -1.53
+6      Brandon Clarke     SF,PF  MEM   3  ...  1.31   5.19       5.51      0.32
+7     Jordan Clarkson     PG,SG  UTA   4  ... -0.20   2.05       2.51      0.46
+8      Reggie Bullock     SG,SF  NYK   2  ...  1.31  -1.87      -1.41      0.46
+9    Bojan Bogdanovic     SF,PF  UTA   4  ...  0.30   3.52       3.52      0.00
+10  LaMarcus Aldridge      PF,C  SAS   4  ...  1.01   1.93       2.02      0.09
+11       Terry Rozier     PG,SG  CHA   3  ...  0.30   2.65       2.65      0.00
+12    Harrison Barnes     SF,PF  SAC   4  ... -1.01   6.72       5.89     -0.83
+13       Marcus Smart     PG,SG  BOS   2  ... -0.20   0.41      -0.98     -1.39
+14    De'Andre Hunter     SF,PF  ATL   2  ...  0.80   3.17       2.94     -0.23
+
+[15 rows x 30 columns]
+tom_roster.csv
+                   PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0             Luka Doncic  PG,SG  DAL  67  ... -3.06   5.94       2.31     -3.63
+1           Malik Beasley  PG,SG  MIN  64  ...  0.41   1.82       2.11      0.29
+2   Giannis Antetokounmpo   PF,C  MIL  69  ... -2.40   4.98       3.30     -1.68
+3            Kevin Durant  SF,PF  BRO  59  ... -2.59   8.17       7.07     -1.10
+4            Steven Adams      C  NOP  70  ... -0.13   0.61       0.69      0.08
+5       Russell Westbrook     PG  WAS  56  ... -3.32  -2.76      -6.85     -4.09
+6          Gordon Hayward  SG,SF  CHA  58  ... -0.42   6.19       5.43     -0.76
+7           Blake Griffin   PF,C  DET  58  ... -0.50  -1.42      -2.23     -0.81
+8             Mike Conley     PG  UTA  58  ... -0.82   2.47       0.63     -1.84
+9           Kyle Anderson  SF,PF  MEM  63  ... -0.86  -1.88      -2.41     -0.53
+10            Ben Simmons     PG  PHI  65  ... -2.26   2.24      -0.86     -3.10
+11        Dennis Schroder     PG  LAL  67  ... -0.56  -2.21      -3.07     -0.86
+12             Coby White  PG,SG  CHI  70  ... -0.69  -0.57      -1.07     -0.50
+13          James Wiseman      C  GSW  65  ...  0.94  -1.08       0.15      1.23
+
+[14 rows x 30 columns]
+tom_roster.csv
+                   PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0             Luka Doncic  PG,SG  DAL  20  ... -2.78   6.20       2.49     -3.71
+1           Malik Beasley  PG,SG  MIN  20  ... -0.11   1.81       1.86      0.05
+2   Giannis Antetokounmpo   PF,C  MIL  19  ... -2.67   2.22       0.47     -1.75
+3            Kevin Durant  SF,PF  BRO  17  ... -2.34  11.58      10.09     -1.49
+4            Steven Adams      C  NOP  18  ... -0.67  -1.18      -1.23     -0.05
+5       Russell Westbrook     PG  WAS  12  ... -3.78  -0.52      -4.29     -3.77
+6          Gordon Hayward  SG,SF  CHA  20  ... -0.89   6.13       5.49     -0.64
+7           Blake Griffin   PF,C  DET  16  ... -0.45  -2.35      -3.15     -0.80
+8             Mike Conley     PG  UTA  21  ... -0.67   3.64       1.68     -1.96
+9           Kyle Anderson  SF,PF  MEM  16  ... -0.45   0.99       0.30     -0.69
+10            Ben Simmons     PG  PHI  19  ... -2.23   2.35      -0.57     -2.92
+11        Dennis Schroder     PG  LAL  22  ... -0.67  -1.65      -2.66     -1.01
+12             Coby White  PG,SG  CHI  19  ... -1.45  -0.87      -2.62     -1.75
+13          James Wiseman      C  GSW  20  ... -0.22  -1.90      -1.00      0.90
+
+[14 rows x 30 columns]
+tom_roster.csv
+                   PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0             Luka Doncic  PG,SG  DAL   8  ... -2.31   6.18       2.63     -3.55
+1           Malik Beasley  PG,SG  MIN   8  ... -0.74   1.33       1.23     -0.10
+2   Giannis Antetokounmpo   PF,C  MIL   6  ... -3.47   2.50       0.30     -2.20
+3            Kevin Durant  SF,PF  BRO   6  ... -1.89  11.06      10.11     -0.95
+4            Steven Adams      C  NOP   5  ... -1.47  -3.40      -3.35      0.05
+5       Russell Westbrook     PG  WAS   5  ... -2.95   0.68      -1.67     -2.35
+6          Gordon Hayward  SG,SF  CHA   7  ... -1.26   4.96       4.41     -0.55
+7           Blake Griffin   PF,C  DET   6  ... -0.84  -2.92      -3.37     -0.45
+8             Mike Conley     PG  UTA   7  ... -0.53   5.63       3.93     -1.70
+9           Kyle Anderson  SF,PF  MEM   3  ... -0.11   0.99       1.14      0.15
+10            Ben Simmons     PG  PHI   7  ... -0.84   3.99       1.29     -2.70
+11        Dennis Schroder     PG  LAL   7  ... -0.11  -2.99      -3.54     -0.55
+12             Coby White  PG,SG  CHI   5  ... -1.05  -0.55      -1.90     -1.35
+13          James Wiseman      C  GSW   7  ... -0.11  -1.42      -0.92      0.50
+
+[14 rows x 30 columns]
+tom_roster.csv
+                   PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0             Luka Doncic  PG,SG  DAL   4  ... -2.21   4.57       2.26     -2.31
+1           Malik Beasley  PG,SG  MIN   4  ... -1.01   0.52       0.52      0.00
+2   Giannis Antetokounmpo   PF,C  MIL   4  ... -2.01   5.54       3.09     -2.45
+3            Kevin Durant  SF,PF  BRO   3  ... -2.41   9.79       9.47     -0.32
+4            Steven Adams      C  NOP   3  ... -0.40  -1.55      -1.55      0.00
+5       Russell Westbrook     PG  WAS   3  ... -2.01   7.65       5.20     -2.45
+6          Gordon Hayward  SG,SF  CHA   4  ... -0.20   3.83       3.00     -0.83
+7           Blake Griffin   PF,C  DET   3  ... -0.40  -1.59      -2.19     -0.60
+8             Mike Conley     PG  UTA   4  ... -0.20   5.31       3.00     -2.31
+9           Kyle Anderson  SF,PF  MEM   3  ...  0.00   1.70       1.70      0.00
+10            Ben Simmons     PG  PHI   3  ... -0.40   5.56       2.79     -2.77
+11        Dennis Schroder     PG  LAL   4  ...  0.80   1.30       0.14     -1.16
+12             Coby White  PG,SG  CHI   2  ... -1.21   1.81      -0.04     -1.85
+13          James Wiseman      C  GSW   3  ... -0.40  -1.08      -0.62      0.46
+
+[14 rows x 30 columns]
+ben_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   D'Angelo Russell  PG,SG  MIN  67  ... -1.54   2.93       0.96     -1.97
+1      Fred VanVleet  PG,SG  TOR  67  ... -0.76   3.95       1.54     -2.41
+2        Jeremy Lamb  SG,SF  IND  58  ...  0.80   2.01       2.37      0.36
+3      Nicolas Batum  SF,PF  LAC  50  ... -0.02  -1.15      -1.04      0.11
+4     Nikola Vucevic      C  ORL  69  ...  0.32   6.25       5.68     -0.57
+5       Jrue Holiday  PG,SG  MIL  63  ... -1.45   2.30       0.86     -1.44
+6      Evan Fournier  SG,SF  ORL  67  ... -0.29   0.94       0.57     -0.37
+7       Kyrie Irving     PG  BRO  50  ... -1.09   7.01       5.59     -1.42
+8       Kemba Walker     PG  BOS  48  ... -0.38   1.44       0.76     -0.68
+9    Robert Williams      C  BOS  54  ...  0.84   2.37       3.10      0.73
+10   Devonte' Graham  PG,SG  CHA  70  ... -1.11  -1.91      -3.84     -1.93
+11      Nikola Jokic   PF,C  DEN  70  ... -2.13  12.05       8.09     -3.96
+12   Larry Nance Jr.   PF,C  CLE  56  ...  0.61   0.79       0.80      0.01
+13       CJ McCollum  PG,SG  POR  42  ... -0.27   5.93       4.77     -1.16
+
+[14 rows x 30 columns]
+ben_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   D'Angelo Russell  PG,SG  MIN  17  ... -1.67   0.70      -0.84     -1.54
+1      Fred VanVleet  PG,SG  TOR  21  ... -0.45   7.15       5.13     -2.02
+2        Jeremy Lamb  SG,SF  IND   8  ...  0.33   4.18       4.50      0.32
+3      Nicolas Batum  SF,PF  LAC  21  ...  0.78   2.54       2.49     -0.05
+4     Nikola Vucevic      C  ORL  22  ... -0.22   7.13       6.55     -0.58
+5       Jrue Holiday  PG,SG  MIL  20  ... -0.22   5.92       4.38     -1.54
+6      Evan Fournier  SG,SF  ORL  13  ... -0.67   1.17       0.53     -0.64
+7       Kyrie Irving     PG  BRO  15  ... -1.00  10.78       9.03     -1.75
+8       Kemba Walker     PG  BOS   7  ... -0.33   0.31      -0.70     -1.01
+9    Devonte' Graham  PG,SG  CHA  21  ...  0.00   0.01      -1.95     -1.96
+10      Nikola Jokic   PF,C  DEN  20  ... -2.89  12.48       9.19     -3.29
+11   Larry Nance Jr.   PF,C  CLE  18  ... -0.22   3.02       2.54     -0.48
+12       CJ McCollum  PG,SG  POR  13  ...  0.45   9.06       7.68     -1.38
+
+[13 rows x 30 columns]
+ben_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   D'Angelo Russell  PG,SG  MIN   5  ... -0.42  -0.63      -1.78     -1.15
+1      Fred VanVleet  PG,SG  TOR   8  ... -0.74   9.76       7.86     -1.90
+2        Jeremy Lamb  SG,SF  IND   8  ...  0.11   3.51       3.76      0.25
+3      Nicolas Batum  SF,PF  LAC   7  ...  0.32   2.12       2.27      0.15
+4     Nikola Vucevic      C  ORL   8  ... -1.16   3.58       2.98     -0.60
+5       Jrue Holiday  PG,SG  MIL   6  ... -0.84   4.77       3.02     -1.75
+6      Evan Fournier  SG,SF  ORL   8  ... -0.95   1.21       0.06     -1.15
+7       Kyrie Irving     PG  BRO   8  ... -1.26   9.05       7.50     -1.55
+8       Kemba Walker     PG  BOS   6  ...  0.00   1.86       0.86     -1.00
+9    Devonte' Graham  PG,SG  CHA   7  ... -0.53   0.64      -0.91     -1.55
+10      Nikola Jokic   PF,C  DEN   6  ... -2.74   9.84       8.39     -1.45
+11   Larry Nance Jr.   PF,C  CLE   5  ...  0.84   0.98       1.03      0.05
+
+[12 rows x 30 columns]
+ben_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   D'Angelo Russell  PG,SG  MIN   3  ...  0.00   0.31      -0.75     -1.06
+1      Fred VanVleet  PG,SG  TOR   4  ... -0.70  12.83      11.07     -1.76
+2        Jeremy Lamb  SG,SF  IND   4  ...  0.00   4.15       3.78     -0.37
+3      Nicolas Batum  SF,PF  LAC   3  ...  1.31   4.29       4.43      0.14
+4     Nikola Vucevic      C  ORL   4  ... -1.01   3.00       2.63     -0.37
+5       Jrue Holiday  PG,SG  MIL   4  ... -0.50   7.05       5.29     -1.76
+6      Evan Fournier  SG,SF  ORL   4  ... -0.70   2.21       1.52     -0.69
+7       Kyrie Irving     PG  BRO   4  ... -1.01   9.65       7.80     -1.85
+8       Kemba Walker     PG  BOS   3  ...  0.30  -1.10      -1.89     -0.79
+9    Devonte' Graham  PG,SG  CHA   4  ... -1.01   1.09      -0.67     -1.76
+10      Nikola Jokic   PF,C  DEN   3  ... -1.41  12.38      11.32     -1.06
+11   Larry Nance Jr.   PF,C  CLE   2  ...  0.30  -0.66      -0.66      0.00
+
+[12 rows x 30 columns]
+dylan_roster.csv
+              PLAYER      POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   Donovan Mitchell    PG,SG  UTA  70  ... -1.60   2.21       0.96     -1.25
+1         Joe Harris    SG,SF  BRO  70  ...  0.12  -1.35      -0.87      0.48
+2      Julius Randle     PF,C  NYK  65  ... -1.97   1.10      -0.51     -1.61
+3         Al Horford     PF,C  OKL  62  ...  0.38   2.73       1.91     -0.82
+4       Bradley Beal    SG,SF  WAS  60  ... -1.89   9.60       8.21     -1.39
+5      PJ Washington  SF,PF,C  CHA  70  ... -0.32  -0.84      -0.73      0.11
+6          John Wall       PG  HOU  55  ... -2.95   0.27      -2.65     -2.92
+7   Montrezl Harrell     PF,C  LAL  64  ...  0.14  -0.62      -0.08      0.54
+8      Jarrett Allen        C  CLE  70  ...  0.75   2.12       2.86      0.74
+9         Trae Young       PG  ATL  68  ... -2.86   2.75      -0.89     -3.64
+10      Devin Booker    SG,SF  PHX  70  ... -2.51   2.14       1.03     -1.11
+11        Seth Curry    PG,SG  PHI  67  ...  0.51  -0.19       0.08      0.27
+12   Khris Middleton    SF,PF  MIL  67  ... -0.78   5.40       4.30     -1.10
+13      Jusuf Nurkic        C  POR  36  ... -0.42   2.62       2.16     -0.46
+
+[14 rows x 30 columns]
+dylan_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   Donovan Mitchell  PG,SG  UTA  19  ... -1.89   2.07       0.90     -1.17
+1         Joe Harris  SG,SF  BRO  23  ...  0.56   2.03       2.19      0.16
+2      Julius Randle   PF,C  NYK  22  ... -2.23   4.10       2.19     -1.91
+3         Al Horford   PF,C  OKL  12  ...  0.67   2.25       2.14     -0.11
+4       Bradley Beal  SG,SF  WAS  16  ... -2.11   9.20       7.98     -1.22
+5          John Wall     PG  HOU  12  ... -1.67   2.22       0.42     -1.80
+6   Montrezl Harrell   PF,C  LAL  22  ...  0.33   1.29       2.03      0.74
+7      Jarrett Allen      C  CLE  20  ... -0.22   3.82       4.35      0.53
+8         Trae Young     PG  ATL  19  ... -3.12   5.08       1.58     -3.50
+9       Devin Booker  SG,SF  PHX  15  ... -2.89   1.15       0.35     -0.80
+10        Seth Curry  PG,SG  PHI  14  ...  0.11   2.40       2.24     -0.16
+11   Khris Middleton  SF,PF  MIL  20  ... -0.89   7.31       5.40     -1.91
+12      Jusuf Nurkic      C  POR  12  ... -0.56  -1.20      -1.41     -0.21
+
+[13 rows x 30 columns]
+dylan_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   Donovan Mitchell  PG,SG  UTA   5  ... -1.68   2.29       1.64     -0.65
+1         Joe Harris  SG,SF  BRO   8  ...  0.32   1.97       1.87     -0.10
+2      Julius Randle   PF,C  NYK   7  ... -1.89   5.10       3.40     -1.70
+3         Al Horford   PF,C  OKL   3  ...  0.95   9.12       8.77     -0.35
+4       Bradley Beal  SG,SF  WAS   6  ... -2.10   6.46       5.51     -0.95
+5          John Wall     PG  HOU   5  ... -1.05   1.40      -0.75     -2.15
+6   Montrezl Harrell   PF,C  LAL   7  ...  0.11   1.47       2.12      0.65
+7      Jarrett Allen      C  CLE   8  ...  0.11   3.90       4.55      0.65
+8         Trae Young     PG  ATL   6  ... -2.95   9.89       6.44     -3.45
+9       Devin Booker  SG,SF  PHX   3  ... -3.26   2.75       2.75      0.00
+10        Seth Curry  PG,SG  PHI   6  ...  0.21  -1.53      -1.13      0.40
+11   Khris Middleton  SF,PF  MIL   6  ... -0.53   6.08       3.73     -2.35
+
+[12 rows x 30 columns]
+dylan_roster.csv
+              PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   Donovan Mitchell  PG,SG  UTA   2  ... -1.71   1.35       1.35      0.00
+1         Joe Harris  SG,SF  BRO   4  ...  0.30   3.93       3.47     -0.46
+2      Julius Randle   PF,C  NYK   3  ... -2.01   5.22       3.37     -1.85
+3         Al Horford   PF,C  OKL   3  ...  1.01   9.13       8.67     -0.46
+4       Bradley Beal  SG,SF  WAS   4  ... -1.21   9.06       8.00     -1.06
+5          John Wall     PG  HOU   3  ... -1.01   5.08       2.91     -2.17
+6   Montrezl Harrell   PF,C  LAL   4  ...  0.00   2.42       3.11      0.69
+7      Jarrett Allen      C  CLE   4  ...  0.30   4.83       5.29      0.46
+8         Trae Young     PG  ATL   3  ... -2.71   9.61       5.13     -4.48
+9       Devin Booker  SG,SF  PHX   1  ... -0.70   2.19       3.11      0.92
+10        Seth Curry  PG,SG  PHI   3  ...  0.60  -1.23      -1.09      0.14
+11   Khris Middleton  SF,PF  MIL   4  ... -0.50   7.38       5.07     -2.31
+
+[12 rows x 30 columns]
+george_roster.csv
+                PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0         Jamal Murray     PG,SG  DEN  68  ... -1.11   3.44       2.02     -1.42
+1      Josh Richardson     SG,SF  DAL  60  ... -0.67   0.61       0.49     -0.12
+2         Jayson Tatum     SF,PF  BOS  70  ... -0.92   7.30       6.33     -0.97
+3      Zion Williamson        PF  NOP  60  ... -1.60   1.15       1.13     -0.02
+4          Serge Ibaka      PF,C  LAC  62  ... -0.44   0.65       1.26      0.61
+5         Lou Williams     PG,SG  LAC  68  ... -0.37  -2.57      -3.35     -0.78
+6     Domantas Sabonis      PF,C  IND  60  ... -1.27   3.97       2.47     -1.50
+7          Eric Gordon     SG,SF  HOU  58  ...  0.53  -3.09      -2.53      0.56
+8      Otto Porter Jr.     SF,PF  CHI  50  ...  0.60   1.02       1.24      0.22
+9        Mason Plumlee      PF,C  DET  60  ... -0.24  -3.14      -3.71     -0.57
+10         Tyler Herro  PG,SG,SF  MIA  64  ... -0.24  -0.21      -0.23     -0.02
+11  Karl-Anthony Towns         C  MIN  44  ... -1.62  11.42      10.74     -0.68
+12    Lonnie Walker IV     SG,SF  SAS  64  ...  0.70  -2.57      -2.10      0.47
+
+[13 rows x 30 columns]
+george_roster.csv
+                PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0         Jamal Murray     PG,SG  DEN  19  ... -0.56   1.91       0.85     -1.06
+1      Josh Richardson     SG,SF  DAL  12  ...  0.22  -0.91      -0.59      0.32
+2         Jayson Tatum     SF,PF  BOS  14  ... -1.34   6.51       5.87     -0.64
+3      Zion Williamson        PF  NOP  18  ... -1.45   1.92       1.97      0.05
+4          Serge Ibaka      PF,C  LAC  21  ...  0.11   1.39       1.76      0.37
+5         Lou Williams     PG,SG  LAC  20  ...  0.33  -3.35      -3.72     -0.37
+6     Domantas Sabonis      PF,C  IND  21  ... -2.34   3.67       1.92     -1.75
+7          Eric Gordon     SG,SF  HOU  15  ... -0.45   0.28       0.39      0.11
+8      Otto Porter Jr.     SF,PF  CHI  16  ...  0.56   0.10       0.31      0.21
+9        Mason Plumlee      PF,C  DET  21  ... -0.67   0.72       0.40     -0.32
+10         Tyler Herro  PG,SG,SF  MIA  13  ... -1.67  -0.81      -1.77     -0.96
+11  Karl-Anthony Towns         C  MIN   4  ... -1.22  12.28      11.27     -1.01
+12    Lonnie Walker IV     SG,SF  SAS  21  ...  0.45  -1.77      -1.45      0.32
+
+[13 rows x 30 columns]
+george_roster.csv
+              PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0       Jamal Murray     PG,SG  DEN   6  ... -0.84   3.84       2.34     -1.50
+1    Josh Richardson     SG,SF  DAL   4  ...  0.21  -1.47      -1.32      0.15
+2       Jayson Tatum     SF,PF  BOS   4  ... -2.21   3.50       3.00     -0.50
+3    Zion Williamson        PF  NOP   6  ... -1.37   3.49       2.99     -0.50
+4        Serge Ibaka      PF,C  LAC   8  ... -0.21   2.50       2.90      0.40
+5       Lou Williams     PG,SG  LAC   8  ... -0.21  -3.20      -3.95     -0.75
+6   Domantas Sabonis      PF,C  IND   8  ... -2.74   2.52       0.92     -1.60
+7        Eric Gordon     SG,SF  HOU   7  ... -0.95  -0.31      -0.46     -0.15
+8    Otto Porter Jr.     SF,PF  CHI   4  ...  0.95  -1.69      -1.69      0.00
+9      Mason Plumlee      PF,C  DET   8  ... -1.37  -1.33      -1.18      0.15
+10       Tyler Herro  PG,SG,SF  MIA   3  ... -2.21  -0.26      -1.76     -1.50
+11  Lonnie Walker IV     SG,SF  SAS   7  ...  0.11  -2.27      -2.07      0.20
+
+[12 rows x 30 columns]
+george_roster.csv
+              PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0       Jamal Murray     PG,SG  DEN   3  ...  0.30   5.19       3.66     -1.53
+1    Josh Richardson     SG,SF  DAL   4  ...  0.30  -0.53      -0.53      0.00
+2       Jayson Tatum     SF,PF  BOS   3  ... -2.41   4.31       3.99     -0.32
+3    Zion Williamson        PF  NOP   4  ... -1.71   4.63       3.80     -0.83
+4        Serge Ibaka      PF,C  LAC   4  ...  0.30   3.57       3.80      0.23
+5       Lou Williams     PG,SG  LAC   4  ... -0.20  -0.18      -1.24     -1.06
+6   Domantas Sabonis      PF,C  IND   4  ... -3.22   3.85       2.00     -1.85
+7        Eric Gordon     SG,SF  HOU   3  ... -1.41  -0.15      -0.29     -0.14
+8      Mason Plumlee      PF,C  DET   4  ... -0.70   3.36       3.36      0.00
+9        Tyler Herro  PG,SG,SF  MIA   3  ... -2.01   0.74      -0.79     -1.53
+10  Lonnie Walker IV     SG,SF  SAS   4  ... -0.50  -1.77      -1.91     -0.14
+
+[11 rows x 30 columns]
+zmo_roster.csv
+                PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0        Kawhi Leonard  SG,SF  LAC  60  ... -0.62  12.22      10.56     -1.66
+1   Michael Porter Jr.  SF,PF  DEN  60  ...  0.32   6.49       6.92      0.43
+2        Mikal Bridges  SG,SF  PHX  69  ...  0.16   4.25       4.51      0.26
+3      Dejounte Murray  PG,SG  SAS  67  ... -0.68   2.10       0.74     -1.36
+4       Gary Trent Jr.  SG,SF  POR  64  ...  0.39  -0.66       0.05      0.71
+5        Davis Bertans   PF,C  WAS  60  ...  0.82   0.76       1.33      0.57
+6        Chris Boucher   PF,C  TOR  64  ...  0.93   6.94       7.95      1.01
+7       Justin Holiday  SG,SF  IND  67  ...  1.09   1.52       2.02      0.50
+8     Robert Covington   PF,C  POR  64  ... -0.16   1.03       1.56      0.53
+9          Enes Kanter      C  POR  55  ... -0.20   2.18       2.66      0.48
+10        Daniel Theis      C  BOS  70  ...  0.96   0.75       1.31      0.56
+11      DeAndre Jordan      C  BRO  64  ... -0.10  -0.76      -0.59      0.17
+12    Donte DiVincenzo  PG,SG  MIL  68  ...  0.13   0.15       0.14     -0.01
+13   Jaren Jackson Jr.   PF,C  MEM  58  ... -0.29   3.69       4.26      0.57
+14          OG Anunoby  SF,PF  TOR  70  ...  0.14   2.25       2.63      0.38
+
+[15 rows x 30 columns]
+zmo_roster.csv
+                PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0        Kawhi Leonard  SG,SF  LAC  18  ... -0.22  11.33       9.74     -1.59
+1   Michael Porter Jr.  SF,PF  DEN  10  ...  0.11   5.93       6.67      0.74
+2        Mikal Bridges  SG,SF  PHX  19  ...  0.67   3.15       3.36      0.21
+3      Dejounte Murray  PG,SG  SAS  21  ... -0.33   1.65       0.16     -1.49
+4       Gary Trent Jr.  SG,SF  POR  18  ...  0.89  -1.01      -0.32      0.69
+5        Davis Bertans   PF,C  WAS  14  ...  1.00  -3.14      -2.45      0.69
+6        Chris Boucher   PF,C  TOR  21  ...  0.78   4.33       5.07      0.74
+7       Justin Holiday  SG,SF  IND  21  ...  0.67   0.77       1.35      0.58
+8     Robert Covington   PF,C  POR  18  ...  0.33   0.08       0.40      0.32
+9          Enes Kanter      C  POR  20  ...  0.11   2.26       2.90      0.64
+10        Daniel Theis      C  BOS  19  ...  0.33   0.53       1.17      0.64
+11      DeAndre Jordan      C  BRO  22  ... -0.22  -0.63      -0.26      0.37
+12    Donte DiVincenzo  PG,SG  MIL  20  ...  0.11  -0.61      -0.72     -0.11
+13          OG Anunoby  SF,PF  TOR  17  ... -0.45   3.98       4.40      0.42
+
+[14 rows x 30 columns]
+zmo_roster.csv
+                PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0        Kawhi Leonard  SG,SF  LAC   6  ...  0.21  13.98      12.98     -1.00
+1   Michael Porter Jr.  SF,PF  DEN   6  ... -0.63   2.75       3.65      0.90
+2        Mikal Bridges  SG,SF  PHX   7  ... -0.42   0.85       0.45     -0.40
+3      Dejounte Murray  PG,SG  SAS   7  ... -0.11   0.29      -0.76     -1.05
+4       Gary Trent Jr.  SG,SF  POR   6  ...  0.42   3.06       3.71      0.65
+5        Chris Boucher   PF,C  TOR   8  ...  0.42  -1.67      -1.02      0.65
+6       Justin Holiday  SG,SF  IND   8  ...  0.84   1.19       1.54      0.35
+7     Robert Covington   PF,C  POR   4  ...  0.42   2.67       2.67      0.00
+8          Enes Kanter      C  POR   6  ... -0.84   2.21       2.61      0.40
+9         Daniel Theis      C  BOS   7  ...  0.21   4.61       5.21      0.60
+10      DeAndre Jordan      C  BRO   8  ...  0.21   0.44       0.89      0.45
+11    Donte DiVincenzo  PG,SG  MIL   6  ... -0.32  -3.31      -3.51     -0.20
+12          OG Anunoby  SF,PF  TOR   4  ... -1.16   6.33       6.58      0.25
+
+[13 rows x 30 columns]
+zmo_roster.csv
+                PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0        Kawhi Leonard  SG,SF  LAC   3  ...  1.01  11.65      10.86     -0.79
+1   Michael Porter Jr.  SF,PF  DEN   3  ... -1.01   1.30       2.09      0.79
+2        Mikal Bridges  SG,SF  PHX   4  ... -0.50  -0.72      -1.09     -0.37
+3      Dejounte Murray  PG,SG  SAS   4  ... -0.70   0.31      -0.85     -1.16
+4       Gary Trent Jr.  SG,SF  POR   4  ...  0.50   5.60       5.83      0.23
+5        Chris Boucher   PF,C  TOR   4  ...  1.31  -0.35       0.20      0.55
+6       Justin Holiday  SG,SF  IND   4  ...  0.80   2.47       2.47      0.00
+7     Robert Covington   PF,C  POR   3  ...  0.30   4.49       4.35     -0.14
+8          Enes Kanter      C  POR   4  ... -1.51   1.27       1.59      0.32
+9         Daniel Theis      C  BOS   3  ...  0.00   0.26       0.86      0.60
+10      DeAndre Jordan      C  BRO   4  ...  0.50   0.19       0.28      0.09
+11    Donte DiVincenzo  PG,SG  MIL   4  ...  0.00  -2.98      -3.12     -0.14
+
+[12 rows x 30 columns]
+akbar_roster.csv
+             PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   Malcolm Brogdon     PG,SG  IND  62  ... -0.88   5.34       2.81     -2.53
+1      Jaylen Brown     SG,SF  BOS  70  ... -0.92   3.51       3.24     -0.27
+2   Kelly Oubre Jr.  SG,SF,PF  GSW  64  ...  0.22  -1.44      -0.78      0.66
+3     Pascal Siakam      PF,C  TOR  67  ... -0.93   3.64       2.64     -1.00
+4       Bam Adebayo      PF,C  MIA  65  ... -1.53   5.84       4.27     -1.57
+5      Delon Wright  PG,SG,SF  DET  68  ...  0.25   0.22      -0.69     -0.91
+6    Brandon Ingram     SF,PF  NOP  64  ... -1.59   2.87       2.33     -0.54
+7      Clint Capela         C  ATL  59  ...  0.00   4.21       4.84      0.63
+8    Andre Drummond         C  CLE  70  ... -2.04   1.62       1.99      0.37
+9        Lonzo Ball     PG,SG  NOP  67  ... -1.73   1.32      -1.25     -2.57
+10     De'Aaron Fox        PG  SAC  65  ... -1.94   1.18      -0.99     -2.17
+11      LaMelo Ball     PG,SG  CHA  65  ... -1.34   0.28      -1.74     -2.02
+12       RJ Barrett     SG,SF  NYK  68  ... -1.35  -3.09      -3.42     -0.33
+
+[13 rows x 30 columns]
+akbar_roster.csv
+             PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   Malcolm Brogdon     PG,SG  IND  21  ... -0.67   6.73       4.29     -2.44
+1      Jaylen Brown     SG,SF  BOS  19  ... -1.22   6.41       5.83     -0.58
+2   Kelly Oubre Jr.  SG,SF,PF  GSW  21  ...  0.00  -1.29      -0.71      0.58
+3     Pascal Siakam      PF,C  TOR  18  ... -1.45   1.44       0.27     -1.17
+4       Bam Adebayo      PF,C  MIA  18  ... -1.89   6.50       4.96     -1.54
+5      Delon Wright  PG,SG,SF  DET  21  ...  0.33   0.95      -0.11     -1.06
+6    Brandon Ingram     SF,PF  NOP  19  ... -1.45   4.40       3.23     -1.17
+7      Clint Capela         C  ATL  17  ...  0.11   5.17       5.86      0.69
+8    Andre Drummond         C  CLE  19  ... -2.34   1.71       1.55     -0.16
+9        Lonzo Ball     PG,SG  NOP  16  ... -0.89   0.91      -0.36     -1.27
+10     De'Aaron Fox        PG  SAC  20  ... -2.23   0.78      -1.34     -2.12
+11      LaMelo Ball     PG,SG  CHA  21  ... -1.22   1.32      -0.64     -1.96
+12       RJ Barrett     SG,SF  NYK  22  ... -0.56  -0.91      -1.39     -0.48
+
+[13 rows x 30 columns]
+akbar_roster.csv
+             PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   Malcolm Brogdon     PG,SG  IND   8  ... -1.37   4.78       2.78     -2.00
+1      Jaylen Brown     SG,SF  BOS   7  ... -0.95   4.21       3.86     -0.35
+2   Kelly Oubre Jr.  SG,SF,PF  GSW   8  ...  0.11  -1.46      -1.26      0.20
+3     Pascal Siakam      PF,C  TOR   6  ... -1.68   1.52       0.77     -0.75
+4       Bam Adebayo      PF,C  MIA   8  ... -1.37   4.80       3.20     -1.60
+5      Delon Wright  PG,SG,SF  DET   8  ... -0.32   3.65       2.35     -1.30
+6    Brandon Ingram     SF,PF  NOP   6  ... -1.16   4.67       3.97     -0.70
+7      Clint Capela         C  ATL   6  ...  0.21   8.66       9.21      0.55
+8    Andre Drummond         C  CLE   7  ... -2.00   2.30       2.30      0.00
+9        Lonzo Ball     PG,SG  NOP   6  ... -0.32   3.81       2.21     -1.60
+10     De'Aaron Fox        PG  SAC   6  ... -3.26  -0.78      -3.48     -2.70
+11      LaMelo Ball     PG,SG  CHA   7  ... -2.00   1.12      -0.73     -1.85
+12       RJ Barrett     SG,SF  NYK   7  ... -0.74   0.10      -0.25     -0.35
+
+[13 rows x 30 columns]
+akbar_roster.csv
+             PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0   Malcolm Brogdon     PG,SG  IND   4  ... -0.50   6.28       4.29     -1.99
+1      Jaylen Brown     SG,SF  BOS   3  ... -0.40   4.42       3.50     -0.92
+2   Kelly Oubre Jr.  SG,SF,PF  GSW   4  ... -0.50  -0.24      -0.15      0.09
+3     Pascal Siakam      PF,C  TOR   4  ... -1.51   2.82       1.90     -0.92
+4       Bam Adebayo      PF,C  MIA   4  ... -1.21   5.08       3.79     -1.29
+5      Delon Wright  PG,SG,SF  DET   4  ...  0.30   1.56       0.40     -1.16
+6    Brandon Ingram     SF,PF  NOP   4  ... -0.20   5.87       4.71     -1.16
+7      Clint Capela         C  ATL   3  ...  0.30   5.55       5.87      0.32
+8    Andre Drummond         C  CLE   3  ... -1.71   5.96       5.64     -0.32
+9        Lonzo Ball     PG,SG  NOP   4  ...  0.00   5.90       4.37     -1.53
+10     De'Aaron Fox        PG  SAC   4  ... -3.72   1.76      -1.01     -2.77
+11      LaMelo Ball     PG,SG  CHA   4  ... -1.21   5.36       3.05     -2.31
+12       RJ Barrett     SG,SF  NYK   3  ... -1.01   1.13       0.99     -0.14
+
+[13 rows x 30 columns]
+rob_roster.csv
+                PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0        DeMar DeRozan  SG,SF,PF  SAS  70  ... -0.86   4.19       2.11     -2.08
+1        Derrick White     PG,SG  SAS  56  ... -0.08   3.39       2.37     -1.02
+2       Keldon Johnson     SF,PF  SAS  60  ...  0.41   1.45       2.03      0.58
+3       Richaun Holmes      PF,C  SAC  67  ...  0.63   5.14       5.48      0.34
+4       Damian Lillard        PG  POR  65  ... -1.58   9.36       6.60     -2.76
+5   Kristaps Porzingis      PF,C  DAL  55  ...  0.01   6.33       6.71      0.38
+6        Anthony Davis      PF,C  LAL  65  ... -0.91  11.71      11.39     -0.32
+7        Collin Sexton     PG,SG  CLE  70  ... -1.28   2.41       1.74     -0.67
+8    Jonas Valanciunas         C  MEM  70  ... -0.31   3.03       3.31      0.28
+9      Lauri Markkanen      PF,C  CHI  50  ... -0.25   2.89       3.38      0.49
+10       Tobias Harris     SF,PF  PHI  70  ...  0.26   4.39       3.98     -0.41
+11     Duncan Robinson     SG,SF  MIA  70  ...  0.86   1.94       2.36      0.42
+12         Brook Lopez         C  MIL  68  ...  0.93   2.10       2.77      0.67
+13  Wendell Carter Jr.         C  CHI  37  ... -0.17   0.82       1.14      0.32
+14         T.J. Warren     SF,PF  IND  60  ...  0.41   3.12       3.45      0.33
+
+[15 rows x 30 columns]
+rob_roster.csv
+                PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0        DeMar DeRozan  SG,SF,PF  SAS  19  ... -0.33   5.00       2.77     -2.23
+1        Derrick White     PG,SG  SAS   3  ...  0.11  -1.27      -1.22      0.05
+2       Keldon Johnson     SF,PF  SAS  21  ... -0.11   1.76       1.87      0.11
+3       Richaun Holmes      PF,C  SAC  19  ...  0.00   5.53       5.74      0.21
+4       Damian Lillard        PG  POR  20  ... -1.78   9.88       7.28     -2.60
+5   Kristaps Porzingis      PF,C  DAL  10  ...  0.11   3.29       4.09      0.80
+6        Anthony Davis      PF,C  LAL  19  ... -0.56   7.14       6.66     -0.48
+7        Collin Sexton     PG,SG  CLE  16  ... -1.45   2.50       1.60     -0.90
+8    Jonas Valanciunas         C  MEM  12  ... -1.00   1.66       1.98      0.32
+9      Lauri Markkanen      PF,C  CHI  12  ... -0.56   4.05       4.79      0.74
+10       Tobias Harris     SF,PF  PHI  18  ... -1.11   5.01       4.85     -0.16
+11     Duncan Robinson     SG,SF  MIA  20  ... -0.22   0.23       0.65      0.42
+12         Brook Lopez         C  MIL  20  ...  0.67   1.70       2.60      0.90
+13  Wendell Carter Jr.         C  CHI  14  ... -0.56  -0.44      -0.44      0.00
+14         T.J. Warren     SF,PF  IND   4  ...  0.45  -1.80      -1.22      0.58
+
+[15 rows x 30 columns]
+rob_roster.csv
+                PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0        DeMar DeRozan  SG,SF,PF  SAS   7  ... -0.53   1.82       0.02     -1.80
+1        Derrick White     PG,SG  SAS   2  ...  0.21  -0.19      -0.54     -0.35
+2       Keldon Johnson     SF,PF  SAS   7  ... -0.42   0.89       0.99      0.10
+3       Richaun Holmes      PF,C  SAC   6  ... -0.84   3.63       3.68      0.05
+4       Damian Lillard        PG  POR   6  ... -1.68  10.20       7.10     -3.10
+5   Kristaps Porzingis      PF,C  DAL   6  ... -0.11   4.05       4.60      0.55
+6        Anthony Davis      PF,C  LAL   6  ... -1.16   3.64       3.19     -0.45
+7        Collin Sexton     PG,SG  CLE   8  ... -2.21  -0.34      -1.49     -1.15
+8      Lauri Markkanen      PF,C  CHI   5  ... -0.84   3.74       4.49      0.75
+9        Tobias Harris     SF,PF  PHI   7  ... -1.47   3.62       3.62      0.00
+10     Duncan Robinson     SG,SF  MIA   8  ... -0.42  -1.60      -1.20      0.40
+11         Brook Lopez         C  MIL   6  ...  0.21   0.81       1.86      1.05
+
+[12 rows x 30 columns]
+rob_roster.csv
+                PLAYER       POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+0        DeMar DeRozan  SG,SF,PF  SAS   4  ... -0.50   2.58       0.73     -1.85
+1        Derrick White     PG,SG  SAS   2  ...  0.30   0.80       0.34     -0.46
+2       Keldon Johnson     SF,PF  SAS   4  ... -0.50   4.07       4.07      0.00
+3       Richaun Holmes      PF,C  SAC   4  ... -1.21   2.74       2.60     -0.14
+4       Damian Lillard        PG  POR   4  ... -1.51   9.32       6.41     -2.91
+5   Kristaps Porzingis      PF,C  DAL   3  ... -0.40   1.90       2.69      0.79
+6        Anthony Davis      PF,C  LAL   3  ... -1.41   1.85       1.85      0.00
+7        Collin Sexton     PG,SG  CLE   4  ... -2.21  -0.48      -1.31     -0.83
+8      Lauri Markkanen      PF,C  CHI   2  ... -1.71   8.65       9.11      0.46
+9        Tobias Harris     SF,PF  PHI   3  ... -1.01   4.22       4.22      0.00
+10     Duncan Robinson     SG,SF  MIA   4  ... -0.50  -0.96      -0.87      0.09
+11         Brook Lopez         C  MIL   4  ...  0.00   1.77       2.56      0.79
+
+[12 rows x 30 columns]
+                      PLAYER    POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+82               Maxi Kleber   PF,C  DAL  70  ...  0.86   1.40       1.99      0.59
+91                 JJ Redick     SG  NOP  64  ...  0.47   1.00       1.23      0.23
+97             Rui Hachimura  SF,PF  WAS  67  ...  0.25   0.81       1.04      0.23
+107          Nemanja Bjelica     PF  SAC  70  ...  0.50   0.41       0.44      0.03
+108             Aaron Gordon  SF,PF  ORL  68  ...  0.01   0.40      -0.31     -0.71
+109            Luguentz Dort  SG,SF  OKL  70  ...  0.74   0.36       1.17      0.81
+111              Patty Mills     PG  SAS  60  ...  0.90   0.29       0.29      0.00
+114         Patrick Beverley  PG,SG  LAC  60  ...  0.33   0.25      -0.45     -0.70
+115            Darius Bazley  SF,PF  OKL  64  ...  0.10   0.22       0.74      0.52
+117             Paul Millsap   PF,C  DEN  60  ...  0.31   0.20       0.71      0.51
+118         Danilo Gallinari  SF,PF  ATL  58  ...  0.65   0.17       0.75      0.58
+120        Derrick Jones Jr.  SG,SF  POR  54  ...  1.25   0.11       0.78      0.67
+121             Derrick Rose  PG,SG  DET  64  ... -1.04   0.05      -1.28     -1.33
+122             Kelly Olynyk   PF,C  MIA  63  ...  0.41   0.04       0.31      0.27
+125  Michael Carter-Williams  PG,SG  ORL  58  ...  0.23  -0.05      -0.27     -0.22
+127              P.J. Tucker   PF,C  HOU  71  ...  0.75  -0.20       0.29      0.49
+129             Bobby Portis   PF,C  MIL  64  ...  0.33  -0.24       0.12      0.36
+131           Daniel Gafford      C  CHI  56  ...  0.57  -0.37       0.59      0.96
+132            Royce O'Neale  SF,PF  UTA  70  ...  0.78  -0.41      -0.38      0.03
+133        De'Anthony Melton  PG,SG  MEM  68  ... -0.08  -0.49      -1.07     -0.58
+134               Tyus Jones     PG  MEM  68  ...  0.56  -0.49      -2.30     -1.81
+135                 Mo Bamba      C  ORL  63  ...  0.93  -0.52       0.39      0.91
+136         Danuel House Jr.  SF,PF  HOU  58  ...  1.05  -0.53       0.17      0.70
+137            Miles Bridges  SF,PF  CHA  70  ...  0.19  -0.56      -0.09      0.47
+139      Dorian Finney-Smith  SF,PF  DAL  70  ...  0.81  -0.59      -0.10      0.49
+141              Cody Zeller      C  CHA  42  ...  0.16  -0.62      -0.18      0.44
+145              George Hill  PG,SG  OKL  64  ...  0.59  -0.67      -1.26     -0.59
+146        Marvin Bagley III   PF,C  SAC  58  ... -0.01  -0.69       0.22      0.91
+148             Trevor Ariza  SG,SF  OKL  58  ...  0.42  -0.76      -0.30      0.46
+149                 Naz Reid      C  MIN  58  ...  0.85  -0.82      -0.31      0.51
+151              Gary Harris  SG,SF  DEN  67  ...  0.27  -0.85      -0.71      0.14
+152            Jae'Sean Tate     SG  HOU  64  ...  0.26  -0.85      -0.47      0.38
+153              Ivica Zubac      C  LAC  68  ...  0.82  -0.96      -0.23      0.73
+154            Moritz Wagner   PF,C  WAS  58  ... -0.16  -1.00      -0.40      0.60
+155              Danny Green  SG,SF  PHI  70  ...  0.88  -1.01      -0.35      0.66
+156         Kevin Porter Jr.  SG,SF  CLE  64  ... -0.94  -1.03      -1.15     -0.12
+157               Marc Gasol      C  LAL  60  ...  0.60  -1.07      -1.29     -0.22
+159               Joe Ingles  SG,SF  UTA  68  ... -0.26  -1.13      -2.43     -1.30
+160           Derrick Favors   PF,C  UTA  60  ...  0.94  -1.14      -0.44      0.70
+162            Elfrid Payton     PG  NYK  67  ... -0.53  -1.20      -3.35     -2.15
+
+[40 rows x 30 columns]
+                  PLAYER      POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+73         Thomas Bryant        C  WAS  10  ...  0.33   1.87       2.35      0.48
+82     De'Anthony Melton    PG,SG  MEM  10  ... -0.11   1.61       1.29     -0.32
+84              Naz Reid        C  MIN  18  ...  0.00   1.45       2.09      0.64
+86       P.J. Washington  SF,PF,C  CHA  21  ... -0.67   1.43       1.11     -0.32
+88   Robert Williams III        C  BOS  14  ...  0.33   1.37       2.27      0.90
+90         Royce O'Neale    SF,PF  UTA  21  ...  0.45   1.30       1.30      0.00
+93          Gorgui Dieng     PF,C  MEM  13  ...  0.22   1.26       1.68      0.42
+96        Xavier Tillman       PF  MEM  11  ...  1.00   1.13       1.50      0.37
+99          Bobby Portis     PF,C  MIL  20  ...  0.45   0.99       1.63      0.64
+108          Cody Zeller        C  CHA   8  ...  0.89   0.53       0.53      0.00
+110           Tyus Jones       PG  MEM  16  ...  0.56   0.49      -1.37     -1.86
+111         John Konchar       SG  MEM   9  ...  1.34   0.47       0.74      0.27
+112          Patty Mills       PG  SAS  21  ...  0.45   0.45       0.24     -0.21
+113     Garrison Mathews    SG,SF  WAS  11  ...  1.34   0.40       1.25      0.85
+116     Patrick Beverley    PG,SG  LAC  16  ...  0.67   0.29       0.45      0.16
+118          George Hill    PG,SG  OKL  14  ...  0.56   0.29      -0.08     -0.37
+121         Kelly Olynyk     PF,C  MIA  19  ... -0.11   0.20       0.20      0.00
+126        Miles Bridges    SF,PF  CHA  21  ... -0.33  -0.04       0.17      0.21
+127      Cameron Johnson    SF,PF  PHX  19  ...  0.78  -0.09       0.44      0.53
+130        Kevin Huerter    SG,SF  ATL  20  ...  0.33  -0.14      -0.67     -0.53
+131           Joe Ingles    SG,SF  UTA  17  ... -0.22  -0.19      -1.20     -1.01
+132          Danny Green    SG,SF  PHI  21  ...  0.11  -0.20      -0.09      0.11
+133          Maxi Kleber     PF,C  DAL  10  ...  0.67  -0.28       0.30      0.58
+134          Jae Crowder    SF,PF  PHX  19  ...  0.67  -0.32      -0.27      0.05
+135      Wayne Ellington    SG,SF  DET  16  ...  0.67  -0.36       0.33      0.69
+137          Ivica Zubac        C  LAC  22  ...  0.45  -0.47       0.27      0.74
+138         Shake Milton    PG,SG  PHI  18  ... -0.33  -0.47      -0.84     -0.37
+139            Josh Hart    SG,SF  NOP  19  ...  0.78  -0.49      -0.22      0.27
+141       T.J. McConnell    PG,SG  IND  18  ... -0.33  -0.57      -2.43     -1.86
+142       JaMychal Green     PF,C  DEN  16  ...  0.11  -0.58       0.11      0.69
+143         Nerlens Noel     PF,C  NYK  19  ...  0.56  -0.59       0.47      1.06
+146  Dorian Finney-Smith    SF,PF  DAL  12  ...  0.89  -0.64       0.10      0.74
+147         Monte Morris    PG,SG  DEN  20  ...  0.89  -0.65      -1.18     -0.53
+148         Derrick Rose    PG,SG  DET  15  ... -0.56  -0.66      -1.62     -0.96
+149       Sterling Brown    SG,SF  HOU  17  ...  1.00  -0.70      -0.17      0.53
+150    Immanuel Quickley       PG  NYK  18  ...  0.33  -0.76      -0.97     -0.21
+152           Jeff Green  SF,PF,C  BRO  23  ...  0.45  -0.85      -0.32      0.53
+153      Pat Connaughton    SG,SF  MIL  17  ...  1.34  -0.86      -0.33      0.53
+158       Taurean Prince    SF,PF  CLE  20  ...  0.33  -0.91      -0.49      0.42
+159           Khem Birch     PF,C  ORL  22  ...  0.78  -0.92      -0.28      0.64
+
+[40 rows x 30 columns]
+                    PLAYER      POS TEAM  GP  ...   zTO  TOTAL  PuntValue  PuntDiff
+20       De'Anthony Melton    PG,SG  MEM   3  ... -0.53   6.28       5.28     -1.00
+26                Naz Reid        C  MIN   6  ...  0.00   5.13       5.68      0.55
+59             George Hill    PG,SG  OKL   2  ...  0.21   3.31       3.71      0.40
+60               Ish Smith       PG  WAS   2  ...  0.21   3.29       0.44     -2.85
+62           Dillon Brooks    SG,SF  MEM   3  ... -0.11   2.99       3.14      0.15
+63           Royce O'Neale    SF,PF  UTA   7  ...  0.11   2.82       2.67     -0.15
+70              Jeff Green  SF,PF,C  BRO   8  ... -0.21   2.50       2.60      0.10
+71             David Nwaba    SG,SF  HOU   6  ...  1.05   2.49       2.54      0.05
+72            Gorgui Dieng     PF,C  MEM   3  ... -0.84   2.40       2.70      0.30
+77          Xavier Tillman       PF  MEM   3  ...  0.53   2.12       2.27      0.15
+81              Malik Monk    PG,SG  CHA   4  ...  0.21   1.85       2.00      0.15
+84              Tyus Jones       PG  MEM   3  ...  0.95   1.72      -1.28     -3.00
+85          JaMychal Green     PF,C  DEN   6  ...  0.95   1.65       2.15      0.50
+86           Kendrick Nunn    PG,SG  MIA   6  ... -1.05   1.64       1.19     -0.45
+89        Garrison Mathews    SG,SF  WAS   6  ...  1.05   1.52       2.32      0.80
+91               Josh Hart    SG,SF  NOP   6  ...  0.53   1.43       1.33     -0.10
+92         P.J. Washington  SF,PF,C  CHA   7  ... -0.74   1.42       1.12     -0.30
+99            Nerlens Noel     PF,C  NYK   6  ...  0.95   1.15       1.95      0.80
+104      Immanuel Quickley       PG  NYK   7  ... -0.11   1.07       0.72     -0.35
+112            Chuma Okeke       PF  ORL   1  ...  0.21   0.76       0.41     -0.35
+113        Wayne Ellington    SG,SF  DET   8  ...  0.21   0.73       1.08      0.35
+114            Patty Mills       PG  SAS   7  ... -0.11   0.71       0.71      0.00
+118         Taurean Prince    SF,PF  CLE   8  ... -0.21   0.58       0.18     -0.40
+119           Desmond Bane    PG,SG  MEM   3  ...  0.21   0.50       0.30     -0.20
+121             Joe Ingles    SG,SF  UTA   7  ... -0.53   0.42      -1.43     -1.85
+123      Marcus Morris Sr.     PF,C  LAC   7  ...  0.53   0.32       1.17      0.85
+124           John Konchar       SG  MEM   3  ...  0.95   0.30       1.30      1.00
+126            Cody Zeller        C  CHA   7  ...  0.63   0.28       0.08     -0.20
+127            Ivica Zubac        C  LAC   8  ...  0.32   0.24       0.84      0.60
+128           Bobby Portis     PF,C  MIL   6  ...  0.53   0.24       0.74      0.50
+129            Jae Crowder    SF,PF  PHX   7  ... -0.11   0.19       0.39      0.20
+130         Reggie Jackson    PG,SG  LAC   7  ... -0.11   0.13      -0.57     -0.70
+131         T.J. McConnell    PG,SG  IND   8  ... -0.84   0.11      -2.39     -2.50
+134  Juan Toscano-Anderson    SF,PF  GSW   2  ...  1.26  -0.02       0.63      0.65
+135           Cole Anthony       PG  ORL   8  ... -1.26  -0.09      -1.09     -1.00
+136       Danuel House Jr.    SF,PF  HOU   4  ...  0.74  -0.09       0.31      0.40
+137          Jae'Sean Tate       SG  HOU   7  ... -0.11  -0.13       0.57      0.70
+138      Jarred Vanderbilt    SF,PF  MIN   8  ... -0.11  -0.16      -0.06      0.10
+140       Patrick Beverley    PG,SG  LAC   3  ...  0.95  -0.22       0.08      0.30
+142         Andre Iguodala    SG,SF  MIA   7  ...  0.11  -0.28      -0.68     -0.40
+
+[40 rows x 30 columns]
+                       PLAYER      POS TEAM  ...  TOTAL  PuntValue  PuntDiff
+19          Derrick Jones Jr.    SG,SF  POR  ...   7.23       8.15      0.92
+25          De'Anthony Melton    PG,SG  MEM  ...   6.45       5.39     -1.06
+28      Juan Toscano-Anderson    SF,PF  GSW  ...   6.01       6.47      0.46
+42            Anthony Edwards       SG  MIN  ...   5.14       4.77     -0.37
+45          Immanuel Quickley       PG  NYK  ...   4.93       3.87     -1.06
+51              Royce O'Neale    SF,PF  UTA  ...   4.54       4.08     -0.46
+54                   Naz Reid        C  MIN  ...   4.44       5.13      0.69
+56               Theo Maledon       PG  OKL  ...   4.32       4.32      0.00
+58            P.J. Washington  SF,PF,C  CHA  ...   4.30       3.70     -0.60
+61          Patrick Patterson     PF,C  LAC  ...   4.21       5.13      0.92
+63             Derrick Favors     PF,C  UTA  ...   4.09       4.55      0.46
+67                Cody Zeller        C  CHA  ...   3.84       3.15     -0.69
+70                  Ish Smith       PG  WAS  ...   3.79       1.02     -2.77
+74              Dillon Brooks    SG,SF  MEM  ...   3.41       3.41      0.00
+76               Nerlens Noel     PF,C  NYK  ...   3.26       4.18      0.92
+78          Marcus Morris Sr.     PF,C  LAC  ...   3.12       3.67      0.55
+80               Gorgui Dieng     PF,C  MEM  ...   2.95       3.09      0.14
+81             Xavier Tillman       PF  MEM  ...   2.88       2.88      0.00
+85           Danuel House Jr.    SF,PF  HOU  ...   2.78       2.78      0.00
+87                 Jeff Green  SF,PF,C  BRO  ...   2.69       2.55     -0.14
+90           Matisse Thybulle    SG,SF  PHI  ...   2.58       3.18      0.60
+93              Nassir Little       SF  POR  ...   2.47       3.26      0.79
+94                 Tyus Jones       PG  MEM  ...   2.44      -0.47     -2.91
+96                 Malik Monk    PG,SG  CHA  ...   2.36       2.36      0.00
+99             Reggie Jackson    PG,SG  LAC  ...   2.14       1.22     -0.92
+100            JaMychal Green     PF,C  DEN  ...   2.10       2.56      0.46
+102          Garrison Mathews    SG,SF  WAS  ...   2.03       2.49      0.46
+104           DeAndre' Bembry    SF,PF  TOR  ...   1.96       1.36     -0.60
+107             Jae'Sean Tate       SG  HOU  ...   1.88       2.02      0.14
+108              Dwayne Bacon       SG  ORL  ...   1.86       2.09      0.23
+111                 Josh Hart    SG,SF  NOP  ...   1.80       1.34     -0.46
+112               Danny Green    SG,SF  PHI  ...   1.80       1.94      0.14
+115               Patty Mills       PG  SAS  ...   1.71       1.71      0.00
+119               Rajon Rondo       PG  ATL  ...   1.54       1.08     -0.46
+121  Nickeil Alexander-Walker    SG,SF  NOP  ...   1.32       0.95     -0.37
+122                Joe Ingles    SG,SF  UTA  ...   1.32      -0.53     -1.85
+125             Yuta Watanabe    SF,PF  MEM  ...   1.28       1.97      0.69
+128               Abdel Nader    SF,PF  PHX  ...   1.25       1.39      0.14
+129              Desmond Bane    PG,SG  MEM  ...   1.24       0.92     -0.32
+130               Chuma Okeke       PF  ORL  ...   1.20       0.74     -0.46
+
+[40 rows x 30 columns]
