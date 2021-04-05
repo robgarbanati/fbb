@@ -6,7 +6,6 @@ from os import path
 import common
 
 def calc_cat_totals(team):
-    #  print(team)
     i = 0
     total_games = 0
     team_cats = common.team()
@@ -25,13 +24,19 @@ def calc_cat_totals(team):
         team_cats.ftm += team['NumGames'][i] * team['FTM'][i]
         team_cats.fta += team['NumGames'][i] * team['FTA'][i]
         #  i += 1
-    team_cats.ftp = team_cats.ftm/team_cats.fta
-    team_cats.fgp = team_cats.fgm/team_cats.fga
+    if team_cats.fta == 0:
+        team_cats.ftp = 0
+    else:
+        team_cats.ftp = team_cats.ftm/team_cats.fta
+    if team_cats.fga == 0:
+        team_cats.fgp = 0
+    else:
+        team_cats.fgp = team_cats.fgm/team_cats.fga
     team_cats.calc_stdevs(total_games)
     #  team_cats.calc_variances()
     print(team)
     print(team_cats)
-    print(total_games)
+    print(f'{total_games=}')
     return team_cats
 
 def calc_win_prob(myteam, theirteam, my_stats_csv, their_stats_csv):
@@ -81,10 +86,14 @@ def check_if_file_exists(infile):
         sys.exit(1)
 
 @click.command()
-@click.option('--my-roster', '-r', type=str, default='rob_roster.csv', help='Specify path to my roster csv.')
-@click.option('--their-roster', '-o', type=str, default='ben_roster.csv', help='Specify path to their roster csv.')
-@click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
-@click.option('--their-stats', '-t', type=str, default='ben_stats.csv', help='Specify path to their stats csv.')
+@click.option('--my-roster', '-r', type=str, default='rob_roster_vs_akbar.csv', help='Specify path to my roster csv.')
+@click.option('--their-roster', '-o', type=str, default='akbar_roster.csv', help='Specify path to their roster csv.')
+@click.option('--my-stats', '-m', type=str, default='rob_stats_vs_akbar.csv', help='Specify path to my stats csv.')
+@click.option('--their-stats', '-t', type=str, default='akbar_stats.csv', help='Specify path to their stats csv.')
+#  @click.option('--my-roster', '-r', type=str, default='rob_roster.csv', help='Specify path to my roster csv.')
+#  @click.option('--their-roster', '-o', type=str, default='brandt_roster.csv', help='Specify path to their roster csv.')
+#  @click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
+#  @click.option('--their-stats', '-t', type=str, default='brandt_stats.csv', help='Specify path to their stats csv.')
 def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     check_if_file_exists(my_roster)
     check_if_file_exists(their_roster)
@@ -97,11 +106,11 @@ def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     their_cats = calc_cat_totals(theirteam)
     calc_win_prob(my_cats, their_cats, my_stats, their_stats)
 
-    myteam = common.build_team(my_roster, "zstats_rankings.csv")
-    theirteam = common.build_team(their_roster, "zstats_rankings.csv")
-    my_cats = calc_cat_totals(myteam)
-    their_cats = calc_cat_totals(theirteam)
-    calc_win_prob(my_cats, their_cats, my_stats, their_stats)
+    #  myteam = common.build_team(my_roster, "zstats_rankings.csv")
+    #  theirteam = common.build_team(their_roster, "zstats_rankings.csv")
+    #  my_cats = calc_cat_totals(myteam)
+    #  their_cats = calc_cat_totals(theirteam)
+    #  calc_win_prob(my_cats, their_cats, my_stats, their_stats)
 
     myteam = common.build_team(my_roster, "zstats_rankings_14.csv")
     theirteam = common.build_team(their_roster, "zstats_rankings_14.csv")
@@ -109,11 +118,11 @@ def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     their_cats = calc_cat_totals(theirteam)
     calc_win_prob(my_cats, their_cats, my_stats, their_stats)
 
-    myteam = common.build_team(my_roster, "zstats_rankings_7.csv")
-    theirteam = common.build_team(their_roster, "zstats_rankings_7.csv")
-    my_cats = calc_cat_totals(myteam)
-    their_cats = calc_cat_totals(theirteam)
-    calc_win_prob(my_cats, their_cats, my_stats, their_stats)
+    #  myteam = common.build_team(my_roster, "zstats_rankings_7.csv")
+    #  theirteam = common.build_team(their_roster, "zstats_rankings_7.csv")
+    #  my_cats = calc_cat_totals(myteam)
+    #  their_cats = calc_cat_totals(theirteam)
+    #  calc_win_prob(my_cats, their_cats, my_stats, their_stats)
 
 if __name__ == '__main__':
     optimize_lineups()

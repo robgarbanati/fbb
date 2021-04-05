@@ -33,7 +33,7 @@ with open('rosters.raw', 'r') as rawfile:
         elif line == "Inbred Intangibles":
             found_gm = True
             gm = "ben"
-        elif line == "Titties Over Titles":
+        elif line == "Big Nik 3nergy":
             found_gm = True
             gm = "kyle"
         elif line == "Team De'Ath":

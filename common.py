@@ -26,7 +26,21 @@ def get_stats(csv_file):
         stl = stats.loc[stats.index[index], 'zSTL']
         to = stats.loc[stats.index[index], 'zTO']
         total = stats.loc[stats.index[index], 'TOTAL']
-        pv = total - reb - ast - stl - blk - pts
+        #  print(pts)
+        #  print(ast)
+        #  print(blk)
+        #  print(reb)
+        #  print(ftp)
+        #  print(fgp)
+        #  print(tpm)
+        #  print(stl)
+        #  print(to)
+        #  print(total)
+        #  truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
+        #  pv = total - pts - ast - blk - reb - ftp - fgp - stl - to
+        pv = stl + tpm
+        #  pv = stl + reb + ftp + fgp + to
+        #  pv = total
         punt_diff = pv - total
         stats.loc[stats.index[index], 'PuntValue'] = pv
         stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
@@ -53,7 +67,6 @@ def build_full_team(schedcsv, source="projections"):
     team_stats = pd.DataFrame()
     for i in range(0,endnum):
         name = schedule.iloc[i,1]
-        print(f'{name=}')
         out = schedule.iloc[i,0]
         if out == 'X':
             continue
@@ -233,43 +246,64 @@ class team():
         stdev_ten = self.pts*self.pts_stdev_mult_ten
         variance_ten = math.pow(stdev_ten, 2)
         mult = variance_ten*total_games/10
-        self.pts_stdev = math.sqrt(mult)/(total_games/10)
+        if total_games == 0:
+            self.pts_stdev = 0
+        else:
+            self.pts_stdev = math.sqrt(mult)/(total_games/10)
 
         self.ast_stdev = self.ast*self.ast_stdev_mult_ten
         stdev_ten = self.ast*self.ast_stdev_mult_ten
         variance_ten = math.pow(stdev_ten, 2)
         mult = variance_ten*total_games/10
-        self.ast_stdev = math.sqrt(mult)/(total_games/10)
+        if total_games == 0:
+            self.ast_stdev = 0
+        else:
+            self.ast_stdev = math.sqrt(mult)/(total_games/10)
 
         self.blk_stdev = self.blk*self.blk_stdev_mult
         stdev_ten = self.blk*self.blk_stdev_mult_ten
         variance_ten = math.pow(stdev_ten, 2)
         mult = variance_ten*total_games/10
-        self.blk_stdev = math.sqrt(mult)/(total_games/10)
+        if total_games == 0:
+            self.blk_stdev = 0
+        else:
+            self.blk_stdev = math.sqrt(mult)/(total_games/10)
 
         self.stl_stdev = self.stl*self.stl_stdev_mult
         stdev_ten = self.stl*self.stl_stdev_mult_ten
         variance_ten = math.pow(stdev_ten, 2)
         mult = variance_ten*total_games/10
-        self.stl_stdev = math.sqrt(mult)/(total_games/10)
+        if total_games == 0:
+            self.stl_stdev = 0
+        else:
+            self.stl_stdev = math.sqrt(mult)/(total_games/10)
 
         self.tpm_stdev = self.tpm*self.tpm_stdev_mult
         stdev_ten = self.tpm*self.tpm_stdev_mult_ten
         variance_ten = math.pow(stdev_ten, 2)
         mult = variance_ten*total_games/10
-        self.tpm_stdev = math.sqrt(mult)/(total_games/10)
+        if total_games == 0:
+            self.tpm_stdev = 0
+        else:
+            self.tpm_stdev = math.sqrt(mult)/(total_games/10)
 
         self.to_stdev = self.to*self.to_stdev_mult
         stdev_ten = self.to*self.to_stdev_mult_ten
         variance_ten = math.pow(stdev_ten, 2)
         mult = variance_ten*total_games/10
-        self.to_stdev = math.sqrt(mult)/(total_games/10)
+        if total_games == 0:
+            self.to_stdev = 0
+        else:
+            self.to_stdev = math.sqrt(mult)/(total_games/10)
 
         self.reb_stdev = self.reb*self.reb_stdev_mult
         stdev_ten = self.reb*self.reb_stdev_mult_ten
         variance_ten = math.pow(stdev_ten, 2)
         mult = variance_ten*total_games/10
-        self.reb_stdev = math.sqrt(mult)/(total_games/10)
+        if total_games == 0:
+            self.reb_stdev = 0
+        else:
+            self.reb_stdev = math.sqrt(mult)/(total_games/10)
 
         #  variance = (self.fgp)*(1 - self.fgp)*self.fga
         #  self.fgp_stdev = math.sqrt(variance)
