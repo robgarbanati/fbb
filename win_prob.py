@@ -86,14 +86,10 @@ def check_if_file_exists(infile):
         sys.exit(1)
 
 @click.command()
-@click.option('--my-roster', '-r', type=str, default='rob_roster_vs_akbar.csv', help='Specify path to my roster csv.')
+@click.option('--my-roster', '-r', type=str, default='rob_roster.csv', help='Specify path to my roster csv.')
 @click.option('--their-roster', '-o', type=str, default='akbar_roster.csv', help='Specify path to their roster csv.')
-@click.option('--my-stats', '-m', type=str, default='rob_stats_vs_akbar.csv', help='Specify path to my stats csv.')
+@click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
 @click.option('--their-stats', '-t', type=str, default='akbar_stats.csv', help='Specify path to their stats csv.')
-#  @click.option('--my-roster', '-r', type=str, default='rob_roster.csv', help='Specify path to my roster csv.')
-#  @click.option('--their-roster', '-o', type=str, default='brandt_roster.csv', help='Specify path to their roster csv.')
-#  @click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
-#  @click.option('--their-stats', '-t', type=str, default='brandt_stats.csv', help='Specify path to their stats csv.')
 def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     check_if_file_exists(my_roster)
     check_if_file_exists(their_roster)

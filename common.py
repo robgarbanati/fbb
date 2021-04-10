@@ -38,8 +38,7 @@ def get_stats(csv_file):
         #  print(total)
         #  truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         #  pv = total - pts - ast - blk - reb - ftp - fgp - stl - to
-        pv = stl + tpm
-        #  pv = stl + reb + ftp + fgp + to
+        pv = stl + tpm + fgp + ftp
         #  pv = total
         punt_diff = pv - total
         stats.loc[stats.index[index], 'PuntValue'] = pv
