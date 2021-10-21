@@ -56,7 +56,7 @@
 
 
 
-with open('zstats_rankings.raw', 'r') as rawfile, open('zstats_rankings.csv', 'w') as csvfile:
+with open('zstats.raw', 'r') as rawfile, open('zstats.csv', 'w') as csvfile:
     data = rawfile.readlines()
     #  for line in data:
         #  line = line.strip()
@@ -87,11 +87,24 @@ with open('zstats_rankings.raw', 'r') as rawfile, open('zstats_rankings.csv', 'w
         joined_str = "\t".join(joined_list)
         print(f'{joined_str=}')
         formatted_str = joined_str.replace(' \t', '\t')
+        patternmatch = re.findall("[A-Z]/[A-Z]", formatted_str)
+        print(f"{patternmatch=}")
+        exit(0)
+                
+        #  formatted_str = joined_str.replace('/', ',', 1)
         formatted_str = formatted_str.replace('(', '\t')
         formatted_str = formatted_str.replace(')', '')
         formatted_str = formatted_str.replace(u'\xa0', u'')
         formatted_str = formatted_str.replace('/', '\t')
         formatted_str = formatted_str.replace('\t\n', '\n')
+        print(f'{formatted_str=}')
+        formatted_str = formatted_str[formatted_str.find('\t'):]
+        print(f'{formatted_str=}')
+        formatted_str = formatted_str[1:]
+        print(f'{formatted_str=}')
+        formatted_str = formatted_str[formatted_str.find('\t'):]
+        print(f'{formatted_str=}')
+        formatted_str = formatted_str[1:]
         print(f'{formatted_str=}')
         #  print(formatted_str)
         csvfile.write(formatted_str)

@@ -4,6 +4,8 @@ import pandas as pd
 import scipy.stats as st
 import itertools 
 import functools 
+import re
+
 
 def get_stats(csv_file):
     stats = pd.read_csv(csv_file, sep='\t')
@@ -12,6 +14,7 @@ def get_stats(csv_file):
     endnum = len(stats.index)
     indices = [num for num in range(0,endnum)]
     stats = stats.set_index(pd.Index(indices))
+    print(f"{stats=}")
     #  stats.insert(28, 'TheirPuntValue', -1, False)
     stats.insert(28, 'PuntValue', -1, False)
     stats.insert(29, 'PuntDiff', -1, False)
@@ -112,12 +115,13 @@ def build_team(schedcsv, source="projections"):
         total_z += z
         team_stats = team_stats.append(playerstats)
     endnum = len(team_stats.index)
+    print(f"{endnum=}")
     team_stats = team_stats.sort_values(by='TOTAL', ascending=False)
     indices = [num for num in range(0,endnum)]
     team_stats = team_stats.set_index(pd.Index(indices))
 
-    #  print(team_stats)
-    #  print(f'{total_z=}')
+    print(team_stats)
+    print(f'{total_z=}')
     return(team_stats)
 
 def add(a, b):
