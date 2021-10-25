@@ -20,21 +20,22 @@ def calc_best_cat_totals(roster):
         team.fga += 3.5*roster['FGA'][i]
         team.ftm += 3.5*roster['FTM'][i]
         team.fta += 3.5*roster['FTA'][i]
-        #  print(roster['PLAYER'][i])
+        print(roster['PLAYER'][i])
     team.ftp = team.ftm/team.fta
     team.fgp = team.fgm/team.fga
     team.calc_stdevs(3.5*13)
-    #  print(team)
+    print(team)
     return team
 
 #  def recalc_players_punt(team):
 
 def calc_cost(theirname, myteam, theirteam):
     wp = myteam - theirteam
-    #  print(wp)
-    #  print(f'{wp.total_win_prob=}')
-    #  print("win prob vs {n}: {wp}".format(n=theirname, wp=wp.total_win_prob))
-    return wp.total_win_prob
+    print(wp)
+    print(f'{wp.total_win_prob=}')
+    print(f'{wp.pts=}, {wp.ast=}, {wp.reb=}, {wp.blk=}, {wp.stl=}, {wp.tpm=}, {wp.fgp=}, {wp.ftp=}, {wp.to=}')
+    print("win prob vs {n}: {wp}".format(n=theirname, wp=wp.total_win_prob))
+    return wp
 
 def calc_league_win_prob(names, win_sum):
     total_wins = 0
@@ -47,7 +48,8 @@ def calc_league_win_prob(names, win_sum):
         player_roster = "{n}_roster.csv".format(n=name)
         team = common.build_full_team(player_roster)
         cats = calc_best_cat_totals(team)
-        total_wins += calc_cost(name, current_player_cats, cats)
+        wp = calc_cost(name, current_player_cats, cats)
+        total_wins += wp.total_win_prob
         #  print("")
     print(names[0], "total expected wins:", total_wins)
     win_sum += total_wins
@@ -59,7 +61,7 @@ def calc_league_win_prob(names, win_sum):
 if __name__ == '__main__':
     names = ["rob", "kyle", "ben", "dylan",
             "george", "alex", "akbar", "tom",
-            "brandt", "zmo"]
+            "brandt", "zmo", "andy", "mark"]
     win_sum = 0
     [names, win_sum] = calc_league_win_prob(names, win_sum)
     [names, win_sum] = calc_league_win_prob(names, win_sum)

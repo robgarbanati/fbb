@@ -87,25 +87,27 @@ with open('zstats.raw', 'r') as rawfile, open('zstats.csv', 'w') as csvfile:
         joined_str = "\t".join(joined_list)
         print(f'{joined_str=}')
         formatted_str = joined_str.replace(' \t', '\t')
-        patternmatch = re.findall("[A-Z]/[A-Z]", formatted_str)
-        print(f"{patternmatch=}")
-        exit(0)
                 
         #  formatted_str = joined_str.replace('/', ',', 1)
+        formatted_str = formatted_str.replace('G/', 'G,')
+        formatted_str = formatted_str.replace('F/', 'F,')
+        formatted_str = formatted_str.replace('C/', 'C,')
         formatted_str = formatted_str.replace('(', '\t')
         formatted_str = formatted_str.replace(')', '')
         formatted_str = formatted_str.replace(u'\xa0', u'')
         formatted_str = formatted_str.replace('/', '\t')
         formatted_str = formatted_str.replace('\t\n', '\n')
+        formatted_str = formatted_str.replace('Robert Williams', 'Robert Williams III')
+        formatted_str = formatted_str.replace('PJ Washington', 'P.J. Washington')
         print(f'{formatted_str=}')
         formatted_str = formatted_str[formatted_str.find('\t'):]
         print(f'{formatted_str=}')
         formatted_str = formatted_str[1:]
         print(f'{formatted_str=}')
-        formatted_str = formatted_str[formatted_str.find('\t'):]
-        print(f'{formatted_str=}')
-        formatted_str = formatted_str[1:]
-        print(f'{formatted_str=}')
+        #  formatted_str = formatted_str[formatted_str.find('\t'):]
+        #  print(f'{formatted_str=}')
+        #  formatted_str = formatted_str[1:]
+        #  print(f'{formatted_str=}')
         #  print(formatted_str)
         csvfile.write(formatted_str)
 #

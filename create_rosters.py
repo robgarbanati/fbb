@@ -30,10 +30,10 @@ with open('rosters.raw', 'r') as rawfile:
         elif line == "Kelly Drip Daddy Oubre":
             found_gm = True
             gm = "akbar"
-        elif line == "Inbred Intangibles":
+        elif line == "A Tingus In My Pingus2":
             found_gm = True
             gm = "ben"
-        elif line == "Big Nik 3nergy":
+        elif line == "Fr33k A L33k":
             found_gm = True
             gm = "kyle"
         elif line == "Team De'Ath":
@@ -45,10 +45,10 @@ with open('rosters.raw', 'r') as rawfile:
         elif line == "Raging Harden":
             found_gm = True
             gm = "alex"
-        elif line == "Weehawken Son of Carl":
+        elif line == "Weehawken Son Of Carl":
             found_gm = True
             gm = "mark"
-        elif line == "Team Abrams":
+        elif line == "Just Here So I Don't Get Fined":
             found_gm = True
             gm = "andy"
         else:

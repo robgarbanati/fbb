@@ -14,7 +14,7 @@ def get_stats(csv_file):
     endnum = len(stats.index)
     indices = [num for num in range(0,endnum)]
     stats = stats.set_index(pd.Index(indices))
-    print(f"{stats=}")
+    #  print(f"{stats=}")
     #  stats.insert(28, 'TheirPuntValue', -1, False)
     stats.insert(28, 'PuntValue', -1, False)
     stats.insert(29, 'PuntDiff', -1, False)
@@ -41,8 +41,9 @@ def get_stats(csv_file):
         #  print(total)
         #  truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         #  pv = total - pts - ast - blk - reb - ftp - fgp - stl - to
-        pv = stl + tpm + fgp + ftp
-        #  pv = total
+        #  pv = stl + tpm + blk + reb + 0.5*fgp + 0.5*ftp
+        #  pv = stl + tpm + blk + reb
+        pv = total
         punt_diff = pv - total
         stats.loc[stats.index[index], 'PuntValue'] = pv
         stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
@@ -182,6 +183,9 @@ class winprob():
 {pts:.3f}\t{ast:.3f}\t{reb:.3f}\t{blk:.3f}\t{stl:.3f}\t{tpm:.3f}\t{fgp:.3f}\t{ftp:.3f}\t{to:.3f}\t{wins:.3f}\t{cost:.3f}""".format(pts=self.pts,
         ast=self.ast, reb=self.reb, blk=self.blk, stl=self.stl, tpm=self.tpm, fgp=self.fgp,
         ftp=self.ftp, to=self.to, wins=self.wins, cost=self.cost)
+    #  def __add__(self, other):
+    #      wp = winprob()
+
 
 class team():
     pts = 0
