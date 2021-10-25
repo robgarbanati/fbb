@@ -42,8 +42,8 @@ def get_stats(csv_file):
         #  truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         #  pv = total - pts - ast - blk - reb - ftp - fgp - stl - to
         #  pv = stl + tpm + blk + reb + 0.5*fgp + 0.5*ftp
-        #  pv = stl + tpm + blk + reb
-        pv = total
+        pv = stl + tpm + blk + reb
+        #  pv = total
         punt_diff = pv - total
         stats.loc[stats.index[index], 'PuntValue'] = pv
         stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
@@ -124,6 +124,10 @@ def build_team(schedcsv, source="projections"):
     print(team_stats)
     print(f'{total_z=}')
     return(team_stats)
+
+def build_team_season_long(schedcsv, source="projections"):
+    team_stats = self.build_team(schedvsb, source)
+    # go back through and math out full-season value
 
 def add(a, b):
     return a+b

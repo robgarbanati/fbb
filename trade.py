@@ -38,7 +38,8 @@ def check_if_file_exists(infile):
 def optimize_lineups(their_roster):
 
     check_if_file_exists(their_roster)
-    stats = common.get_stats("zstats.csv")
+    #  stats = common.get_stats("zstats.csv")
+    stats = common.get_stats("zstats_season.csv")
     #  ranking_stats = common.get_stats("zstats_rankings.csv")
     #  ranking_14_stats = common.get_stats("zstats_rankings_14.csv")
     #  ranking_7_stats = common.get_stats("zstats_rankings_7.csv")
