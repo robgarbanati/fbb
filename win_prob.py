@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from os import path
 import common
+import sys
 
 def calc_cat_totals(team):
     i = 0
@@ -108,11 +109,11 @@ def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     #  their_cats = calc_cat_totals(theirteam)
     #  calc_win_prob(my_cats, their_cats, my_stats, their_stats)
 
-    myteam = common.build_team(my_roster, "zstats_rankings_14.csv")
-    theirteam = common.build_team(their_roster, "zstats_rankings_14.csv")
-    my_cats = calc_cat_totals(myteam)
-    their_cats = calc_cat_totals(theirteam)
-    calc_win_prob(my_cats, their_cats, my_stats, their_stats)
+    #  myteam = common.build_team(my_roster, "zstats_rankings_14.csv")
+    #  theirteam = common.build_team(their_roster, "zstats_rankings_14.csv")
+    #  my_cats = calc_cat_totals(myteam)
+    #  their_cats = calc_cat_totals(theirteam)
+    #  calc_win_prob(my_cats, their_cats, my_stats, their_stats)
 
     #  myteam = common.build_team(my_roster, "zstats_rankings_7.csv")
     #  theirteam = common.build_team(their_roster, "zstats_rankings_7.csv")

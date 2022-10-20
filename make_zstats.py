@@ -38,6 +38,7 @@ def make_csv_from_raw(raw_file, csv_file):
             formatted_str = formatted_str.replace(u'\xa0', u'')
             formatted_str = formatted_str.replace('/', '\t')
             formatted_str = formatted_str.replace('\t\n', '\n')
+            formatted_str = formatted_str.replace('Jr.', 'Jr')
             formatted_str = '\t'.join(formatted_str.rsplit(' ', 7))
             #  index = formatted_str.rfind('\t')
             #  print(f'{index=}')

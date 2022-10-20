@@ -66,6 +66,7 @@ def build_full_team(schedcsv, source="projections"):
     team_stats = pd.DataFrame()
     for i in range(0,endnum):
         name = schedule.iloc[i,1]
+        print(f"{name=}")
         out = schedule.iloc[i,0]
         if out == 'X':
             continue
