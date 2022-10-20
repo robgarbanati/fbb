@@ -15,16 +15,22 @@ def get_stats(csv_file):
     #  stats.insert(28, 'TheirPuntValue', -1, False)
     stats.insert(28, 'PuntValue', -1, False)
     stats.insert(29, 'PuntDiff', -1, False)
+    stats.insert(30, 'TrueTotal', -1, False)
+    # 	DNP_zFG%	DNP_zFT%	DNP_z3PM	DNP_zPTS	DNP_zREB	DNP_zAST	DNP_zSTL	DNP_zBLK	DNP_zTO
+    #       0.13	        -0.02	        -1.77	        -2.1	        -2.05	        -1.47	        -2.44	        -1.23	        1.87
     for index in indices:
-        pts = stats.loc[stats.index[index], 'zPTS']
-        ast = stats.loc[stats.index[index], 'zAST']
-        blk = stats.loc[stats.index[index], 'zBLK']
-        reb = stats.loc[stats.index[index], 'zREB']
-        ftp = stats.loc[stats.index[index], 'zFT%']
-        fgp = stats.loc[stats.index[index], 'zFG%']
-        tpm = stats.loc[stats.index[index], 'z3PM']
-        stl = stats.loc[stats.index[index], 'zSTL']
-        to = stats.loc[stats.index[index], 'zTO']
+        gp = stats.loc[stats.index[index], 'GP']
+        pts = stats.loc[stats.index[index], 'zPTS'] * gp/82 + 0.13*(82-gp)/82
+        ast = stats.loc[stats.index[index], 'zAST'] * gp/82 - 0.02*(82-gp)/82
+        blk = stats.loc[stats.index[index], 'zBLK'] * gp/82 - 1.77*(82-gp)/82
+        reb = stats.loc[stats.index[index], 'zREB'] * gp/82 - 2.10*(82-gp)/82
+        ftp = stats.loc[stats.index[index], 'zFT%'] * gp/82 - 2.05*(82-gp)/82
+        fgp = stats.loc[stats.index[index], 'zFG%'] * gp/82 - 1.47*(82-gp)/82
+        tpm = stats.loc[stats.index[index], 'z3PM'] * gp/82 - 2.44*(82-gp)/82
+        stl = stats.loc[stats.index[index], 'zSTL'] * gp/82 - 1.23*(82-gp)/82
+        to = stats.loc[stats.index[index], 'zTO']   * gp/82 + 1.87*(82-gp)/82
+
+        truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         total = stats.loc[stats.index[index], 'TOTAL']
         #  print(pts)
         #  print(ast)
@@ -43,6 +49,7 @@ def get_stats(csv_file):
         punt_diff = pv - total
         stats.loc[stats.index[index], 'PuntValue'] = pv
         stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
+        stats.loc[stats.index[index], 'TrueTotal'] = truetotal
         #  stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
     #  pd.set_option("display.max_rows", 80)
     #  print(stats)
@@ -66,7 +73,7 @@ def build_full_team(schedcsv, source="projections"):
     team_stats = pd.DataFrame()
     for i in range(0,endnum):
         name = schedule.iloc[i,1]
-        print(f"{name=}")
+        #  print(f"{name=}")
         out = schedule.iloc[i,0]
         if out == 'X':
             continue
@@ -84,8 +91,8 @@ def build_full_team(schedcsv, source="projections"):
     indices = [num for num in range(0,endnum)]
     team_stats = team_stats.set_index(pd.Index(indices))
 
-    print(team_stats)
-    print(f'{total_z=}')
+    #  print(team_stats)
+    #  print(f'{total_z=}')
     return(team_stats)
 
 def build_team(schedcsv, source="projections"):
@@ -175,7 +182,7 @@ class winprob():
         self.total_win_prob = total_prob
         return
     def __str__(self):
-        return """PTS\tAST\tREB\tBLK\tSTL\t3PM\tFG%\tFT%\tTO\tWINS\tCOST
+        return """PTS\t\tAST\t\tREB\t\tBLK\t\tSTL\t\t3PM\t\tFG%\t\tFT%\t\tTO\t\tWINS\tCOST
 {pts:.3f}\t{ast:.3f}\t{reb:.3f}\t{blk:.3f}\t{stl:.3f}\t{tpm:.3f}\t{fgp:.3f}\t{ftp:.3f}\t{to:.3f}\t{wins:.3f}\t{cost:.3f}""".format(pts=self.pts,
         ast=self.ast, reb=self.reb, blk=self.blk, stl=self.stl, tpm=self.tpm, fgp=self.fgp,
         ftp=self.ftp, to=self.to, wins=self.wins, cost=self.cost)

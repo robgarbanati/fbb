@@ -44,25 +44,92 @@ class CatErrorMargin:
     reb: float
     fgp: float
     ftp: float
+    def __add__(self, other):
+        self.pts = self.pts + other.pts
+        self.ast = self.ast + other.ast
+        self.blk = self.blk + other.blk
+        self.stl = self.stl + other.stl
+        self.tpm = self.tpm + other.tpm
+        self.reb = self.reb + other.reb
+        self.ftp = self.ftp + other.ftp
+        self.fgp = self.fgp + other.fgp
+        self.ftp = self.ftp + other.ftp
+        self.to = self.to + other.to
+
+        return self
 
 @dataclass
 class WPnErma:
     wp: float
     erma: CatErrorMargin
 
+
+pts_close_games = 0
+ast_close_games = 0
+blk_close_games = 0
+stl_close_games = 0
+tpm_close_games = 0
+to_close_games = 0
+reb_close_games = 0
+fgp_close_games = 0
+ftp_close_games = 0
+
 #  def calc_cost(myteam, theirteam, erma):
 def calc_cost(myteam, theirteam, wpnerma):
     wp = myteam - theirteam
-    #  print(wp)
-    wpnerma.erma.pts += wp.pts*wp.pts
-    wpnerma.erma.ast += wp.ast*wp.ast
-    wpnerma.erma.blk += wp.blk*wp.blk
-    wpnerma.erma.stl += wp.stl*wp.stl
-    wpnerma.erma.tpm += wp.tpm*wp.tpm
-    wpnerma.erma.to += wp.to*wp.to
-    wpnerma.erma.reb += wp.reb*wp.reb
-    wpnerma.erma.fgp += wp.fgp*wp.fgp
-    wpnerma.erma.ftp += wp.ftp*wp.ftp
+    print(f"{str(wp)}")
+    erma = CatErrorMargin(  pts = 0, ast = 0, blk = 0,
+                            stl = 0, tpm = 0, to = 0,
+                            reb = 0, fgp = 0, ftp = 0)
+    ptserr = 0.5 - wp.pts
+    print(f"{ptserr=}")
+    erma.pts = ptserr*ptserr
+    print(f"{erma.pts=}")
+    asterr = 0.5 - wp.ast
+    print(f"{asterr=}")
+    erma.ast = asterr*asterr
+    print(f"{erma.ast=}")
+    blkerr = 0.5 - wp.blk
+    print(f"{blkerr=}")
+    erma.blk = blkerr*blkerr
+    print(f"{erma.blk=}")
+    stlerr = 0.5 - wp.stl
+    print(f"{stlerr=}")
+    erma.stl = stlerr*stlerr
+    print(f"{erma.stl=}")
+    tpmerr = 0.5 - wp.tpm
+    print(f"{tpmerr=}")
+    erma.tpm = tpmerr*tpmerr
+    print(f"{erma.tpm=}")
+    toerr = 0.5 - wp.to
+    print(f"{toerr=}")
+    erma.to = toerr*toerr
+    print(f"{erma.to=}")
+    reberr = 0.5 - wp.reb
+    print(f"{reberr=}")
+    erma.reb = reberr*reberr
+    print(f"{erma.reb=}")
+    fgperr = 0.5 - wp.fgp
+    print(f"{fgperr=}")
+    erma.fgp = fgperr*fgperr
+    print(f"{erma.fgp=}")
+    ftperr = 0.5 - wp.ftp
+    print(f"{ftperr=}")
+    erma.ftp = ftperr*ftperr
+    print(f"{erma.ftp=}")
+    print(f"{erma=}")
+    wpnerma.erma += erma
+    #  print(f"{wpnerma=}")
+
+    #  wpnerma.erma.pts += wp.pts*wp.pts
+    #  wpnerma.erma.ast += wp.ast*wp.ast
+    #  wpnerma.erma.blk += wp.blk*wp.blk
+    #  wpnerma.erma.stl += wp.stl*wp.stl
+    #  wpnerma.erma.tpm += wp.tpm*wp.tpm
+    #  wpnerma.erma.to += wp.to*wp.to
+    #  wpnerma.erma.reb += wp.reb*wp.reb
+    #  wpnerma.erma.fgp += wp.fgp*wp.fgp
+    #  wpnerma.erma.ftp += wp.ftp*wp.ftp
     wpnerma.wp += wp.total_win_prob
 
     return wpnerma
@@ -85,6 +152,7 @@ def calc_win_prob_against_league(stats_source):
     team = common.build_full_team("rosters/mark_roster.csv", stats_source)
     cats = calc_best_cat_totals(team)
     wpnerma = calc_cost(my_cats, cats, wpnerma)
+    wpnerma = calc_cost(my_cats, cats, wpnerma)
     print(f"{wpnerma=}")
     print(f'after mark: {wpnerma.wp=}')
     print(f'after mark: {wpnerma.erma=}')
@@ -92,6 +160,7 @@ def calc_win_prob_against_league(stats_source):
     print("Lucas")
     team = common.build_full_team("rosters/lucas_roster.csv", stats_source)
     cats = calc_best_cat_totals(team)
+    wpnerma = calc_cost(my_cats, cats, wpnerma)
     wpnerma = calc_cost(my_cats, cats, wpnerma)
     print(f"{wpnerma=}")
     print("")
@@ -110,6 +179,7 @@ def calc_win_prob_against_league(stats_source):
     print("Andy")
     team = common.build_full_team("rosters/andy_roster.csv", stats_source)
     cats = calc_best_cat_totals(team)
+    wpnerma = calc_cost(my_cats, cats, wpnerma)
     wpnerma = calc_cost(my_cats, cats, wpnerma)
     print(f"{wpnerma=}")
     print("")
@@ -148,6 +218,7 @@ def calc_win_prob_against_league(stats_source):
     print("ZMo")
     team = common.build_full_team("rosters/zmo_roster.csv", stats_source)
     cats = calc_best_cat_totals(team)
+    wpnerma = calc_cost(my_cats, cats, wpnerma)
     wpnerma = calc_cost(my_cats, cats, wpnerma)
     print(f"{wpnerma=}")
     #  playoff_wins += calc_cost(my_cats, cats)
