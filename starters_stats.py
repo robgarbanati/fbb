@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 import math
 import numpy as np
 import pandas as pd
@@ -32,22 +33,51 @@ def calc_best_cat_totals(roster):
 
 #  def recalc_players_punt(team):
 
-def calc_cost(myteam, theirteam):
+@dataclass
+class CatErrorMargin:
+    pts: float
+    ast: float
+    blk: float
+    stl: float
+    tpm: float
+    to: float
+    reb: float
+    fgp: float
+    ftp: float
+
+@dataclass
+class WPnErma:
+    wp: float
+    erma: CatErrorMargin
+
+#  def calc_cost(myteam, theirteam, erma):
+def calc_cost(myteam, theirteam, wpnerma):
     wp = myteam - theirteam
     print(wp)
     print(f'{wp.total_win_prob=}')
-    return wp.total_win_prob
+    print(f'{wp.pts=}')
+    wpnerma.erma.pts += wp.pts*wp.pts
+    wpnerma.erma.ast += wp.ast*wp.ast
+    wpnerma.erma.blk += wp.blk*wp.blk
+    wpnerma.erma.stl += wp.stl*wp.stl
+    wpnerma.erma.tpm += wp.tpm*wp.tpm
+    wpnerma.erma.to += wp.to*wp.to
+    wpnerma.erma.reb += wp.reb*wp.reb
+    wpnerma.erma.fgp += wp.fgp*wp.fgp
+    wpnerma.erma.ftp += wp.ftp*wp.ftp
+    print(f'{wpnerma=}')
+    wpnerma.wp += wp.total_win_prob
 
-def calc_wins(myteam, theirteam):
-    cost = myteam - theirteam
-    print(cost)
-
+    return wpnerma
 
 @click.command()
 @click.option('--stats-source', '-s', type=str, default='zstats.csv', help='Specify path to stats csv.')
 def calc_win_prob_against_league(stats_source):
+    erma = CatErrorMargin(  pts = 0, ast = 0, blk = 0,
+                            stl = 0, tpm = 0, to = 0,
+                            reb = 0, fgp = 0, ftp = 0)
+    wpnerma = WPnErma(wp = 0, erma = erma)
     playoff_wins = 0
-    total_cost = 0
     print("")
     print("")
     team = common.build_full_team("rosters/rob_roster.csv", stats_source)
@@ -57,7 +87,10 @@ def calc_win_prob_against_league(stats_source):
     print("Mark")
     team = common.build_full_team("rosters/mark_roster.csv", stats_source)
     cats = calc_best_cat_totals(team)
-    total_cost += calc_cost(my_cats, cats)
+    wpnerma = calc_cost(my_cats, cats, wpnerma)
+    print(f'after mark: {wpnerma.wp=}')
+    print(f'after mark: {wpnerma.erma=}')
+    exit(0)
     print("")
     print("Lucas")
     team = common.build_full_team("rosters/lucas_roster.csv", stats_source)
