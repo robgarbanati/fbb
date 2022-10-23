@@ -4,6 +4,7 @@ import pandas as pd
 import scipy.stats as st
 import itertools 
 import functools 
+import model
 
 def get_stats(csv_file):
     stats = pd.read_csv(csv_file, sep='\t')
@@ -19,32 +20,37 @@ def get_stats(csv_file):
     # 	DNP_zFG%	DNP_zFT%	DNP_z3PM	DNP_zPTS	DNP_zREB	DNP_zAST	DNP_zSTL	DNP_zBLK	DNP_zTO
     #       0.13	        -0.02	        -1.77	        -2.1	        -2.05	        -1.47	        -2.44	        -1.23	        1.87
     for index in indices:
+        player = stats.loc[stats.index[index], 'PLAYER']
         gp = stats.loc[stats.index[index], 'GP']
-        pts = stats.loc[stats.index[index], 'zPTS'] * gp/82 + 0.13*(82-gp)/82
-        ast = stats.loc[stats.index[index], 'zAST'] * gp/82 - 0.02*(82-gp)/82
-        blk = stats.loc[stats.index[index], 'zBLK'] * gp/82 - 1.77*(82-gp)/82
-        reb = stats.loc[stats.index[index], 'zREB'] * gp/82 - 2.10*(82-gp)/82
-        ftp = stats.loc[stats.index[index], 'zFT%'] * gp/82 - 2.05*(82-gp)/82
-        fgp = stats.loc[stats.index[index], 'zFG%'] * gp/82 - 1.47*(82-gp)/82
-        tpm = stats.loc[stats.index[index], 'z3PM'] * gp/82 - 2.44*(82-gp)/82
-        stl = stats.loc[stats.index[index], 'zSTL'] * gp/82 - 1.23*(82-gp)/82
-        to = stats.loc[stats.index[index], 'zTO']   * gp/82 + 1.87*(82-gp)/82
+        pts = stats.loc[stats.index[index], 'zPTS'] * gp/82 + 0.13*(82-gp)/82*0.5
+        ast = stats.loc[stats.index[index], 'zAST'] * gp/82 - 0.02*(82-gp)/82*0.5
+        blk = stats.loc[stats.index[index], 'zBLK'] * gp/82 - 1.77*(82-gp)/82*0.5
+        reb = stats.loc[stats.index[index], 'zREB'] * gp/82 - 2.10*(82-gp)/82*0.5
+        ftp = stats.loc[stats.index[index], 'zFT%'] * gp/82 - 2.05*(82-gp)/82*0.5
+        fgp = stats.loc[stats.index[index], 'zFG%'] * gp/82 - 1.47*(82-gp)/82*0.5
+        tpm = stats.loc[stats.index[index], 'z3PM'] * gp/82 - 2.44*(82-gp)/82*0.5
+        stl = stats.loc[stats.index[index], 'zSTL'] * gp/82 - 1.23*(82-gp)/82*0.5
+        to = stats.loc[stats.index[index], 'zTO']   * gp/82 + 1.87*(82-gp)/82*0.5
 
         truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         total = stats.loc[stats.index[index], 'TOTAL']
-        #  print(pts)
-        #  print(ast)
-        #  print(blk)
-        #  print(reb)
-        #  print(ftp)
-        #  print(fgp)
-        #  print(tpm)
-        #  print(stl)
-        #  print(to)
-        #  print(total)
+        print(player)
+        print(gp)
+        print(pts)
+        print(ast)
+        print(blk)
+        print(reb)
+        print(ftp)
+        print(fgp)
+        print(tpm)
+        print(stl)
+        print(to)
+        print(truetotal)
+        print(total)
         #  truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         #  pv = total - pts - ast - blk - reb - ftp - fgp - stl - to
-        pv = stl + tpm + fgp + ftp
+        #  pv = stl + tpm + fgp + ftp
+        pv = truetotal - pts
         #  pv = total
         punt_diff = pv - total
         stats.loc[stats.index[index], 'PuntValue'] = pv
@@ -182,7 +188,9 @@ class winprob():
         self.total_win_prob = total_prob
         return
     def __str__(self):
-        return """PTS\t\tAST\t\tREB\t\tBLK\t\tSTL\t\t3PM\t\tFG%\t\tFT%\t\tTO\t\tWINS\tCOST
+#          return """PTS\t\tAST\t\tREB\t\tBLK\t\tSTL\t\t3PM\t\tFG%\t\tFT%\t\tTO\t\tWINS\tCOST
+#  {pts:.3f}\t{ast:.3f}\t{reb:.3f}\t{blk:.3f}\t{stl:.3f}\t{tpm:.3f}\t{fgp:.3f}\t{ftp:.3f}\t{to:.3f}\t{wins:.3f}\t{cost:.3f}""".format(pts=self.pts,
+        return """PTS\tAST\tREB\tBLK\tSTL\t3PM\tFG%\tFT%\tTO\tWINS\tCOST
 {pts:.3f}\t{ast:.3f}\t{reb:.3f}\t{blk:.3f}\t{stl:.3f}\t{tpm:.3f}\t{fgp:.3f}\t{ftp:.3f}\t{to:.3f}\t{wins:.3f}\t{cost:.3f}""".format(pts=self.pts,
         ast=self.ast, reb=self.reb, blk=self.blk, stl=self.stl, tpm=self.tpm, fgp=self.fgp,
         ftp=self.ftp, to=self.to, wins=self.wins, cost=self.cost)
@@ -388,12 +396,21 @@ class team():
         wp.ftp = st.norm.cdf(zscore)
 
         mean = self.fgp - other.fgp
+        print(f"{self.fgp=}")
+        print(f"{other.fgp=}")
+        print(f"{mean=}")
         self.fgp_stdev = self.fgm_stdev/self.fga
+        print(f"{self.fgp_stdev=}")
         other.fgp_stdev = other.fgm_stdev/other.fga
+        print(f"{other.fgp_stdev=}")
         variance = math.pow(self.fgp_stdev, 2) + math.pow(other.fgp_stdev, 2)
+        print(f"{variance=}")
         stdev = math.sqrt(variance)
+        print(f"{stdev=}")
         zscore = mean/stdev
+        print(f"{zscore=}")
         wp.fgp = st.norm.cdf(zscore)
+        print(f"{wp.fgp=}")
 
         mean = self.ftp - other.ftp
         self.ftp_stdev = self.ftm_stdev/self.fta
