@@ -15,7 +15,7 @@ with open('rosters/rosters.raw', 'r') as rawfile:
     for line in lines_iter:
         line = line.replace('\n', '')
         print(f'{line=}')
-        if line == "CarMelo Ball":
+        if line == "Go Bearts":
             found_gm = True
             gm = "tom"
         elif line == "Always Soft N' Salty":
@@ -36,7 +36,7 @@ with open('rosters/rosters.raw', 'r') as rawfile:
         elif line == "1-800-HOTLINE ZING":
             found_gm = True
             gm = "kyle"
-        elif line == "Road To Zion":
+        elif line == "Welcome To The Dorture Chamber":
             found_gm = True
             gm = "lucas"
         elif line == "Weed Use And Work Ethic":
@@ -48,7 +48,7 @@ with open('rosters/rosters.raw', 'r') as rawfile:
         elif line == "Uncle Steve's Mets":
             found_gm = True
             gm = "mark"
-        elif line == "Just Here So I Don't Get Fined":
+        elif line == "King Slayer":
             found_gm = True
             gm = "andy"
         else:
@@ -72,6 +72,17 @@ with open('rosters/rosters.raw', 'r') as rawfile:
         prev_line = line
     print(f'{teams=}')
     print(f'{teams["tom"]=}')
+    print(f'{teams["brandt"]=}')
+    print(f'{teams["rob"]=}')
+    print(f'{teams["dylan"]=}')
+    print(f'{teams["akbar"]=}')
+    print(f'{teams["ben"]=}')
+    print(f'{teams["kyle"]=}')
+    print(f'{teams["lucas"]=}')
+    print(f'{teams["zmo"]=}')
+    print(f'{teams["alex"]=}')
+    print(f'{teams["mark"]=}')
+    print(f'{teams["andy"]=}')
     exit(0)
 
     #  csvfile.write("""0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t11\t12\t13\t14\t15\t16\t17\t18\t19\t20\t21\t22\t23\t24\t25\t26\t27\t28\n""")

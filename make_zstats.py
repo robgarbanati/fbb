@@ -1,3 +1,4 @@
+import re
 def make_csv_from_raw(raw_file, csv_file):
     #  with open('zstats.raw', 'r') as rawfile, open('zstats.csv', 'w') as csvfile:
     with open(raw_file, 'r') as rawfile, open(csv_file, 'w') as csvfile:
@@ -18,9 +19,9 @@ def make_csv_from_raw(raw_file, csv_file):
         csvfile.write("""PLAYER\tPOS\tTEAM\tGP\tMPG\tFG%\tFGM\tFGA\tzFG%\tFT%\tFTM\tFTA\tzFT%\t3PM\tz3PM\tPTS\tzPTS\tREB\tzREB\tAST\tzAST\tSTL\tzSTL\tBLK\tzBLK\tTO\tzTO\tTOTAL\n""")
         #  csvfile.write("""PLAYER\tPOS\tTEAM\tGP\tMPG\tFG%\tFGM\tFGA\tFT%\tFTM\tFTA\t3PM\tPTS\tTREB\tAST\tSTL\tBLK\tTO\tTOTAL\tzFG%\tzFT%\tz3PM\tzPTS\tzREB\tzAST\tzSTL\tzBLK\tzTO\n""")
         clean_iter = iter(clean_data)
-        #  for joined_tuple in zip(clean_iter, clean_iter, clean_iter, clean_iter, clean_iter,
-        #                          clean_iter, clean_iter, clean_iter, clean_iter, clean_iter):
-        for joined_tuple in zip(clean_iter):
+        for joined_tuple in zip(clean_iter, clean_iter, clean_iter, clean_iter, clean_iter,
+                                clean_iter, clean_iter, clean_iter, clean_iter, clean_iter):
+        #  for joined_tuple in zip(clean_iter):
             print(f'{joined_tuple=}')
             joined_list = list(joined_tuple)
             #  print(f'{joined_list=}')
@@ -31,15 +32,35 @@ def make_csv_from_raw(raw_file, csv_file):
             print(f'{joined_list=}')
             joined_str = "\t".join(joined_list)
             print(f'{joined_str=}')
-            formatted_str = joined_str.replace(' \t', '\t')
+            #  rx = re.compile(['[1-0]+a-zA-Z]')
+            rx = re.compile(' +[0-9]+\t+')
+            #  rx = re.compile(' +')
+            #  formatted_str = joined_str.replace(' \t', '\t')
+            subbed_str = re.sub(rx, '\t', joined_str, 1)
+            print(f"{subbed_str=}")
+            formatted_str = subbed_str.replace(' \t', '\t')
+            print(f"{formatted_str=}")
+            formatted_str = formatted_str.replace('\tJr', ' Jr')
+            print(f"jr replace: {formatted_str=}")
             formatted_str = formatted_str.replace('(', '\t')
+            print(f"{formatted_str=}")
             #  formatted_str = formatted_str.replace(')', '')
             formatted_str = formatted_str.replace(')', '\t')
+            print(f"{formatted_str=}")
             formatted_str = formatted_str.replace(u'\xa0', u'')
+            print(f"{formatted_str=}")
             formatted_str = formatted_str.replace('/', '\t')
+            print(f"{formatted_str=}")
             formatted_str = formatted_str.replace('\t\n', '\n')
+            print(f"{formatted_str=}")
             formatted_str = formatted_str.replace('Jr.', 'Jr')
-            formatted_str = '\t'.join(formatted_str.rsplit(' ', 7))
+            print(f"{formatted_str=}")
+            formatted_str = formatted_str.replace(' III', '')
+            print(f"{formatted_str=}")
+            formatted_str = formatted_str.replace('P.J.', 'PJ')
+            print(f"{formatted_str=}")
+            #  formatted_str = '\t'.join(formatted_str.rsplit(' ', 7))
+            #  print(f"{formatted_str=}")
             #  index = formatted_str.rfind('\t')
             #  print(f'{index=}')
             #  formatted_str = formatted_str.replace(' ', '')

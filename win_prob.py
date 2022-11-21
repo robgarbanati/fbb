@@ -12,6 +12,8 @@ def calc_cat_totals(team):
     team_cats = common.team()
     endnum = len(team.index)
     for i in range(0,endnum):
+        playername = team['PLAYER'][i]
+        #  print(f"{playername=}")
         total_games += team['NumGames'][i]
         team_cats.pts += team['NumGames'][i] * team['PTS'][i]
         team_cats.ast += team['NumGames'][i] * team['AST'][i]
@@ -24,7 +26,41 @@ def calc_cat_totals(team):
         team_cats.fga += team['NumGames'][i] * team['FGA'][i]
         team_cats.ftm += team['NumGames'][i] * team['FTM'][i]
         team_cats.fta += team['NumGames'][i] * team['FTA'][i]
+
+        team_cats.pts_z += team['zPTS'][i]
+        #  print(f"{team['zPTS'][i]=}")
+        #  print(f"{team_cats.pts_z=}")
+        team_cats.ast_z += team['zAST'][i]
+        #  print(f"{team['zAST'][i]=}")
+        #  print(f"{team_cats.ast_z=}")
+        team_cats.blk_z += team['zBLK'][i]
+        #  print(f"{team['zBLK'][i]=}")
+        #  print(f"{team_cats.blk_z=}")
+        team_cats.stl_z += team['zSTL'][i]
+        #  print(f"{team['zSTL'][i]=}")
+        #  print(f"{team_cats.stl_z=}")
+        team_cats.tpm_z += team['z3PM'][i]
+        #  print(f"{team['z3PM'][i]=}")
+        #  print(f"{team_cats.tpm_z=}")
+        team_cats.to_z += team['zTO'][i]
+        #  print(f"{team['zTO'][i]=}")
+        #  print(f"{team_cats.to_z=}")
+        team_cats.reb_z += team['zREB'][i]
+        #  print(f"{team['zREB'][i]=}")
+        #  print(f"{team_cats.reb_z=}")
+        team_cats.fgp_z += team['zFG%'][i]
+        #  print(f"{team['zFG%'][i]=}")
+        #  print(f"{team_cats.fgp_z=}")
+        team_cats.ftp_z += team['zFT%'][i]
+        #  print(f"{team['zFT%'][i]=}")
+        #  print(f"{team_cats.ftp_z=}")
         #  i += 1
+
+    print(f"{team_cats.fgm=}")
+    print(f"{team_cats.fga=}")
+    fgp = team_cats.fgm/team_cats.fga;
+    print(f"{fgp=}")
+
     if team_cats.fta == 0:
         team_cats.ftp = 0
     else:
@@ -36,7 +72,11 @@ def calc_cat_totals(team):
     team_cats.calc_stdevs(total_games)
     #  team_cats.calc_variances()
     print(team)
+    print('team_cats = ')
     print(team_cats)
+    print("before printz")
+    print(team_cats.printz())
+    print("after printz")
     print(f'{total_games=}')
     return team_cats
 
@@ -88,9 +128,9 @@ def check_if_file_exists(infile):
 
 @click.command()
 @click.option('--my-roster', '-r', type=str, default='rosters/rob_roster.csv', help='Specify path to my roster csv.')
-@click.option('--their-roster', '-o', type=str, default='rosters/mark_roster.csv', help='Specify path to their roster csv.')
+@click.option('--their-roster', '-o', type=str, default='rosters/lucas_roster.csv', help='Specify path to their roster csv.')
 @click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
-@click.option('--their-stats', '-t', type=str, default='mark_stats.csv', help='Specify path to their stats csv.')
+@click.option('--their-stats', '-t', type=str, default='lucas_stats.csv', help='Specify path to their stats csv.')
 def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     check_if_file_exists(my_roster)
     check_if_file_exists(their_roster)

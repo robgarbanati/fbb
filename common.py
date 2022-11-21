@@ -6,7 +6,60 @@ import itertools
 import functools 
 import model
 
+def get_stats_rankings(csv_file):
+    print("in get_stats_rankings")
+    stats = pd.read_csv(csv_file, sep='\t')
+    stats = stats[[c for c in stats if c not in ['TOTAL']]
+       + ['TOTAL']]
+    endnum = len(stats.index)
+    indices = [num for num in range(0,endnum)]
+    stats = stats.set_index(pd.Index(indices))
+    #  stats.insert(28, 'TheirPuntValue', -1, False)
+    stats.insert(28, 'PuntValue', -1, False)
+    stats.insert(29, 'PuntDiff', -1, False)
+    # 	DNP_zFG%	DNP_zFT%	DNP_z3PM	DNP_zPTS	DNP_zREB	DNP_zAST	DNP_zSTL	DNP_zBLK	DNP_zTO
+    #       0.13	        -0.02	        -1.77	        -2.1	        -2.05	        -1.47	        -2.44	        -1.23	        1.87
+    for index in indices:
+        player = stats.loc[stats.index[index], 'PLAYER']
+        print(f"{player=}")
+        gp = stats.loc[stats.index[index], 'GP']
+        print(f"{gp=}")
+        pts = stats.loc[stats.index[index], 'zPTS']
+        print(f"{pts=}")
+        ast = stats.loc[stats.index[index], 'zAST']
+        print(f"{ast=}")
+        blk = stats.loc[stats.index[index], 'zBLK']
+        print(f"{blk=}")
+        reb = stats.loc[stats.index[index], 'zREB']
+        print(f"{reb=}")
+        ftp = stats.loc[stats.index[index], 'zFT%']
+        print(f"{ftp=}")
+        fgp = stats.loc[stats.index[index], 'zFG%']
+        print(f"{fgp=}")
+        tpm = stats.loc[stats.index[index], 'z3PM']
+        print(f"{tpm=}")
+        stl = stats.loc[stats.index[index], 'zSTL']
+        print(f"{stl=}")
+        to = stats.loc[stats.index[index], 'zTO']
+        print(f"{to=}")
+
+        total = stats.loc[stats.index[index], 'TOTAL']
+        print(f"{total=}")
+        #  pv = 0.5*pts + stl + fgp + to
+        pv = total - reb - tpm - 0.3*blk - stl - to
+        #  pv = total
+        print(f"{pv=}")
+        punt_diff = pv - total
+        stats.loc[stats.index[index], 'PuntValue'] = pv
+        stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
+        #  stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
+    #  pd.set_option("display.max_rows", 80)
+    #  print(stats)
+    stats = stats.sort_values(by='PuntValue', ascending=False)
+    return stats
+
 def get_stats(csv_file):
+    print("in get_stats")
     stats = pd.read_csv(csv_file, sep='\t')
     stats = stats[[c for c in stats if c not in ['TOTAL']]
        + ['TOTAL']]
@@ -33,26 +86,16 @@ def get_stats(csv_file):
         to = stats.loc[stats.index[index], 'zTO']   * gp/82 + 1.87*(82-gp)/82*0.5
 
         truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
+        print(f"{truetotal=}")
         total = stats.loc[stats.index[index], 'TOTAL']
-        print(player)
-        print(gp)
-        print(pts)
-        print(ast)
-        print(blk)
-        print(reb)
-        print(ftp)
-        print(fgp)
-        print(tpm)
-        print(stl)
-        print(to)
-        print(truetotal)
-        print(total)
-        #  truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
-        #  pv = total - pts - ast - blk - reb - ftp - fgp - stl - to
-        #  pv = stl + tpm + fgp + ftp
-        pv = truetotal - pts
-        #  pv = total
-        punt_diff = pv - total
+        #  pv = truetotal - pts - reb - ftp - to - tpm
+        #  pv = pts + blk + stl + ftp
+        pv = truetotal - reb - tpm - 0.5 * ftp
+        pv = truetotal - reb - tpm - 0.3*blk - stl - to - pts - ast
+        pv = fgp + ftp + 0.2 * ast
+        pv = truetotal - pts - to - 0.8*tpm - 0.7*stl - 0.3*fgp - 0.3*ftp
+        print(f"{pv=}")
+        punt_diff = pv - truetotal
         stats.loc[stats.index[index], 'PuntValue'] = pv
         stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
         stats.loc[stats.index[index], 'TrueTotal'] = truetotal
@@ -84,7 +127,10 @@ def build_full_team(schedcsv, source="projections"):
         if out == 'X':
             continue
         playerstats = stats.loc[stats['PLAYER'] == name]
+        print(f'{playerstats=}')
         stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i,2]
+        print(f'{playerstats=}')
+        exit(0)
         playerstats = stats.loc[stats['PLAYER'] == name]
         #  print(f'{playerstats=}')
         team_stats = team_stats.append(playerstats)
@@ -110,7 +156,6 @@ def build_team(schedcsv, source="projections"):
         stats = get_stats("zstats.csv")
     else:
         stats = get_stats(source)
-
     #### build team stats
     team_stats = pd.DataFrame()
     total_z = 0
@@ -119,7 +164,7 @@ def build_team(schedcsv, source="projections"):
         out = schedule.iloc[i,0]
         if out == 'O' or out == 'X':
             continue
-        playerstats = stats.loc[stats['PLAYER'] == name]
+        #  playerstats = stats.loc[stats['PLAYER'] == name]
         stats.loc[stats['PLAYER'] == name, 'NumGames'] = schedule.iloc[i,2]
         playerstats = stats.loc[stats['PLAYER'] == name]
         z = stats.loc[stats['PLAYER'] == name, 'TOTAL']
@@ -257,6 +302,16 @@ class team():
     ftp_stdev_mult_ten = 0.083580574
     to_stdev_mult_ten = 0.218138673
 
+    pts_z = 0
+    ast_z = 0
+    blk_z = 0
+    stl_z = 0
+    tpm_z = 0
+    to_z = 0
+    reb_z = 0
+    fgp_z = 0
+    ftp_z = 0
+
     def calc_stdevs(self, total_games):
         stdev_ten = self.pts*self.pts_stdev_mult_ten
         variance_ten = math.pow(stdev_ten, 2)
@@ -343,6 +398,11 @@ class team():
         self.ftp_variance = self.ftm_variance/self.fta/self.fta
         return
 
+    def printz(self):
+        return """PTS\tAST\tREB\tBLK\tSTL\t3PM\tFG%\tFT%\tTO\n{pts:.1f}\t{ast:.1f}\t{reb:.1f}\t{blk:.1f}\t{stl:.1f}\t{tpm:.1f}\t{fgp:.4f}\t{ftp:.4f}\t{to:.1f}\n""".format(
+                pts=self.pts_z, ast=self.ast_z, reb=self.reb_z, blk=self.blk_z, stl=self.stl_z,
+                tpm=self.tpm_z, fgp=self.fgp_z, ftp=self.ftp_z, to=self.to_z)
+
     def __str__(self):
         return """PTS\tAST\tREB\tBLK\tSTL\t3PM\tFG%\tFT%\tTO\n{pts:.1f}\t{ast:.1f}\t{reb:.1f}\t{blk:.1f}\t{stl:.1f}\t{tpm:.1f}\t{fgp:.4f}\t{ftp:.4f}\t{to:.1f}\n{pts_stdev:.1f}\t{ast_stdev:.1f}\t{reb_stdev:.1f}\t{blk_stdev:.1f}\t{stl_stdev:.1f}\t{tpm_stdev:.1f}\t{fgp_stdev:.4f}\t{ftp_stdev:.4f}\t{to_stdev:.1f}\n""".format(
                 pts=self.pts, ast=self.ast, reb=self.reb, blk=self.blk, stl=self.stl, tpm=self.tpm,
@@ -411,6 +471,8 @@ class team():
         print(f"{zscore=}")
         wp.fgp = st.norm.cdf(zscore)
         print(f"{wp.fgp=}")
+        robmark_fgp = st.norm.cdf(3.3)
+        print(f"{robmark_fgp=}")
 
         mean = self.ftp - other.ftp
         self.ftp_stdev = self.ftm_stdev/self.fta

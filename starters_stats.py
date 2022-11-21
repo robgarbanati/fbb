@@ -1,8 +1,8 @@
-from dataclasses import dataclass
 import math
 import numpy as np
 import pandas as pd
 import common
+from model import *
 import click
 import sys
 
@@ -32,37 +32,6 @@ def calc_best_cat_totals(roster):
     return team
 
 #  def recalc_players_punt(team):
-
-#  @dataclass
-#  class CatErrorMargin:
-#      pts: float
-#      ast: float
-#      blk: float
-#      stl: float
-#      tpm: float
-#      to: float
-#      reb: float
-#      fgp: float
-#      ftp: float
-#      def __add__(self, other):
-#          self.pts = self.pts + other.pts
-#          self.ast = self.ast + other.ast
-#          self.blk = self.blk + other.blk
-#          self.stl = self.stl + other.stl
-#          self.tpm = self.tpm + other.tpm
-#          self.reb = self.reb + other.reb
-#          self.ftp = self.ftp + other.ftp
-#          self.fgp = self.fgp + other.fgp
-#          self.ftp = self.ftp + other.ftp
-#          self.to = self.to + other.to
-#
-#          return self
-#
-#  @dataclass
-#  class WPnErma:
-#      wp: float
-#      erma: CatErrorMargin
-
 
 pts_close_games = 0
 ast_close_games = 0
