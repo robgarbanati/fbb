@@ -60,12 +60,18 @@ def get_stats_rankings(csv_file):
 
 def get_stats(csv_file):
     print("in get_stats")
+    #  stats = pd.read_csv(csv_file, sep='\t', index_col=False)
     stats = pd.read_csv(csv_file, sep='\t')
+    print(f"{stats=}")
     stats = stats[[c for c in stats if c not in ['TOTAL']]
        + ['TOTAL']]
+    print(f"{stats=}")
     endnum = len(stats.index)
+    print(f"{endnum=}")
     indices = [num for num in range(0,endnum)]
+    print(f"{indices=}")
     stats = stats.set_index(pd.Index(indices))
+    print(f"{stats=}")
     #  stats.insert(28, 'TheirPuntValue', -1, False)
     stats.insert(28, 'PuntValue', -1, False)
     stats.insert(29, 'PuntDiff', -1, False)
@@ -73,17 +79,33 @@ def get_stats(csv_file):
     # 	DNP_zFG%	DNP_zFT%	DNP_z3PM	DNP_zPTS	DNP_zREB	DNP_zAST	DNP_zSTL	DNP_zBLK	DNP_zTO
     #       0.13	        -0.02	        -1.77	        -2.1	        -2.05	        -1.47	        -2.44	        -1.23	        1.87
     for index in indices:
+        print(f"{index=}")
         player = stats.loc[stats.index[index], 'PLAYER']
+        print(f"{player=}")
+        pos = stats.loc[stats.index[index], 'POS']
+        print(f"{pos=}")
+        team = stats.loc[stats.index[index], 'TEAM']
+        print(f"{team=}")
         gp = stats.loc[stats.index[index], 'GP']
+        print(f"{gp=}")
         pts = stats.loc[stats.index[index], 'zPTS'] * gp/82 + 0.13*(82-gp)/82*0.5
+        print(f"{pts=}")
         ast = stats.loc[stats.index[index], 'zAST'] * gp/82 - 0.02*(82-gp)/82*0.5
+        print(f"{ast=}")
         blk = stats.loc[stats.index[index], 'zBLK'] * gp/82 - 1.77*(82-gp)/82*0.5
+        print(f"{blk=}")
         reb = stats.loc[stats.index[index], 'zREB'] * gp/82 - 2.10*(82-gp)/82*0.5
+        print(f"{reb=}")
         ftp = stats.loc[stats.index[index], 'zFT%'] * gp/82 - 2.05*(82-gp)/82*0.5
+        print(f"{ftp=}")
         fgp = stats.loc[stats.index[index], 'zFG%'] * gp/82 - 1.47*(82-gp)/82*0.5
+        print(f"{fgp=}")
         tpm = stats.loc[stats.index[index], 'z3PM'] * gp/82 - 2.44*(82-gp)/82*0.5
+        print(f"{tpm=}")
         stl = stats.loc[stats.index[index], 'zSTL'] * gp/82 - 1.23*(82-gp)/82*0.5
+        print(f"{stl=}")
         to = stats.loc[stats.index[index], 'zTO']   * gp/82 + 1.87*(82-gp)/82*0.5
+        print(f"{to=}")
 
         truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         print(f"{truetotal=}")

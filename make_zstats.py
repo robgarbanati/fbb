@@ -58,6 +58,7 @@ def make_csv_from_raw(raw_file, csv_file):
             formatted_str = formatted_str.replace(' III', '')
             print(f"{formatted_str=}")
             formatted_str = formatted_str.replace('P.J.', 'PJ')
+            formatted_str = formatted_str.replace('\t\t', '\t')
             print(f"{formatted_str=}")
             #  formatted_str = '\t'.join(formatted_str.rsplit(' ', 7))
             #  print(f"{formatted_str=}")
