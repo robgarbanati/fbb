@@ -45,9 +45,9 @@ def get_stats_rankings(csv_file):
 
         total = stats.loc[stats.index[index], 'TOTAL']
         print(f"{total=}")
-        #  pv = 0.5*pts + stl + fgp + to
-        pv = total - reb - tpm - 0.3*blk - stl - to
-        #  pv = total
+        pv = ast + blk + reb + stl + 0.3*(fgp + to) + 0.5 * ftp
+        #  pv = total - reb - tpm - 0.3*blk - stl - to
+        pv = total
         print(f"{pv=}")
         punt_diff = pv - total
         stats.loc[stats.index[index], 'PuntValue'] = pv
@@ -110,12 +110,7 @@ def get_stats(csv_file):
         truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         print(f"{truetotal=}")
         total = stats.loc[stats.index[index], 'TOTAL']
-        #  pv = truetotal - pts - reb - ftp - to - tpm
-        #  pv = pts + blk + stl + ftp
-        pv = truetotal - reb - tpm - 0.5 * ftp
-        pv = truetotal - reb - tpm - 0.3*blk - stl - to - pts - ast
-        pv = fgp + ftp + 0.2 * ast
-        pv = truetotal - pts - to - 0.8*tpm - 0.7*stl - 0.3*fgp - 0.3*ftp
+        pv = truetotal
         print(f"{pv=}")
         punt_diff = pv - truetotal
         stats.loc[stats.index[index], 'PuntValue'] = pv
