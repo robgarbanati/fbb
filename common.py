@@ -47,8 +47,8 @@ def get_stats_rankings(csv_file):
         #  print(f"{total=}")
         pv = ast + blk + reb + stl + 0.3*(fgp + to) + 0.5 * ftp
         #  pv = total - reb - tpm - 0.3*blk - stl - to
-        pv = total - tpm - pts
-        #  pv = total
+        pv = total - tpm - pts - ast - 0.5*fgp
+        pv = total - ftp
         print(f"{total=}")
         print(f"{pv=}")
         punt_diff = pv - total
@@ -57,7 +57,8 @@ def get_stats_rankings(csv_file):
         #  stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
     #  pd.set_option("display.max_rows", 80)
     #  print(stats)
-    stats = stats.sort_values(by='TOTAL', ascending=False)
+    #  stats = stats.sort_values(by='TOTAL', ascending=False)
+    stats = stats.sort_values(by='PuntValue', ascending=False)
     return stats
 
 def get_stats(csv_file):
@@ -90,41 +91,51 @@ def get_stats(csv_file):
         #  print(f"{team=}")
         gp = stats.loc[stats.index[index], 'GP']
         #  print(f"{gp=}")
-        pts = stats.loc[stats.index[index], 'zPTS'] * gp/82 + 0.13*(82-gp)/82*0.5
+        # pts = stats.loc[stats.index[index], 'zPTS'] * gp/82 + 0.13*(82-gp)/82*0.5
+        pts = stats.loc[stats.index[index], 'zPTS']
         #  print(f"{pts=}")
-        ast = stats.loc[stats.index[index], 'zAST'] * gp/82 - 0.02*(82-gp)/82*0.5
+        # ast = stats.loc[stats.index[index], 'zAST'] * gp/82 - 0.02*(82-gp)/82*0.5
+        ast = stats.loc[stats.index[index], 'zAST']
         #  print(f"{ast=}")
-        blk = stats.loc[stats.index[index], 'zBLK'] * gp/82 - 1.77*(82-gp)/82*0.5
+        # blk = stats.loc[stats.index[index], 'zBLK'] * gp/82 - 1.77*(82-gp)/82*0.5
+        blk = stats.loc[stats.index[index], 'zBLK']
         #  print(f"{blk=}")
-        reb = stats.loc[stats.index[index], 'zREB'] * gp/82 - 2.10*(82-gp)/82*0.5
+        # reb = stats.loc[stats.index[index], 'zREB'] * gp/82 - 2.10*(82-gp)/82*0.5
+        reb = stats.loc[stats.index[index], 'zREB']
         #  print(f"{reb=}")
-        ftp = stats.loc[stats.index[index], 'zFT%'] * gp/82 - 2.05*(82-gp)/82*0.5
+        # ftp = stats.loc[stats.index[index], 'zFT%'] * gp/82 - 2.05*(82-gp)/82*0.5
+        ftp = stats.loc[stats.index[index], 'zFT%']
         #  print(f"{ftp=}")
-        fgp = stats.loc[stats.index[index], 'zFG%'] * gp/82 - 1.47*(82-gp)/82*0.5
+        # fgp = stats.loc[stats.index[index], 'zFG%'] * gp/82 - 1.47*(82-gp)/82*0.5
+        fgp = stats.loc[stats.index[index], 'zFG%']
         #  print(f"{fgp=}")
-        tpm = stats.loc[stats.index[index], 'z3PM'] * gp/82 - 2.44*(82-gp)/82*0.5
+        # tpm = stats.loc[stats.index[index], 'z3PM'] * gp/82 - 2.44*(82-gp)/82*0.5
+        tpm = stats.loc[stats.index[index], 'z3PM']
         #  print(f"{tpm=}")
-        stl = stats.loc[stats.index[index], 'zSTL'] * gp/82 - 1.23*(82-gp)/82*0.5
+        # stl = stats.loc[stats.index[index], 'zSTL'] * gp/82 - 1.23*(82-gp)/82*0.5
+        stl = stats.loc[stats.index[index], 'zSTL']
         #  print(f"{stl=}")
-        to = stats.loc[stats.index[index], 'zTO']   * gp/82 + 1.87*(82-gp)/82*0.5
+        # to = stats.loc[stats.index[index], 'zTO']   * gp/82 + 1.87*(82-gp)/82*0.5
+        to = stats.loc[stats.index[index], 'zTO']  
         #  print(f"{to=}")
 
         truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         #  print(f"{truetotal=}")
         total = stats.loc[stats.index[index], 'TOTAL']
-        #  pv = truetotal - pts - to - 0.8*ftp - blk
-        pv = truetotal - pts - tpm
-        pv = truetotal
+        #  pv = ftp + blk + 0.5*(pts + reb + fgp + tpm + stl + to)
+        pv = truetotal - blk - ast - reb - tpm
+        #  pv = truetotal
         #  print(f"{pv=}")
-        punt_diff = pv - truetotal
+        #  punt_diff = pv - truetotal
+        punt_diff = pv - total
         stats.loc[stats.index[index], 'PuntValue'] = pv
         stats.loc[stats.index[index], 'PuntDiff'] = punt_diff
         stats.loc[stats.index[index], 'TrueTotal'] = truetotal
         #  stats.loc[stats.index[index], 'TheirPuntValue'] = theirpv
     #  pd.set_option("display.max_rows", 80)
     #  print(stats)
-    #  stats = stats.sort_values(by='PuntValue', ascending=False)
-    stats = stats.sort_values(by='TOTAL', ascending=False)
+    stats = stats.sort_values(by='PuntValue', ascending=False)
+    #  stats = stats.sort_values(by='TOTAL', ascending=False)
     return stats
 
 def build_full_team(schedcsv, source="projections"):
@@ -251,8 +262,9 @@ class winprob():
             total_prob += current_prob
             #  print("total_prob =", total_prob)
             number -= 1
-        #  print("total_prob =", total_prob)
+        print("total_prob =", total_prob)
         self.total_win_prob = total_prob
+        print(f"{self.total_win_prob=}")
         return
     def __str__(self):
 #          return """PTS\t\tAST\t\tREB\t\tBLK\t\tSTL\t\t3PM\t\tFG%\t\tFT%\t\tTO\t\tWINS\tCOST

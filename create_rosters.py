@@ -36,7 +36,7 @@ with open('rosters/rosters.raw', 'r') as rawfile:
         elif line == "1-800-HOTLINE ZING":
             found_gm = True
             gm = "kyle"
-        elif line == "Welcome To The Dorture Chamber":
+        elif line == "Coors Lights W/ Highlights":
             found_gm = True
             gm = "lucas"
         elif line == "Weed Use And Work Ethic":

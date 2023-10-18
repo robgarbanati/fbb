@@ -41,7 +41,7 @@ def optimize_lineups():
     #  ranking_7_stats = common.get_stats("zstats_rankings_7.csv")
     print(stats)
     print(ranking_stats)
-    #  print(ranking_14_stats)
+    print(ranking_14_stats)
     #  print(ranking_7_stats)
 
     stats = build_team("rosters/lucas_roster.csv", stats)
