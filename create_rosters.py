@@ -15,10 +15,10 @@ with open('rosters/rosters.raw', 'r') as rawfile:
     for line in lines_iter:
         line = line.replace('\n', '')
         print(f'{line=}')
-        if line == "Go Bearts":
+        if line == "Sweet Home Wembanyama":
             found_gm = True
             gm = "tom"
-        elif line == "Always Soft N' Salty":
+        elif line == "Hali Bomaye":
             found_gm = True
             gm = "brandt"
         elif line == "Sloppy Fat Boy's Revenge":
@@ -33,18 +33,18 @@ with open('rosters/rosters.raw', 'r') as rawfile:
         elif line == "Dude, Where's DeMar?":
             found_gm = True
             gm = "ben"
-        elif line == "1-800-HOTLINE ZING":
+        elif line == "Adderall And Basketball":
             found_gm = True
             gm = "kyle"
-        elif line == "Coors Lights W/ Highlights":
+        elif line == "Durantetokounmpo":
             found_gm = True
             gm = "lucas"
         elif line == "Weed Use And Work Ethic":
             found_gm = True
             gm = "zmo"
-        elif line == "Gym Class Herros":
+        elif line == "Telos B.C.":
             found_gm = True
-            gm = "alex"
+            gm = "jake"
         elif line == "Uncle Steve's Mets":
             found_gm = True
             gm = "mark"
@@ -65,6 +65,7 @@ with open('rosters/rosters.raw', 'r') as rawfile:
             line = line.replace('O.G. ', 'OG ')
             line = line.replace('Jr.', 'Jr')
             line = line.replace(' III', '')
+            line = line.replace('Alperen Sengun', 'Alperen Sengün')
             print(f'{line=}')
             print(f'{teams=}')
             teams[gm].append(line)
@@ -80,7 +81,7 @@ with open('rosters/rosters.raw', 'r') as rawfile:
     print(f'{teams["kyle"]=}')
     print(f'{teams["lucas"]=}')
     print(f'{teams["zmo"]=}')
-    print(f'{teams["alex"]=}')
+    print(f'{teams["jake"]=}')
     print(f'{teams["mark"]=}')
     print(f'{teams["andy"]=}')
     exit(0)
