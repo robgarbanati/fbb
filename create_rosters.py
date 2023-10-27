@@ -1,9 +1,9 @@
 with open('rosters/rosters.raw', 'r') as rawfile:
     data = rawfile.readlines()
-    #  for line in data:
-        #  line = line.strip()
-        #  line = line.replace(' \t', '\t')
-        #  print(line)
+    for line in data:
+        line = line.strip()
+        line = line.replace(' \t', '\t')
+        print(line)
 
     #  lines_iter = iter(rawfile)
     clean_data = []
