@@ -123,7 +123,7 @@ def get_stats(csv_file):
         #  print(f"{truetotal=}")
         total = stats.loc[stats.index[index], 'TOTAL']
         #  pv = ftp + blk + 0.5*(pts + reb + fgp + tpm + stl + to)
-        pv = truetotal
+        pv = truetotal - 0.7*fgp - 0.8*tpm - stl - blk - 0.5*reb
         #  pv = truetotal
         #  print(f"{pv=}")
         #  punt_diff = pv - truetotal
