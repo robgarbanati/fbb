@@ -63,7 +63,7 @@ with open('rosters/rosters.raw', 'r') as rawfile:
             line = line.replace('Nic ', 'Nicolas ')
             line = line.replace('P.J. ', 'PJ ')
             line = line.replace('O.G. ', 'OG ')
-            line = line.replace('Jr.', 'Jr')
+            # line = line.replace('Jr.', 'Jr')
             line = line.replace(' III', '')
             line = line.replace('Alperen Sengun', 'Alperen Sengün')
             print(f'{line=}')
