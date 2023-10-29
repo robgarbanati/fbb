@@ -64,6 +64,7 @@ def make_schedule(gm_name: str, source_file: str):
             if counting_games and \
                     (line == "SG" or line == "PG" or line == "SF" or \
                     line == "PF" or line == "C" or line == "UTIL" or \
+                    line == "F" or line == "G" or \
                     line == "Bench" or line == "IR"):
                 print(f"found positional placement. Going to write: {out_text},{name},{players[name]}")
                 # games_left_file.write(",{name},{num_games}\n".format(name=name, num_games=players[name]))
@@ -88,7 +89,7 @@ def check_if_file_exists(infile):
         sys.exit(1)
 
 @click.command()
-@click.option('--other-team-name', '-o', type=str, default='andy', help='Specify their name.')
+@click.option('--other-team-name', '-o', type=str, default='brandt', help='Specify their name.')
 def calc_my_and_their_games_left(other_team_name):
     check_if_file_exists("rosters/my_schedule.raw")
     check_if_file_exists("rosters/their_schedule.raw")

@@ -59,11 +59,11 @@ Ind
 SF, SG
 Draft
 UTIL
-Paolo BancheroPaolo Banchero
-Paolo Banchero
-Orl
-PF, SF
-Trade
+Malcolm BrogdonMalcolm Brogdon
+Malcolm Brogdon
+Por
+PG, SG
+Draft
 Bench
 Caleb MartinCaleb Martin
 Caleb Martin
@@ -79,11 +79,11 @@ Min
 SF
 Draft
 Bench
-Malcolm BrogdonMalcolm Brogdon
-Malcolm Brogdon
-Por
-PG, SG
-Draft
+Paolo BancheroPaolo Banchero
+Paolo Banchero
+Orl
+PF, SF
+Trade
 IR
 
 Empty
@@ -104,15 +104,15 @@ Chi
 PG, SG
 Free Agency
 SG
-Tyrese HaliburtonTyrese Haliburton
-Tyrese Haliburton
-Ind
-PG, SG
+Austin ReavesAustin Reaves
+Austin Reaves
+LAL
+SG, SF
 Draft
 SF
-Desmond BaneDesmond Bane
-Desmond Bane
-Mem
+Kevin HuerterKevin Huerter
+Kevin Huerter
+Sac
 SG, SF
 Draft
 PF
@@ -128,28 +128,23 @@ Orl
 C
 Draft
 G
-Kevin HuerterKevin Huerter
-Kevin Huerter
-Sac
-SG, SF
+Tyrese HaliburtonTyrese Haliburton
+Tyrese Haliburton
+Ind
+PG, SG
 Draft
 F
-Herbert JonesHerbert Jones
-Herbert Jones
-NO
-PF, SF
-Draft
+Jalen JohnsonJalen Johnson
+Jalen Johnson
+Atl
+SF
+Free Agency
 UTIL
-Austin ReavesAustin Reaves
-Austin Reaves
-LAL
-SG, SF
-Draft
-UTIL
-Immanuel QuickleyImmanuel Quickley
-Immanuel Quickley
-NY
-PG, SG
+Stephen CurryStephen Curry
+Stephen Curry
+DTD
+GS
+PG
 Draft
 UTIL
 Ivica ZubacIvica Zubac
@@ -157,21 +152,30 @@ Ivica Zubac
 LAC
 C
 Draft
-Bench
-Stephen CurryStephen Curry
-Stephen Curry
-GS
-PG
-Draft
-Bench
-Jalen JohnsonJalen Johnson
-Jalen Johnson
-Atl
-SF
+UTIL
+Dereck Lively IIDereck Lively II
+Dereck Lively II
+Dal
+C
 Free Agency
 Bench
-
-Empty
+Desmond BaneDesmond Bane
+Desmond Bane
+Mem
+SG, SF
+Draft
+Bench
+Immanuel QuickleyImmanuel Quickley
+Immanuel Quickley
+NY
+PG, SG
+Draft
+Bench
+Herbert JonesHerbert Jones
+Herbert Jones
+NO
+PF, SF
+Draft
 IR
 Bojan BogdanovicBojan Bogdanovic
 Bojan Bogdanovic
@@ -190,17 +194,18 @@ SLOT
 PLAYER
 ACQ
 PG
-Jordan PooleJordan Poole
-Jordan Poole
-Wsh
-SG, PG
-Draft
-SG
 
 Empty
+SG
+Paul GeorgePaul George
+Paul George
+LAC
+SF, SG, PF
+Draft
 SF
 Khris MiddletonKhris Middleton
 Khris Middleton
+O
 Mil
 SF
 Draft
@@ -211,28 +216,34 @@ OKC
 PF, C
 Draft
 C
+Zach CollinsZach Collins
+Zach Collins
+SA
+C, PF
+Draft
+G
+Jeremy SochanJeremy Sochan
+Jeremy Sochan
+SA
+PF, PG
+Free Agency
+F
+Norman PowellNorman Powell
+Norman Powell
+LAC
+SG, SF
+Free Agency
+UTIL
+Jordan PooleJordan Poole
+Jordan Poole
+Wsh
+SG, PG
+Draft
+UTIL
 Kristaps PorzingisKristaps Porzingis
 Kristaps Porzingis
 Bos
 C, PF
-Draft
-G
-Cade CunninghamCade Cunningham
-Cade Cunningham
-Det
-PG, SG
-Draft
-F
-O.G. AnunobyO.G. Anunoby
-O.G. Anunoby
-Tor
-SF
-Draft
-UTIL
-Markelle FultzMarkelle Fultz
-Markelle Fultz
-Orl
-PG, SG
 Draft
 UTIL
 Rudy GobertRudy Gobert
@@ -240,17 +251,24 @@ Rudy Gobert
 Min
 C
 Draft
-UTIL
-Zach CollinsZach Collins
-Zach Collins
-SA
-C, PF
+Bench
+Cade CunninghamCade Cunningham
+Cade Cunningham
+Det
+PG, SG
 Draft
 Bench
-Paul GeorgePaul George
-Paul George
-LAC
-SF, SG, PF
+O.G. AnunobyO.G. Anunoby
+O.G. Anunoby
+DTD
+Tor
+SF
+Draft
+Bench
+Markelle FultzMarkelle Fultz
+Markelle Fultz
+Orl
+PG, SG
 Draft
 Bench
 Ausar ThompsonAusar Thompson
@@ -258,12 +276,6 @@ Ausar Thompson
 Det
 SF, SG
 Draft
-Bench
-Jeremy SochanJeremy Sochan
-Jeremy Sochan
-SA
-PF, PG
-Free Agency
 IR
 Trey Murphy IIITrey Murphy III
 Trey Murphy III
@@ -286,22 +298,23 @@ SLOT
 PLAYER
 ACQ
 PG
-Fred VanVleetFred VanVleet
-Fred VanVleet
-Hou
-PG
-Draft
-SG
 Tyrese MaxeyTyrese Maxey
 Tyrese Maxey
 Phi
 SG, PG
 Draft
+SG
+Donovan MitchellDonovan Mitchell
+Donovan Mitchell
+DTD
+Cle
+SG, PG
+Draft
 SF
-Franz WagnerFranz Wagner
-Franz Wagner
-Orl
-SF, SG, PF
+Bruce BrownBruce Brown
+Bruce Brown
+Ind
+SG, SF
 Draft
 PF
 Patrick WilliamsPatrick Williams
@@ -316,10 +329,10 @@ Por
 C
 Draft
 G
-Bruce BrownBruce Brown
-Bruce Brown
-Ind
-SG, SF
+Jamal MurrayJamal Murray
+Jamal Murray
+Den
+PG
 Draft
 F
 Michael Porter Jr.Michael Porter Jr.
@@ -328,16 +341,16 @@ Den
 SF
 Draft
 UTIL
-Walker KesslerWalker Kessler
-Walker Kessler
-Utah
-C
+Chris PaulChris Paul
+Chris Paul
+GS
+PG
 Draft
 UTIL
-Mark WilliamsMark Williams
-Mark Williams
-Cha
-C
+Fred VanVleetFred VanVleet
+Fred VanVleet
+Hou
+PG
 Draft
 UTIL
 Robert Williams IIIRobert Williams III
@@ -346,22 +359,22 @@ Por
 C
 Draft
 Bench
-Donovan MitchellDonovan Mitchell
-Donovan Mitchell
-Cle
-SG, PG
+Walker KesslerWalker Kessler
+Walker Kessler
+Utah
+C
 Draft
 Bench
-Chris PaulChris Paul
-Chris Paul
-GS
-PG
+Franz WagnerFranz Wagner
+Franz Wagner
+Orl
+SF, SG, PF
 Draft
 Bench
-Jamal MurrayJamal Murray
-Jamal Murray
-Den
-PG
+Mark WilliamsMark Williams
+Mark Williams
+Cha
+C
 Draft
 IR
 
@@ -389,22 +402,22 @@ NY
 SF, SG
 Draft
 SF
-Kevin DurantKevin Durant
-Kevin Durant
-Phx
-SF, PF
+Kentavious Caldwell-PopeKentavious Caldwell-Pope
+Kentavious Caldwell-Pope
+Den
+SG, SF
 Draft
 PF
-Giannis AntetokounmpoGiannis Antetokounmpo
-Giannis Antetokounmpo
-Mil
-PF, C
+De'Andre HunterDe'Andre Hunter
+De'Andre Hunter
+Atl
+SF, PF
 Draft
 C
-Bobby PortisBobby Portis
-Bobby Portis
-Mil
-PF, C
+Clint CapelaClint Capela
+Clint Capela
+Atl
+C
 Draft
 G
 Alex CarusoAlex Caruso
@@ -413,16 +426,16 @@ Chi
 PG, SG
 Draft
 F
-Jimmy ButlerJimmy Butler
-Jimmy Butler
-Mia
-SF, PF
+Giannis AntetokounmpoGiannis Antetokounmpo
+Giannis Antetokounmpo
+Mil
+PF, C
 Draft
 UTIL
-Kyle KuzmaKyle Kuzma
-Kyle Kuzma
-Wsh
-PF, SF
+Bam AdebayoBam Adebayo
+Bam Adebayo
+Mia
+C
 Draft
 UTIL
 Jaden IveyJaden Ivey
@@ -431,28 +444,29 @@ Det
 PG, SG
 Draft
 UTIL
-Clint CapelaClint Capela
-Clint Capela
-Atl
-C
+Bobby PortisBobby Portis
+Bobby Portis
+Mil
+PF, C
 Draft
 Bench
-Bam AdebayoBam Adebayo
-Bam Adebayo
-Mia
-C
-Draft
-Bench
-Kentavious Caldwell-PopeKentavious Caldwell-Pope
-Kentavious Caldwell-Pope
-Den
-SG, SF
-Draft
-Bench
-De'Andre HunterDe'Andre Hunter
-De'Andre Hunter
-Atl
+Kevin DurantKevin Durant
+Kevin Durant
+Phx
 SF, PF
+Draft
+Bench
+Jimmy ButlerJimmy Butler
+Jimmy Butler
+DTD
+Mia
+SF, PF
+Draft
+Bench
+Kyle KuzmaKyle Kuzma
+Kyle Kuzma
+Wsh
+PF, SF
 Draft
 IR
 
@@ -468,17 +482,17 @@ SLOT
 PLAYER
 ACQ
 PG
+Russell WestbrookRussell Westbrook
+Russell Westbrook
+LAC
+PG
+Draft
+SG
 Dejounte MurrayDejounte Murray
 Dejounte Murray
 Atl
 PG, SG
 Trade
-SG
-Marcus SmartMarcus Smart
-Marcus Smart
-Mem
-SG, PG
-Draft
 SF
 LeBron JamesLeBron James
 LeBron James
@@ -486,14 +500,17 @@ LAL
 SF, PF
 Draft
 PF
-Zion WilliamsonZion Williamson
-Zion Williamson
-NO
+Aaron GordonAaron Gordon
+Aaron Gordon
+Den
 PF
-Draft
+Trade
 C
-
-Empty
+Anthony DavisAnthony Davis
+Anthony Davis
+LAL
+PF, C
+Draft
 G
 D'Angelo RussellD'Angelo Russell
 D'Angelo Russell
@@ -501,22 +518,10 @@ LAL
 PG, SG
 Draft
 F
-Aaron GordonAaron Gordon
-Aaron Gordon
-Den
+Zion WilliamsonZion Williamson
+Zion Williamson
+NO
 PF
-Trade
-UTIL
-Anthony DavisAnthony Davis
-Anthony Davis
-LAL
-PF, C
-Draft
-UTIL
-Evan MobleyEvan Mobley
-Evan Mobley
-Cle
-PF, C
 Draft
 UTIL
 Xavier TillmanXavier Tillman
@@ -524,32 +529,47 @@ Xavier Tillman
 Mem
 PF, C
 Free Agency
-Bench
-Russell WestbrookRussell Westbrook
-Russell Westbrook
+UTIL
+Max StrusMax Strus
+Max Strus
+Cle
+SG, SF
+Free Agency
+UTIL
+Robert CovingtonRobert Covington
+Robert Covington
 LAC
-PG
-Draft
-Bench
-Jonathan KumingaJonathan Kuminga
-Jonathan Kuminga
-GS
-PF
+PF, SF
 Free Agency
 Bench
-
-Empty
+Evan MobleyEvan Mobley
+Evan Mobley
+Cle
+PF, C
+Draft
+Bench
+Marcus SmartMarcus Smart
+Marcus Smart
+Mem
+SG, PG
+Draft
+Bench
+Isaiah StewartIsaiah Stewart
+Isaiah Stewart
+Det
+C, PF
+Free Agency
 IR
 Nic ClaxtonNic Claxton
 Nic Claxton
-O
+DTD
 Bkn
 C, PF
 Draft
 IR
 Draymond GreenDraymond Green
 Draymond Green
-O
+DTD
 GS
 PF, C
 Draft
@@ -562,10 +582,10 @@ SLOT
 PLAYER
 ACQ
 PG
-Damian LillardDamian Lillard
-Damian Lillard
-Mil
-PG
+Shai Gilgeous-AlexanderShai Gilgeous-Alexander
+Shai Gilgeous-Alexander
+OKC
+SG, PG
 Draft
 SG
 Bogdan BogdanovicBogdan Bogdanovic
@@ -592,10 +612,10 @@ Min
 C, PF
 Draft
 G
-Malik BeasleyMalik Beasley
-Malik Beasley
-Mil
-SG
+Collin SextonCollin Sexton
+Collin Sexton
+Utah
+SG, PG
 Draft
 F
 Keegan MurrayKeegan Murray
@@ -604,41 +624,41 @@ Sac
 PF, SF
 Draft
 UTIL
+Damian LillardDamian Lillard
+Damian Lillard
+Mil
+PG
+Draft
+UTIL
+Harrison BarnesHarrison Barnes
+Harrison Barnes
+Sac
+SF, PF
+Free Agency
+UTIL
+Cole AnthonyCole Anthony
+Cole Anthony
+Orl
+PG
+Free Agency
+Bench
 Jordan ClarksonJordan Clarkson
 Jordan Clarkson
 Utah
 SG
 Draft
-UTIL
+Bench
 Jusuf NurkicJusuf Nurkic
 Jusuf Nurkic
 Phx
 C
 Draft
-UTIL
-Naz ReidNaz Reid
-Naz Reid
-Min
-C, PF
-Draft
 Bench
-Shai Gilgeous-AlexanderShai Gilgeous-Alexander
-Shai Gilgeous-Alexander
-OKC
-SG, PG
-Draft
-Bench
-Collin SextonCollin Sexton
-Collin Sexton
-Utah
-SG, PG
-Draft
-Bench
-Matisse ThybulleMatisse Thybulle
-Matisse Thybulle
-Por
-SF, SG
-Draft
+Caris LeVertCaris LeVert
+Caris LeVert
+Cle
+SG, SF
+Free Agency
 IR
 
 Empty
@@ -671,16 +691,16 @@ SA
 SF
 Draft
 PF
-Paul ReedPaul Reed
-Paul Reed
-Phi
-PF
-Free Agency
-C
-Jaren Jackson Jr.Jaren Jackson Jr.
-Jaren Jackson Jr.
-Mem
+Domantas SabonisDomantas Sabonis
+Domantas Sabonis
+Sac
 PF, C
+Draft
+C
+Brook LopezBrook Lopez
+Brook Lopez
+Mil
+C
 Draft
 G
 De'Aaron FoxDe'Aaron Fox
@@ -695,42 +715,45 @@ Utah
 PF
 Draft
 UTIL
-Brook LopezBrook Lopez
-Brook Lopez
-Mil
-C
-Draft
-UTIL
-Spencer DinwiddieSpencer Dinwiddie
-Spencer Dinwiddie
-Bkn
-SG, PG
-Draft
-UTIL
-
-Empty
-Bench
-Domantas SabonisDomantas Sabonis
-Domantas Sabonis
-Sac
-PF, C
-Draft
-Bench
 Jonas ValanciunasJonas Valanciunas
 Jonas Valanciunas
 NO
 C
 Draft
-Bench
+UTIL
 Jalen DurenJalen Duren
 Jalen Duren
 Det
 C
 Draft
+UTIL
+Day'Ron SharpeDay'Ron Sharpe
+Day'Ron Sharpe
+Bkn
+C
+Free Agency
+Bench
+Jaren Jackson Jr.Jaren Jackson Jr.
+Jaren Jackson Jr.
+Mem
+PF, C
+Draft
+Bench
+Spencer DinwiddieSpencer Dinwiddie
+Spencer Dinwiddie
+Bkn
+SG, PG
+Draft
+Bench
+Isaac OkoroIsaac Okoro
+Isaac Okoro
+Cle
+SF, SG
+Free Agency
 IR
 Devin BookerDevin Booker
 Devin Booker
-O
+DTD
 Phx
 SG, SF
 Draft
@@ -739,7 +762,7 @@ IR
 Empty
 View Team
 Propose Trade
-Sloppy Fat Boy's Revenge
+Get Vasselline For My Johnsin
 (0-0-0)
 SLOT
 PLAYER
@@ -763,11 +786,8 @@ LAC
 SF, PF
 Draft
 PF
-Cameron JohnsonCameron Johnson
-Cameron Johnson
-Bkn
-SF, PF
-Draft
+
+Empty
 C
 Daniel GaffordDaniel Gafford
 Daniel Gafford
@@ -775,16 +795,16 @@ Wsh
 C, PF
 Draft
 G
-Josh HartJosh Hart
-Josh Hart
-NY
-SG, SF
-Draft
-F
 Devin VassellDevin Vassell
 Devin Vassell
 SA
 SF, SG
+Draft
+F
+Tobias HarrisTobias Harris
+Tobias Harris
+Phi
+SF, PF
 Draft
 UTIL
 Nikola VucevicNikola Vucevic
@@ -793,10 +813,10 @@ Chi
 C
 Draft
 UTIL
-Tobias HarrisTobias Harris
-Tobias Harris
-Phi
-SF, PF
+Klay ThompsonKlay Thompson
+Klay Thompson
+GS
+SG, SF
 Draft
 UTIL
 De'Anthony MeltonDe'Anthony Melton
@@ -811,14 +831,17 @@ Ind
 C
 Draft
 Bench
-Klay ThompsonKlay Thompson
-Klay Thompson
-GS
+Josh HartJosh Hart
+Josh Hart
+NY
 SG, SF
 Draft
 Bench
-
-Empty
+Mike ConleyMike Conley
+Mike Conley
+Min
+PG
+Free Agency
 IR
 Jarrett AllenJarrett Allen
 Jarrett Allen
@@ -827,8 +850,12 @@ Cle
 C
 Draft
 IR
-
-Empty
+Cameron JohnsonCameron Johnson
+Cameron Johnson
+DTD
+Bkn
+SF, PF
+Draft
 View Team
 The Green Mamba
 (0-0-0)
@@ -836,15 +863,12 @@ SLOT
 PLAYER
 ACQ
 PG
-LaMelo BallLaMelo Ball
-LaMelo Ball
-Cha
-PG, SG
-Draft
+
+Empty
 SG
-Anfernee SimonsAnfernee Simons
-Anfernee Simons
-Por
+Gary Trent Jr.Gary Trent Jr.
+Gary Trent Jr.
+Tor
 SG, PG
 Draft
 SF
@@ -875,29 +899,31 @@ F
 
 Empty
 UTIL
-Darius GarlandDarius Garland
-Darius Garland
-DTD
-Cle
-PG
-Draft
-UTIL
-CJ McCollumCJ McCollum
-CJ McCollum
-NO
-SG, PG
-Draft
-UTIL
-Gary Trent Jr.Gary Trent Jr.
-Gary Trent Jr.
-Tor
-SG, PG
-Draft
-Bench
 Jerami GrantJerami Grant
 Jerami Grant
 Por
 PF
+Draft
+UTIL
+Amen ThompsonAmen Thompson
+Amen Thompson
+Hou
+SG
+Free Agency
+UTIL
+
+Empty
+Bench
+LaMelo BallLaMelo Ball
+LaMelo Ball
+Cha
+PG, SG
+Draft
+Bench
+CJ McCollumCJ McCollum
+CJ McCollum
+NO
+SG, PG
 Draft
 Bench
 Al HorfordAl Horford
@@ -906,23 +932,25 @@ Bos
 C, PF
 Draft
 Bench
-Amen ThompsonAmen Thompson
-Amen Thompson
-Hou
-SG
-Free Agency
-Bench
 Dennis SchroderDennis Schroder
 Dennis Schroder
 Tor
 PG
 Free Agency
 IR
-
-Empty
+Darius GarlandDarius Garland
+Darius Garland
+DTD
+Cle
+PG
+Draft
 IR
-
-Empty
+Anfernee SimonsAnfernee Simons
+Anfernee Simons
+O
+Por
+SG, PG
+Draft
 View Team
 Propose Trade
 
@@ -956,9 +984,9 @@ Bkn
 PG, PF
 Draft
 C
-Mitchell RobinsonMitchell Robinson
-Mitchell Robinson
-NY
+Nikola JokicNikola Jokic
+Nikola Jokic
+Den
 C
 Draft
 G
@@ -974,42 +1002,45 @@ Hou
 PF, C
 Draft
 UTIL
-Terry RozierTerry Rozier
-Terry Rozier
-Cha
-SG, PG
-Draft
-UTIL
-Jakob PoeltlJakob Poeltl
-Jakob Poeltl
-Tor
-C
-Draft
-UTIL
-
-Empty
-Bench
-Nikola JokicNikola Jokic
-Nikola Jokic
-Den
-C
-Draft
-Bench
 Onyeka OkongwuOnyeka Okongwu
 Onyeka Okongwu
 Atl
 C
 Draft
-Bench
+UTIL
 Andrew WigginsAndrew Wiggins
 Andrew Wiggins
 GS
 SF, PF
 Draft
+UTIL
+Cam ThomasCam Thomas
+Cam Thomas
+Bkn
+SG
+Free Agency
+Bench
+Terry RozierTerry Rozier
+Terry Rozier
+Cha
+SG, PG
+Draft
+Bench
+Jakob PoeltlJakob Poeltl
+Jakob Poeltl
+Tor
+C
+Draft
+Bench
+Mitchell RobinsonMitchell Robinson
+Mitchell Robinson
+NY
+C
+Draft
 IR
 James HardenJames Harden
 James Harden
-O
+DTD
 Phi
 SG, PG
 Draft
@@ -1067,17 +1098,17 @@ Bkn
 SF, SG
 Draft
 UTIL
+Saddiq BeySaddiq Bey
+Saddiq Bey
+Atl
+SF, PF
+Draft
+UTIL
 P.J. WashingtonP.J. Washington
 P.J. Washington
 Cha
 PF
 Draft
-UTIL
-T.J. McConnellT.J. McConnell
-T.J. McConnell
-Ind
-PG
-Free Agency
 UTIL
 Christian WoodChristian Wood
 Christian Wood
@@ -1085,14 +1116,18 @@ LAL
 C, PF
 Free Agency
 Bench
-Saddiq BeySaddiq Bey
-Saddiq Bey
-Atl
-SF, PF
-Draft
+T.J. McConnellT.J. McConnell
+T.J. McConnell
+Ind
+PG
+Free Agency
 Bench
-
-Empty
+Ja MorantJa Morant
+Ja Morant
+SSPD
+Mem
+PG
+Free Agency
 Bench
 
 Empty

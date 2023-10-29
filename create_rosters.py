@@ -21,7 +21,7 @@ with open('rosters/rosters.raw', 'r') as rawfile:
         elif line == "Hali Bomaye":
             found_gm = True
             gm = "brandt"
-        elif line == "Sloppy Fat Boy's Revenge":
+        elif line == "Get Vasselline For My Johnsin":
             found_gm = True
             gm = "rob"
         elif line == "Choi Boys":

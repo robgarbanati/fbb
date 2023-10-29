@@ -49,8 +49,8 @@ def optimize_lineups(their_roster):
     #  print(ranking_7_stats)
 
     stats = build_team(their_roster, stats)
-    ranking_stats = build_team(their_roster, ranking_stats)
-    ranking_14_stats = build_team(their_roster, ranking_14_stats)
+    # ranking_stats = build_team(their_roster, ranking_stats)
+    # ranking_14_stats = build_team(their_roster, ranking_14_stats)
     #  ranking_7_stats = build_team(their_roster, ranking_7_stats)
     #  stats = build_team("rosters/kyle_roster.csv", stats)
     #  ranking_stats = build_team("rosters/kyle_roster.csv", ranking_stats)
@@ -97,8 +97,8 @@ def optimize_lineups(their_roster):
     #  ranking_14_stats = build_team("rosters/akbar_roster.csv", ranking_14_stats)
     #  ranking_7_stats = build_team("rosters/akbar_roster.csv", ranking_7_stats)
     stats = build_team("rosters/rob_roster.csv", stats)
-    ranking_stats = build_team("rosters/rob_roster.csv", ranking_stats)
-    ranking_14_stats = build_team("rosters/rob_roster.csv", ranking_14_stats)
+    # ranking_stats = build_team("rosters/rob_roster.csv", ranking_stats)
+    # ranking_14_stats = build_team("rosters/rob_roster.csv", ranking_14_stats)
     #  ranking_7_stats = build_team("rosters/rob_roster.csv", ranking_7_stats)
     
     #  indices = [num for num in range(0,40)]
@@ -114,5 +114,6 @@ def optimize_lineups(their_roster):
     #  print(head)
 
 if __name__ == '__main__':
+    pd.set_option('display.float_format', lambda x: '%.2f' % x)
     optimize_lineups()
 
