@@ -12,8 +12,8 @@ def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 5"):
         lines_iter = iter(data[4:])
         prev_line = ""
         players = {}
-        doublename = False
-        # found_name = False
+        found_doublename = False
+        found_name = False
         name = ""
         out_text = ""
         num_days = 0
@@ -44,15 +44,14 @@ def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 5"):
             # count number of spaces in line
             num_spaces = line.count(' ')
             # state 3: done with dates. find doublename.
-            if num_spaces == 2:
-                doublename = True
+            if num_spaces >= 2 and found_doublename == False:
+                found_doublename = True
                 print(f"found doublename")
-                # found_name = False
                 prev_line = line
                 continue
             # state 4: find name. Save name.
-            if num_spaces == 1 and doublename == True and line in prev_line and name == "":
-                # found_name = True
+            if num_spaces >= 1 and found_doublename == True and found_name == False and line in prev_line and name == "":
+                found_name = True
                 name = line
                 print(f"found player: {name=}")
                 players[name] = 0
@@ -88,6 +87,8 @@ def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 5"):
                 counting_games = False
                 name = ""
                 out_text = ""
+                found_doublename = False
+                found_name = False
                 continue
             # state 7: Increment player's game countfor every line that is not "--"
             # if counting_games and line != "--" and num_spaces == 0 and \
