@@ -45,10 +45,8 @@ def get_stats_rankings(csv_file):
 
         total = stats.loc[stats.index[index], 'TOTAL']
         #  print(f"{total=}")
-        # pv = ast + blk + reb + stl + 0.3*(fgp + to) + 0.5 * ftp
-        #  pv = total - reb - tpm - 0.3*blk - stl - to
-        pv = total - tpm - pts - ast - blk - to
-        # pv = total
+        # pv = total - tpm - pts - 0.5*ast - 0.5*stl - 0.5*blk
+        pv = total
         print(f"{total=}")
         print(f"{pv=}")
         punt_diff = pv - total
@@ -91,6 +89,9 @@ def get_stats(csv_file):
         #  print(f"{team=}")
         gp = stats.loc[stats.index[index], 'GP']
         #  print(f"{gp=}")
+        print(f"{gp=}")
+        print(f"{stats.index[index]=}")
+        print(f"{stats.loc[stats.index[index], 'zPTS']=}")
         pts = stats.loc[stats.index[index], 'zPTS'] * gp/82 + 0.13*(82-gp)/82*0.5
         # pts = stats.loc[stats.index[index], 'zPTS']
         #  print(f"{pts=}")
@@ -122,10 +123,8 @@ def get_stats(csv_file):
         truetotal = pts + ast + blk + reb + ftp + fgp + tpm + stl + to
         #  print(f"{truetotal=}")
         total = stats.loc[stats.index[index], 'TOTAL']
-        #  pv = ftp + blk + 0.5*(pts + reb + fgp + tpm + stl + to)
-        # pv = truetotal - 0.7*fgp - 0.8*tpm - stl - blk - 0.5*reb
-        pv = truetotal - tpm - pts - ast - blk - to
-        # pv = truetotal
+        # pv = truetotal - tpm - pts - 0.5*ast - 0.5*stl - 0.5*blk
+        pv = truetotal
         #  print(f"{pv=}")
         #  punt_diff = pv - truetotal
         punt_diff = pv - total
@@ -427,7 +426,11 @@ class team():
         self.fgm_stdev = math.sqrt(self.fgm_variance)
         self.fgp_stdev = self.fgm_stdev/self.fga
         self.fgp_variance = self.fgm_variance/self.fga/self.fga
+        print(f"{self.ftp=}")
+        print(f"{1 - self.ftp=}")
+        print(f"{self.fta=}")
         self.ftm_variance = (self.ftp)*(1 - self.ftp)*self.fta
+        print(f"{self.ftm_variance=}")
         self.ftm_stdev = math.sqrt(self.ftm_variance)
         self.ftp_stdev = self.ftm_stdev/self.fta
         self.ftp_variance = self.ftm_variance/self.fta/self.fta

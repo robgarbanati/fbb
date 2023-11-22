@@ -28,6 +28,8 @@ def build_team(schedcsv, stats):
     team_stats = team_stats.set_index(pd.Index(indices))
     print(f"{team_stats=}")
     print(f"{stats=}")
+    head = stats.head(40)
+    print(head)
 
     return(stats)
 

@@ -6,7 +6,7 @@ from os import path
 import common
 import sys
 
-def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 5"):
+def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 26"):
     with open(source_file, 'r') as rawfile:
         data = rawfile.readlines()
         lines_iter = iter(data[4:])
@@ -16,13 +16,14 @@ def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 5"):
         found_name = False
         name = ""
         out_text = ""
-        num_days = 0
+        num_days = 1
         counting_games = False
         last_day_found = False
         days_counted_for_this_player = 0
         games_left_file = open(f'rosters/{gm_name}_roster.csv'.format(n=name), 'w')
         games_left_file.write("0,1,2\n")
         for line in lines_iter:
+            line = line.replace('\n', '')
             # state 1: Ignore first few useless lines
             if line == "SLOT" or line == "PLAYER" or line == "OPP" \
                     or line == "STATUS" or line == "ACTION":
@@ -35,12 +36,13 @@ def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 5"):
                     continue
                 num_days += 1
                 print(f"{num_days=}")
+            print(f"{last_day=}")
+            print(f"{line=}")
+            print(f"{(line == last_day)=}")
             if line == last_day:
                 last_day_found = True
                 print(f"{num_days=}")
                 continue
-            line = line.replace('\n', '')
-            print(f'{line=}')
             # count number of spaces in line
             num_spaces = line.count(' ')
             # state 3: done with dates. find doublename.
@@ -85,7 +87,9 @@ def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 5"):
                 # games_left_file.write(",{name},{num_games}\n".format(name=name, num_games=players[name]))
                 games_left_file.write(f"{out_text},{name},{players[name]}\n")
                 counting_games = False
+                print(f"before clear: {name=}")
                 name = ""
+                print(f"after clear: {name=}")
                 out_text = ""
                 found_doublename = False
                 found_name = False
@@ -97,12 +101,16 @@ def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 5"):
                 if num_spaces == 0 and line != "MOVE" and line != "":
                     days_counted_for_this_player += 1
                     print(f"{days_counted_for_this_player=}")
+                    print(f"{num_days=}")
                     if line != "--" and days_counted_for_this_player <= num_days:
                         players[name] += 1
                         print(f"players[{name}] = {players[name]}")
 
-        print(f"End of loop. Going to write: players[{name}] = {players[name]}")
-        games_left_file.write(f"{out_text},{name},{players[name]}\n")
+        if name:
+            print(f"{name=}")
+            print(f"{players[name]=}")
+            print(f"End of loop and name not cleared. Going to write: players[{name}] = {players[name]}")
+            games_left_file.write(f"{out_text},{name},{players[name]}\n")
 
 def check_if_file_exists(infile):
     if not path.exists(infile):
@@ -110,7 +118,7 @@ def check_if_file_exists(infile):
         sys.exit(1)
 
 @click.command()
-@click.option('--other-team-name', '-o', type=str, default='brandt', help='Specify their name.')
+@click.option('--other-team-name', '-o', type=str, default='tom', help='Specify their name.')
 def calc_my_and_their_games_left(other_team_name):
     check_if_file_exists("rosters/my_schedule.raw")
     check_if_file_exists("rosters/their_schedule.raw")

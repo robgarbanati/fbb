@@ -14,6 +14,7 @@ def calc_cat_totals(team):
     for i in range(0,endnum):
         playername = team['PLAYER'][i]
         total_games += team['NumGames'][i]
+        # team['TEAM'][i]
         team_cats.pts += team['NumGames'][i] * team['PTS'][i]
         team_cats.ast += team['NumGames'][i] * team['AST'][i]
         team_cats.blk += team['NumGames'][i] * team['BLK'][i]
@@ -55,10 +56,7 @@ def calc_cat_totals(team):
         #  print(f"{team_cats.ftp_z=}")
         #  i += 1
 
-    print(f"{team_cats.fgm=}")
-    print(f"{team_cats.fga=}")
     fgp = team_cats.fgm/team_cats.fga;
-    print(f"{fgp=}")
 
     if team_cats.fta == 0:
         team_cats.ftp = 0
@@ -128,9 +126,9 @@ def check_if_file_exists(infile):
 
 @click.command()
 @click.option('--my-roster', '-r', type=str, default='rosters/rob_roster.csv', help='Specify path to my roster csv.')
-@click.option('--their-roster', '-o', type=str, default='rosters/brandt_roster.csv', help='Specify path to their roster csv.')
+@click.option('--their-roster', '-o', type=str, default='rosters/tom_roster.csv', help='Specify path to their roster csv.')
 @click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
-@click.option('--their-stats', '-t', type=str, default='brandt_stats.csv', help='Specify path to their stats csv.')
+@click.option('--their-stats', '-t', type=str, default='tom_stats.csv', help='Specify path to their stats csv.')
 def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     check_if_file_exists(my_roster)
     check_if_file_exists(their_roster)

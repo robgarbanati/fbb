@@ -3,6 +3,22 @@ def make_csv_from_raw(raw_file, csv_file):
     #  with open('zstats.raw', 'r') as rawfile, open('zstats.csv', 'w') as csvfile:
     with open(raw_file, 'r') as rawfile, open(csv_file, 'w') as csvfile:
         data = rawfile.readlines()
+
+        # # Splitting the data and counting columns before the name
+        # column_counts = []
+        # for line in data:
+        #     print(f"{line=}")
+        #     elements = line.split('\t')  # Assuming tab-separated values
+        #     for i, elem in enumerate(elements):
+        #         print(f"{i=}")
+        #         print(f"{elem=}")
+        #         if elem.isalpha() and i > 0:  # Checking for the first alphabetical element (likely the name)
+        #             column_counts.append(i)
+        #             break
+        #
+        # column_counts
+        # Result
+        #
         #  for line in data:
             #  line = line.strip()
             #  line = line.replace(' \t', '\t')
@@ -15,15 +31,15 @@ def make_csv_from_raw(raw_file, csv_file):
             if line[0] != 'R':
                 clean_data.append(line.strip())
 
-        #  csvfile.write("""0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t11\t12\t13\t14\t15\t16\t17\t18\t19\t20\t21\t22\t23\t24\t25\t26\t27\t28\n""")
+        # csvfile.write("""RANK\tPLAYER\tPOS\tTEAM\tGP\tMPG\tFG%\tFGM\tFGA\tzFG%\tFT%\tFTM\tFTA\tzFT%\t3PM\tz3PM\tPTS\tzPTS\tREB\tzREB\tAST\tzAST\tSTL\tzSTL\tBLK\tzBLK\tTO\tzTO\tTOTAL\n""")
         csvfile.write("""PLAYER\tPOS\tTEAM\tGP\tMPG\tFG%\tFGM\tFGA\tzFG%\tFT%\tFTM\tFTA\tzFT%\t3PM\tz3PM\tPTS\tzPTS\tREB\tzREB\tAST\tzAST\tSTL\tzSTL\tBLK\tzBLK\tTO\tzTO\tTOTAL\n""")
-        #  csvfile.write("""PLAYER\tPOS\tTEAM\tGP\tMPG\tFG%\tFGM\tFGA\tFT%\tFTM\tFTA\t3PM\tPTS\tTREB\tAST\tSTL\tBLK\tTO\tTOTAL\tzFG%\tzFT%\tz3PM\tzPTS\tzREB\tzAST\tzSTL\tzBLK\tzTO\n""")
         clean_iter = iter(clean_data)
         for joined_tuple in zip(clean_iter, clean_iter, clean_iter, clean_iter, clean_iter,
                                 clean_iter, clean_iter, clean_iter, clean_iter, clean_iter):
         #  for joined_tuple in zip(clean_iter):
             print(f'{joined_tuple=}')
             joined_list = list(joined_tuple)
+            print(f"{joined_list=}")
             #  print(f'{joined_list=}')
             #  joined_list[0] = joined_list[0].strip()
             #  joined_list.append(joined_list[1].strip())
@@ -58,6 +74,7 @@ def make_csv_from_raw(raw_file, csv_file):
             formatted_str = formatted_str.replace(' III', '')
             print(f"{formatted_str=}")
             formatted_str = formatted_str.replace('P.J.', 'PJ')
+            formatted_str = formatted_str.replace('Xavier Tillman Sr.', 'Xavier Tillman')
             formatted_str = formatted_str.replace('\t\t', '\t')
             print(f"{formatted_str=}")
             #  formatted_str = '\t'.join(formatted_str.rsplit(' ', 7))
@@ -67,9 +84,29 @@ def make_csv_from_raw(raw_file, csv_file):
             #  formatted_str = formatted_str.replace(' ', '')
             #  formatted_str = formatted_str.strip()
             print(f'{formatted_str=}')
-            #  print(formatted_str)
+            elements = formatted_str.split('\t')  # Assuming tab-separated values
+            print(f"{elements=}")
+            num_columns = 0
+            for i, elem in enumerate(elements):
+                print(f"{i=}")
+                print(f"{elem=}")
+                # if elem.isalpha():
+                #     num_columns = i
+                #     print(f"{num_columns=}")
+                #     break
+                if any(char.isalpha() for char in elem):
+                    num_columns = i
+                    print(f"{num_columns=}")
+                    break
+            print(f"{num_columns=}")
+            if num_columns == 2:
+                # delete first item and first tab
+                first_str, remaining_str = formatted_str.split('\t', 1)  # Split only at the first tab
+                print(f"{first_str=}")
+                print(f"{remaining_str=}")
+                formatted_str = remaining_str  # Use the part after the first tab
+                print(f"{formatted_str=}")
             csvfile.write(formatted_str)
-
 
 
 make_csv_from_raw('zstats.raw', 'zstats.csv')

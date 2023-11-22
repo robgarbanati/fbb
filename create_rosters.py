@@ -30,7 +30,7 @@ with open('rosters/rosters.raw', 'r') as rawfile:
         elif line == "The Green Mamba":
             found_gm = True
             gm = "akbar"
-        elif line == "Dude, Where's DeMar?":
+        elif line == "MasterbAyton To Her Only Franz":
             found_gm = True
             gm = "ben"
         elif line == "Adderall And Basketball":

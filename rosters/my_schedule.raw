@@ -3,13 +3,13 @@ PLAYER
 ACTION
 OPP
 STATUS
-OCT 31
-NOV 1
-NOV 2
-NOV 3
-NOV 4
-NOV 5
-NOV 6
+NOV 21
+NOV 22
+NOV 23
+NOV 24
+NOV 25
+NOV 26
+NOV 27
 PG
 Tyus JonesTyus Jones
 Tyus Jones
@@ -17,15 +17,15 @@ Wsh
 PG
 
 MOVE
-Bos
+Mil
 7:00 PM
 --
-@Atl
+@Cha
 --
-@Mia
+@Mil
+Atl
 --
---
-@Phi
+@Det
 SG
 DeMar DeRozanDeMar DeRozan
 DeMar DeRozan
@@ -33,15 +33,15 @@ Chi
 SF, SG
 
 MOVE
-@Ind
-7:00 PM
+Mia
+8:00 PM
 --
-@Dal
+@OKC
 --
-Bkn
-@Den
+@Tor
 --
-Utah
+@Bkn
+--
 SF
 Kawhi LeonardKawhi Leonard
 Kawhi Leonard
@@ -49,15 +49,106 @@ LAC
 SF, PF
 
 MOVE
+@SA
+8:00 PM
 --
-Orl
-@LAL
+@SA
 --
+NO
+Dal
 --
---
---
-@NY
+Den
 PF
+Tobias HarrisTobias Harris
+Tobias Harris
+Phi
+SF, PF
+
+MOVE
+--
+Cle
+@Min
+--
+--
+@OKC
+--
+LAL
+C
+Myles TurnerMyles Turner
+Myles Turner
+Ind
+C
+
+MOVE
+--
+@Atl
+Tor
+--
+Det
+--
+--
+Por
+G
+De'Anthony MeltonDe'Anthony Melton
+De'Anthony Melton
+Phi
+PG, SG
+
+MOVE
+--
+Cle
+@Min
+--
+--
+@OKC
+--
+LAL
+F
+Paul ReedPaul Reed
+Paul Reed
+Phi
+PF
+
+MOVE
+--
+Cle
+@Min
+--
+--
+@OKC
+--
+LAL
+UTIL
+Jarrett AllenJarrett Allen
+Jarrett Allen
+Cle
+C
+
+MOVE
+--
+@Phi
+Mia
+--
+--
+LAL
+Tor
+--
+UTIL
+Cameron JohnsonCameron Johnson
+Cameron Johnson
+Bkn
+SF, PF
+
+MOVE
+--
+--
+@Atl
+--
+--
+Mia
+Chi
+--
+UTIL
 
 Empty
 --
@@ -68,116 +159,54 @@ Empty
 --
 --
 --
-C
+Bench
 Daniel GaffordDaniel Gafford
 Daniel Gafford
 Wsh
 C, PF
 
 MOVE
-Bos
+Mil
 7:00 PM
 --
-@Atl
+@Cha
 --
-@Mia
+@Mil
+Atl
 --
---
-@Phi
-G
-Mike ConleyMike Conley
-Mike Conley
-Min
-PG
-
-MOVE
-@Atl
-7:30 PM
---
-Den
---
---
-Utah
---
-Bos
-F
-Tobias HarrisTobias Harris
-Tobias Harris
-Phi
-SF, PF
-
-MOVE
---
---
---
-Tor
---
-Phx
---
-Wsh
-UTIL
+@Det
+Bench
 Nikola VucevicNikola Vucevic
 Nikola Vucevic
 Chi
 C
 
 MOVE
-@Ind
-7:00 PM
+Mia
+8:00 PM
 --
-@Dal
+@OKC
 --
-Bkn
-@Den
+@Tor
 --
-Utah
-UTIL
-Myles TurnerMyles Turner
-Myles Turner
-Ind
-C
-
-MOVE
-Chi
-7:00 PM
+@Bkn
 --
-@Bos
---
-Cle
-Cha
---
-SA
-UTIL
+Bench
 Klay ThompsonKlay Thompson
 Klay Thompson
 GS
 SG, SF
 
 MOVE
-@NO
-8:00 PM
+Hou
+10:00 PM
 --
-Sac
+@Phx
 --
-@OKC
---
-@Cle
-@Det
-Bench
-Devin VassellDevin Vassell
-Devin Vassell
 SA
-SF, SG
-
-MOVE
---
-@Phx
---
-@Phx
 --
 --
-Tor
-@Ind
+--
 Bench
 Josh HartJosh Hart
 Josh Hart
@@ -185,55 +214,38 @@ NY
 SG, SF
 
 MOVE
---
-@Cle
-Cle
---
-@Mil
---
---
-LAC
-Bench
-De'Anthony MeltonDe'Anthony Melton
-De'Anthony Melton
-Phi
-PG, SG
-
-MOVE
+@Min
+8:00 PM
 --
 --
 --
-Tor
+Mia
 --
 Phx
 --
-Wsh
 IR
-Jarrett AllenJarrett Allen
-Jarrett Allen
-O
-Cle
-C
---
-NY
-@NY
---
-@Ind
---
-GS
---
-IR
-Cameron JohnsonCameron Johnson
-Cameron Johnson
+Devin VassellDevin Vassell
+Devin Vassell
 DTD
-Bkn
-SF, PF
-@Cha
-7:00 PM
+SA
+SF, SG
+LAC
+8:00 PM
 --
-@Mia
+LAC
 --
-@Chi
-Bos
+@GS
 --
-Mil
+@Den
+--
+IR
+
+Empty
+--
+--
+--
+--
+--
+--
+--
+--
