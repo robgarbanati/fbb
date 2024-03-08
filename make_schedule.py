@@ -6,7 +6,7 @@ from os import path
 import common
 import sys
 
-def make_schedule(gm_name: str, source_file: str, last_day: str = "NOV 26"):
+def make_schedule(gm_name: str, source_file: str, last_day: str = "JAN 7"):
     with open(source_file, 'r') as rawfile:
         data = rawfile.readlines()
         lines_iter = iter(data[4:])
@@ -118,7 +118,7 @@ def check_if_file_exists(infile):
         sys.exit(1)
 
 @click.command()
-@click.option('--other-team-name', '-o', type=str, default='tom', help='Specify their name.')
+@click.option('--other-team-name', '-o', type=str, default='kyle', help='Specify their name.')
 def calc_my_and_their_games_left(other_team_name):
     check_if_file_exists("rosters/my_schedule.raw")
     check_if_file_exists("rosters/their_schedule.raw")

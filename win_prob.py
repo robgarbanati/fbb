@@ -126,9 +126,9 @@ def check_if_file_exists(infile):
 
 @click.command()
 @click.option('--my-roster', '-r', type=str, default='rosters/rob_roster.csv', help='Specify path to my roster csv.')
-@click.option('--their-roster', '-o', type=str, default='rosters/tom_roster.csv', help='Specify path to their roster csv.')
+@click.option('--their-roster', '-o', type=str, default='rosters/kyle_roster.csv', help='Specify path to their roster csv.')
 @click.option('--my-stats', '-m', type=str, default='rob_stats.csv', help='Specify path to my stats csv.')
-@click.option('--their-stats', '-t', type=str, default='tom_stats.csv', help='Specify path to their stats csv.')
+@click.option('--their-stats', '-t', type=str, default='kyle_stats.csv', help='Specify path to their stats csv.')
 def optimize_lineups(my_roster, their_roster, my_stats, their_stats):
     check_if_file_exists(my_roster)
     check_if_file_exists(their_roster)

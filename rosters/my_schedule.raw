@@ -3,62 +3,43 @@ PLAYER
 ACTION
 OPP
 STATUS
-NOV 21
-NOV 22
-NOV 23
-NOV 24
-NOV 25
-NOV 26
-NOV 27
+JAN 5
+JAN 6
+JAN 7
+JAN 8
+JAN 9
+JAN 10
+JAN 11
 PG
-Tyus JonesTyus Jones
-Tyus Jones
-Wsh
-PG
+Immanuel QuickleyImmanuel Quickley
+Immanuel Quickley
+Tor
+PG, SG
 
 MOVE
-Mil
-7:00 PM
 --
-@Cha
+@Sac
 --
-@Mil
-Atl
+@GS
 --
-@Det
+@LAL
+@LAC
+--
 SG
-DeMar DeRozanDeMar DeRozan
-DeMar DeRozan
-Chi
-SF, SG
-
-MOVE
-Mia
-8:00 PM
+Brandin PodziemskiBrandin Podziemski
+Brandin Podziemski
+GS
+SG
+Den
+33-34 End 1st
+Det
 --
-@OKC
+Tor
 --
-@Tor
---
-@Bkn
---
-SF
-Kawhi LeonardKawhi Leonard
-Kawhi Leonard
-LAC
-SF, PF
-
-MOVE
-@SA
-8:00 PM
---
-@SA
 --
 NO
-Dal
 --
-Den
-PF
+SF
 Tobias HarrisTobias Harris
 Tobias Harris
 Phi
@@ -66,74 +47,14 @@ SF, PF
 
 MOVE
 --
-Cle
-@Min
+NY
+Utah
 --
 --
-@OKC
---
-LAL
-C
-Myles TurnerMyles Turner
-Myles Turner
-Ind
-C
-
-MOVE
 --
 @Atl
-Tor
 --
-Det
---
---
-Por
-G
-De'Anthony MeltonDe'Anthony Melton
-De'Anthony Melton
-Phi
-PG, SG
-
-MOVE
---
-Cle
-@Min
---
---
-@OKC
---
-LAL
-F
-Paul ReedPaul Reed
-Paul Reed
-Phi
 PF
-
-MOVE
---
-Cle
-@Min
---
---
-@OKC
---
-LAL
-UTIL
-Jarrett AllenJarrett Allen
-Jarrett Allen
-Cle
-C
-
-MOVE
---
-@Phi
-Mia
---
---
-LAL
-Tor
---
-UTIL
 Cameron JohnsonCameron Johnson
 Cameron Johnson
 Bkn
@@ -141,71 +62,132 @@ SF, PF
 
 MOVE
 --
+OKC
 --
-@Atl
+Por
 --
 --
-Mia
+--
+@Cle
+C
+Jarrett AllenJarrett Allen
+Jarrett Allen
+Cle
+C
+
+MOVE
+--
+Wsh
+--
+SA
+--
+--
+--
+Bkn
+G
+DeMar DeRozanDeMar DeRozan
+DeMar DeRozan
 Chi
+SF, SG
+
+MOVE
+--
+Cha
+--
+--
+@Cha
+--
+Hou
+--
+F
+Jaden McDanielsJaden McDaniels
+Jaden McDaniels
+Min
+SF
+
+MOVE
+--
+@Hou
+--
+@Dal
+--
+@Orl
+@Bos
 --
 UTIL
-
-Empty
---
---
---
---
---
---
---
---
-Bench
 Daniel GaffordDaniel Gafford
 Daniel Gafford
 Wsh
 C, PF
 
 MOVE
-Mil
-7:00 PM
+--
+@Cle
+NY
+--
+OKC
+--
+@Ind
+--
+UTIL
+Lauri MarkkanenLauri Markkanen
+Lauri Markkanen
+Utah
+PF, SF
+
+MOVE
+--
+@Bos
+@Phi
+--
+@Mil
+--
+Den
+--
+UTIL
+Karl-Anthony TownsKarl-Anthony Towns
+Karl-Anthony Towns
+Min
+C, PF
+
+MOVE
+--
+@Hou
+--
+@Dal
+--
+@Orl
+@Bos
+--
+Bench
+Kawhi LeonardKawhi Leonard
+Kawhi Leonard
+LAC
+SF, PF
+
+MOVE
+--
+@NO
+--
+@LAL
+Phx
+--
+Tor
+--
+Bench
+Alex CarusoAlex Caruso
+Alex Caruso
+Chi
+PG, SG
+
+MOVE
+--
+Cha
+--
 --
 @Cha
 --
-@Mil
-Atl
---
-@Det
-Bench
-Nikola VucevicNikola Vucevic
-Nikola Vucevic
-Chi
-C
-
-MOVE
-Mia
-8:00 PM
---
-@OKC
---
-@Tor
---
-@Bkn
---
-Bench
-Klay ThompsonKlay Thompson
-Klay Thompson
-GS
-SG, SF
-
-MOVE
 Hou
-10:00 PM
---
-@Phx
---
-SA
---
---
 --
 Bench
 Josh HartJosh Hart
@@ -214,38 +196,25 @@ NY
 SG, SF
 
 MOVE
-@Min
-8:00 PM
+--
+@Phi
+@Wsh
 --
 --
+Por
 --
-Mia
---
-Phx
---
+@Dal
 IR
-Devin VassellDevin Vassell
-Devin Vassell
-DTD
-SA
-SF, SG
-LAC
-8:00 PM
+Nikola VucevicNikola Vucevic
+Nikola Vucevic
+O
+Chi
+C
 --
-LAC
---
-@GS
---
-@Den
---
-IR
-
-Empty
+Cha
 --
 --
+@Cha
 --
---
---
---
---
+Hou
 --

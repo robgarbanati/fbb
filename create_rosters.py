@@ -21,22 +21,22 @@ with open('rosters/rosters.raw', 'r') as rawfile:
         elif line == "Hali Bomaye":
             found_gm = True
             gm = "brandt"
-        elif line == "Get Vasselline For My Johnsin":
+        elif line == "Back-To-Back Man Gets Paid":
             found_gm = True
             gm = "rob"
         elif line == "Choi Boys":
             found_gm = True
             gm = "dylan"
-        elif line == "The Green Mamba":
+        elif line == "Finding Melo":
             found_gm = True
             gm = "akbar"
         elif line == "MasterbAyton To Her Only Franz":
             found_gm = True
             gm = "ben"
-        elif line == "Adderall And Basketball":
+        elif line == "SHAQTIN A POOLE":
             found_gm = True
             gm = "kyle"
-        elif line == "Durantetokounmpo":
+        elif line == "Wham-Bam Thankyou Ma'am":
             found_gm = True
             gm = "lucas"
         elif line == "Weed Use And Work Ethic":

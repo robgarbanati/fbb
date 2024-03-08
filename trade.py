@@ -44,12 +44,12 @@ def optimize_lineups(their_roster):
     # ranking_14_stats = common.get_stats("zstats_rankings_14.csv")
     #  ranking_7_stats = common.get_stats("zstats_rankings_7.csv")
     print(stats)
-    print(ranking_stats)
+    # print(ranking_stats)
     #  print(ranking_14_stats)
     #  print(ranking_7_stats)
 
     stats = build_team(their_roster, stats)
-    ranking_stats = build_team(their_roster, ranking_stats)
+    # ranking_stats = build_team(their_roster, ranking_stats)
     # ranking_14_stats = build_team(their_roster, ranking_14_stats)
     #  ranking_7_stats = build_team(their_roster, ranking_7_stats)
     #  stats = build_team("rosters/kyle_roster.csv", stats)
@@ -97,7 +97,7 @@ def optimize_lineups(their_roster):
     #  ranking_14_stats = build_team("rosters/akbar_roster.csv", ranking_14_stats)
     #  ranking_7_stats = build_team("rosters/akbar_roster.csv", ranking_7_stats)
     stats = build_team("rosters/rob_roster.csv", stats)
-    ranking_stats = build_team("rosters/rob_roster.csv", ranking_stats)
+    # ranking_stats = build_team("rosters/rob_roster.csv", ranking_stats)
     # ranking_14_stats = build_team("rosters/rob_roster.csv", ranking_14_stats)
     #  ranking_7_stats = build_team("rosters/rob_roster.csv", ranking_7_stats)
     
